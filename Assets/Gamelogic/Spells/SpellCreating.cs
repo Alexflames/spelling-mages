@@ -36,10 +36,9 @@ public class SpellCreating : MonoBehaviour {
 	}
 
 	void castDiamond() {
-		print ("Diamond created! \n");
 		ownerTransform = this.gameObject.transform;
 		Vector3 spellSpawnPosition = makeSpellSpawnPos (ownerTransform.forward * 2.0F, ownerTransform);
-		spellSpawnPosition += new Vector3 (0, 1.0f, 0);
-		GameObject spawnedDiamond = Instantiate (diamond, spellSpawnPosition, ownerTransform.rotation);
+		spellSpawnPosition += new Vector3 (0, 0.5f, 0);
+		Instantiate (diamond, spellSpawnPosition, ownerTransform.rotation);
 	}
 }

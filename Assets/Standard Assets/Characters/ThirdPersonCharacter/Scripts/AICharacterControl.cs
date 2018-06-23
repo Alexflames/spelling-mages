@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace UnityStandardAssets.Characters.ThirdPerson
 {
@@ -10,7 +11,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         public UnityEngine.AI.NavMeshAgent agent { get; private set; }             // the navmesh agent required for the path finding
         public ThirdPersonCharacter character { get; private set; } // the character we are controlling
         public Transform target;                                    // target to aim for
-
+		public GameObject destinationMark;
 
         private void Start()
         {
@@ -25,6 +26,15 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
         private void Update()
         {
+			if (Input.GetMouseButtonDown(0)) {
+				RaycastHit hit;
+
+				if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100)) {
+					agent.destination = hit.point;
+					GameObject.Instantiate (destinationMark, hit.point, new Quaternion ());
+				}
+			}
+
             if (target != null)
                 agent.SetDestination(target.position);
 

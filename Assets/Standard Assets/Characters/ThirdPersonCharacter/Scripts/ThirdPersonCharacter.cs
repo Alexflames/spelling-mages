@@ -221,5 +221,12 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 				m_Animator.applyRootMotion = false;
 			}
 		}
-	}
+
+        #region non-standart
+        public void ChangeSpeed(float s)
+        {
+            m_AnimSpeedMultiplier *= s;
+        }
+        #endregion
+    }
 }

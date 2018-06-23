@@ -113,6 +113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
   colli: {fileID: 0}
+  attackPower: 50
 --- !u!136 &136763257665248084
 CapsuleCollider:
   m_ObjectHideFlags: 1
