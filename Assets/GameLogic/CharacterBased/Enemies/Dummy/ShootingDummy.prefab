@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 114683721491206896}
   - component: {fileID: 114068012018633694}
   - component: {fileID: 114519291623816994}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ShootingDummy
   m_TagString: Destroyable
   m_Icon: {fileID: 0}
@@ -58,6 +58,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -111,6 +112,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   diamond: {fileID: 1628378731126820, guid: a13613f34b860bd41a77d54e09dcb3e6, type: 2}
+  waterSplash: {fileID: 0}
+  highVoltage: {fileID: 0}
+  phantasm: {fileID: 0}
 --- !u!114 &114683721491206896
 MonoBehaviour:
   m_ObjectHideFlags: 1

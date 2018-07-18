@@ -12,6 +12,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         public ThirdPersonCharacter character { get; private set; } // the character we are controlling
         public Transform target;                                    // target to aim for
 		public GameObject destinationMark;
+        public RaycastHit hit;
 
         private void Start()
         {
@@ -27,7 +28,6 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         private void Update()
         {
 			if (Input.GetMouseButtonDown(0)) {
-				RaycastHit hit;
 
 				if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100)) {
 					agent.destination = hit.point;

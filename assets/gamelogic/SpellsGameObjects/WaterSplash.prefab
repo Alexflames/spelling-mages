@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 64412597306951008}
   - component: {fileID: 114025536859782322}
   - component: {fileID: 54926672282687754}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: WaterSplash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -131,7 +131,7 @@ MonoBehaviour:
   speed: 4
   leftSplashExists: 0
   rightSplashExists: 0
-  attackPower: 15
+  attackPower: 7
 --- !u!114 &114558529388880836
 MonoBehaviour:
   m_ObjectHideFlags: 1

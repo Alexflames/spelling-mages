@@ -39,7 +39,7 @@ public class BuffDebuffController : MonoBehaviour {
                 case "water-slow":
                     if (buff.Value.TimeLeft <= 0)
                     {
-                        print("Not slow anymore!");
+                        // print("Not slow anymore!");
                         thirdPersonMovement.ChangeSpeed(1 / 0.7f);
                         toRemove.Add(buff.Key);
                     }

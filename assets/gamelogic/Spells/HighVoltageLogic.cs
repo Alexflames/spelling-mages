@@ -20,8 +20,11 @@ public class HighVoltageLogic : MonoBehaviour {
         {
             if (collision.gameObject.CompareTag("Destroyable"))
             {   // Объект, в который врезались, уничтожаемый?
-                Mortal HP = collision.gameObject.GetComponent<Mortal>();
-                HP.lowerHP(attackPower);
+                if (collision.gameObject != owner)
+                {
+                    Mortal HP = collision.gameObject.GetComponent<Mortal>();
+                    HP.lowerHP(attackPower);
+                }
             }
             else
             {

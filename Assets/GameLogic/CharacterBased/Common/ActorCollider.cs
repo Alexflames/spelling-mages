@@ -9,7 +9,7 @@ public class ActorCollider : MonoBehaviour {
         bdc = GetComponent<BuffDebuffController>();
 	}
 	
-	void OnCollisionEnter(Collision collision)
+	void OnTriggerStay(Collider collision)
     {
         // print("found " + collision.gameObject.tag);
         switch (collision.gameObject.tag)
@@ -20,9 +20,5 @@ public class ActorCollider : MonoBehaviour {
             default:
                 break;
         }
-        
     }
-	void Update () {
-
-	}
 }

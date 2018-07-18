@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 33248769129515534}
   - component: {fileID: 114732409774060266}
   - component: {fileID: 64209932342293184}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: HighVoltage3-2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 33646368479188810}
   - component: {fileID: 114841218211009636}
   - component: {fileID: 64711040593548996}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: HighVoltage2-1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -66,7 +66,7 @@ GameObject:
   - component: {fileID: 64526048675686710}
   - component: {fileID: 114618677222065928}
   - component: {fileID: 54687651229930500}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: HighVoltage1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,7 +86,7 @@ GameObject:
   - component: {fileID: 33028091855519692}
   - component: {fileID: 114886740174847748}
   - component: {fileID: 64421431816125698}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: HighVoltage2-2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 33299757149721362}
   - component: {fileID: 114966828768712252}
   - component: {fileID: 64124009761269922}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: HighVoltage3-3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 33394396120762764}
   - component: {fileID: 114682469449049926}
   - component: {fileID: 64517619761092462}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: HighVoltage3-4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -146,7 +146,7 @@ GameObject:
   - component: {fileID: 33584362562964678}
   - component: {fileID: 114404414714495750}
   - component: {fileID: 64190656675456304}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: HighVoltage3-1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
