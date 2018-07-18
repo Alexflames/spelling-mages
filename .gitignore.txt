@@ -4,6 +4,8 @@ Unity generated
 Temp/
 Library/
 Assets/Standard\ Assets/
+Assets/Procore/
+Assets/Probuilder/
 
 =====================================
 Visual Studio / MonoDevelop generated
