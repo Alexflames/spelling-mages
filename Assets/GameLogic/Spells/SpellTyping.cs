@@ -37,10 +37,7 @@ public class SpellTyping : MonoBehaviour
                 strSize--;
             }
             inputText = inputText.Substring(0, strSize); // This does not actually work!
-            if (spellBook.Contains(inputText))
-            {
-                spellCreateComponent.castSpell(inputText);
-            }
+            spellCreateComponent.castSpell(inputText);
 
             print("Searching spell: " + inputText + ".\n");
             currentText.text = "";
