@@ -2,13 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BridgeLeverLogic : MonoBehaviour {
+public class BridgeLeverLogic : MonoBehaviour
+{
     public GameObject bridgeToActivate;
     public GameObject bridgeToActivate2;
     public GameObject leverPull;
     private BridgeSunkLogic bsl;
     private BridgeSunkLogic bsl2;
     bool leverPingPong = true; // Lever has 2 variations
+    float lockTimer = 0;// locks lever after someone's coming for 5 seconds
     private NavMeshChangesScript navMeshChangesScript;
     public float startingTimer = 0.05f;
     float timer;
@@ -23,9 +25,10 @@ public class BridgeLeverLogic : MonoBehaviour {
 
     void OnTriggerEnter(Collider collision)
     {
-        print("gooooooooooo!");
-        if (collision.gameObject.tag == "Destroyable")
+        if (collision.gameObject.tag == "Destroyable" && lockTimer <= 1e-3)
         {
+            print("lock");
+            lockTimer = 5.0f;
             bsl.Activate();
             bsl2.Activate();
             if (leverPingPong)
@@ -43,6 +46,7 @@ public class BridgeLeverLogic : MonoBehaviour {
 
     void FixedUpdate()
     {
+        if (lockTimer > 0) lockTimer -= Time.deltaTime;
         if (bsl.activated)
         {
             timer -= Time.deltaTime;
