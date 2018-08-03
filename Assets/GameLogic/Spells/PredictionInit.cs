@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PredictionInit : MonoBehaviour, SpellInit {
     public GameObject prediction;
+    public GameObject spell;       // Created prediction object
 
     // Use this for initialization
     void Start () {
@@ -18,7 +19,11 @@ public class PredictionInit : MonoBehaviour, SpellInit {
         if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
         {
             Vector3 predictionDestination = hit.point;
-            GameObject spell = GameObject.Instantiate(prediction, transform.position + transform.forward, transform.rotation);
+            if (spell)
+            {
+                Destroy(spell);
+            }
+            spell = GameObject.Instantiate(prediction, transform.position + transform.forward, transform.rotation);
             Prediction_FateLogic spellLogic = spell.GetComponent<Prediction_FateLogic>();
             spellLogic.SetOwner(gameObject);
         }
