@@ -3,23 +3,31 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SplashInit : MonoBehaviour, SpellInit {
+    // Variables for drawing circle
+    public GameObject circleDrawer;
+    private SplashCircleDrawer splashCircleDrawer;
+
+    [Range(0, 10)]
+    public float radius = 8;
+
+    // Other variables
     public GameObject waterSplash;
+
     // Use this for initialization
     void Start () {
         this.gameObject.GetComponent<SpellCreating>().addSpell("splash", this);
+
+        splashCircleDrawer = circleDrawer.GetComponent<SplashCircleDrawer>();
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
     public void cast()
     {
+        splashCircleDrawer.CreatePoints(radius);
+
         bool waterFound = false;
         Vector3 waterPos = new Vector3();
         Vector3 waterDestination;
-        Collider[] intersectObjs = Physics.OverlapSphere(transform.position, 8.0f);
+        Collider[] intersectObjs = Physics.OverlapSphere(transform.position, radius);
         foreach (var obj in intersectObjs)
         {
             if (obj.tag == "Water")
