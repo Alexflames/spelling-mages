@@ -30,18 +30,16 @@ public class SpellTyping : MonoBehaviour
         {
             string inputText = currentText.text.ToLower();
 
-            // To remove extra spaces in the end of the word
-            int strSize = inputText.Length;
-            while (inputText[strSize - 1] == ' ')
-            {
-                strSize--;
-            }
-            inputText = inputText.Substring(0, strSize); // This does not actually work!
+            inputText = inputText.Trim();
             spellCreateComponent.castSpell(inputText);
 
             print("Searching spell: " + inputText + ".\n");
             currentText.text = "";
          
+        }
+        else if(Input.GetKeyDown(KeyCode.Backspace) && currentText.text.Length > 0)
+        {
+            currentText.text = currentText.text.Substring(0, currentText.text.Length - 1);
         }
         else if (!Input.GetKeyDown(KeyCode.Return) && currentText.text.Length < 30)
         {
