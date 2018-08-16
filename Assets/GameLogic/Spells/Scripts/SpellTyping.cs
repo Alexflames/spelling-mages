@@ -35,9 +35,9 @@ public class SpellTyping : MonoBehaviour
 
             print("Searching spell: " + inputText + ".\n");
             currentText.text = "";
-         
+
         }
-        else if(Input.GetKeyDown(KeyCode.Backspace) && currentText.text.Length > 0)
+        else if (Input.GetKeyDown(KeyCode.Backspace) && currentText.text.Length > 0)
         {
             currentText.text = currentText.text.Substring(0, currentText.text.Length - 1);
         }

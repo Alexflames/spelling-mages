@@ -11,6 +11,8 @@ public class Prediction_FateLogic : MonoBehaviour {
     public UnityStandardAssets.Characters.ThirdPerson.AICharacterControl AICharControl;
     public GameObject owner;
 
+    private float timeLeft;
+
     // Use this for initialization
     void Start () {
         thirdPersonController = gameObject.GetComponent<UnityStandardAssets.Characters.ThirdPerson.ThirdPersonCharacter>();
@@ -20,11 +22,21 @@ public class Prediction_FateLogic : MonoBehaviour {
         agent.updatePosition = true;
 
         AICharControl = owner.GetComponent<UnityStandardAssets.Characters.ThirdPerson.AICharacterControl>();
-        SetDestination();
+        SetDestination(); 
+    }
+
+    public void SetTimeLeft(float time)
+    {
+        timeLeft = time;
     }
 
     private void Update()
     {
+        timeLeft -= Time.deltaTime;
+        if (timeLeft < 0)
+        {
+            DestroySpell();
+        }
         if (target != null)
             agent.SetDestination(target.position);
 
@@ -47,6 +59,13 @@ public class Prediction_FateLogic : MonoBehaviour {
     public void SetOwner(GameObject thatOwns)
     {
         owner = thatOwns;
+    }
+
+    public void DestroySpell()
+    {
+        owner.GetComponent<AudioSource>().Stop();
+
+        Destroy(gameObject);
     }
 
 }

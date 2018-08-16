@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FateInit : MonoBehaviour, SpellInit {
     public PredictionInit predictionInit;
-
+    public Image fateTransition;
 
 	// Use this for initialization
 	void Start () {
@@ -18,8 +19,15 @@ public class FateInit : MonoBehaviour, SpellInit {
         {
             Vector3 predictionPos = predictionInit.spell.transform.position;
             Destroy(predictionInit.spell);
-            gameObject.transform.position = predictionPos;
-            gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>().SetDestination(gameObject.transform.position);
+
+            gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>().Warp(predictionPos);
+            gameObject.transform.position = predictionPos + Vector3.up * 0.1f;
+            gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>().ResetPath();
+
+            fateTransition.gameObject.SetActive(true);
+
+
+            gameObject.GetComponent<AudioSource>().Stop();
         }
     }
 }

@@ -5,10 +5,16 @@ using UnityEngine;
 public class PredictionInit : MonoBehaviour, SpellInit {
     public GameObject prediction;
     public GameObject spell;       // Created prediction object
+    private AudioSource audioSource;
+    public AudioClip clockSound;
+
+    [Range(5, 20)]
+    public float lastingTime = 8;
 
     // Use this for initialization
     void Start () {
         this.gameObject.GetComponent<SpellCreating>().addSpell("prediction", this);
+        audioSource = gameObject.GetComponent<AudioSource>();
     }
     
     public void cast()
@@ -25,7 +31,10 @@ public class PredictionInit : MonoBehaviour, SpellInit {
             }
             spell = GameObject.Instantiate(prediction, transform.position + transform.forward, transform.rotation);
             Prediction_FateLogic spellLogic = spell.GetComponent<Prediction_FateLogic>();
+            spellLogic.SetTimeLeft(lastingTime);
             spellLogic.SetOwner(gameObject);
+            audioSource.Play();
         }
     }
+
 }
