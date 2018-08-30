@@ -1,13 +1,16 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ActorCollider : MonoBehaviour {
     // Use this for initialization
     BuffDebuffController bdc;
-	void Start () {
+    UnityStandardAssets.Characters.ThirdPerson.ThirdPersonCharacter thirdPersonMovement;
+    void Start () {
         bdc = GetComponent<BuffDebuffController>();
-	}
+        thirdPersonMovement = gameObject.GetComponent<UnityStandardAssets.Characters.ThirdPerson.ThirdPersonCharacter>();
+    }
 	
 	void OnTriggerStay(Collider collision)
     {
@@ -15,7 +18,10 @@ public class ActorCollider : MonoBehaviour {
         switch (collision.gameObject.tag)
         {
             case "Water":
-                bdc.updateBuff("water-slow", 1.5f);
+                if (bdc.getSameBuffs(Type.GetType("WaterSlowBuff")).Count == 0) { 
+                    bdc.addBuff(new WaterSlowBuff(thirdPersonMovement, 1.5f));
+                    //print("Add slow");
+                }
                 break;
             default:
                 break;

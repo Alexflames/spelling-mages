@@ -4,75 +4,70 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BuffDebuffController : MonoBehaviour {
-    public class BuffDebuff
-    {
-        public float TimeLeft { get; set; }
-        public float LastTick { get; set; }
-        public int Amount { get; set; }
-        public BuffDebuff(float time)
-        {
-            TimeLeft = time;
-            LastTick = time;
-            Amount = 1;
-        }
-    }
-
-    public Dictionary<string, BuffDebuff> buffDebuffMap;
-    UnityStandardAssets.Characters.ThirdPerson.ThirdPersonCharacter thirdPersonMovement;
-    List<String> toRemove; // Keys in dictionary(buff names) of ones that will be removed
+    
+    public List<Buff> buffDebuffList;
+    List<Buff> toRemove;
 
     // Use this for initialization
     void Start () {
-        thirdPersonMovement = gameObject.GetComponent<UnityStandardAssets.Characters.ThirdPerson.ThirdPersonCharacter>();
-        buffDebuffMap = new Dictionary<string, BuffDebuff>();
-        toRemove = new List<string>();
+        
+        buffDebuffList = new List<Buff>();
+        toRemove = new List<Buff>();
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
 
-        foreach (var buff in buffDebuffMap)
+        foreach (Buff buff in buffDebuffList)
         {
-            buff.Value.TimeLeft = Math.Max(0, buff.Value.TimeLeft - Time.deltaTime);
-            switch (buff.Key)
+            if(!buff.IsActive())
             {
-                case "water-slow":
-                    if (buff.Value.TimeLeft <= 0)
-                    {
-                        // print("Not slow anymore!");
-                        thirdPersonMovement.ChangeSpeed(1 / 0.7f);
-                        toRemove.Add(buff.Key);
-                    }
-                    break;
-                default:
-                    break;
+                toRemove.Add(buff);
+                continue;
+            }
+            else if (toRemove.Contains(buff))
+            {
+                continue;
+            }
+            else
+            {
+                buff.Update();
+                //print(buff.GetType().Name);
             }
         }
-        foreach (String key in toRemove)
+        foreach (Buff buff in toRemove)
         {
-            buffDebuffMap.Remove(key);
+            buffDebuffList.Remove(buff);
+            //print("Destroy"+buff.GetType().Name);
+            buff.Destroy();
         }
         toRemove.Clear();
 	}
     
-    public void updateBuff(string name, float time)
+    public void addBuff(Buff buff)
     {
-        switch (name)
+        buff.Init();
+        buffDebuffList.Add(buff);
+    }
+
+    public void MarkToRemove(Buff buff)
+    {
+        if (buffDebuffList.Contains(buff))
         {
-            case "water-slow":
-                if (buffDebuffMap.ContainsKey(name))
-                {
-                    buffDebuffMap[name].TimeLeft = time;
-                }
-                else
-                {
-                    buffDebuffMap[name] = new BuffDebuff(time);
-                    thirdPersonMovement.ChangeSpeed(0.7f);
-                }
-                break;
-            default:
-                print("BUFF " + name + " NOT FOUND");
-                break;
+            toRemove.Add(buff);
         }
+    }
+
+    public List<Buff> getSameBuffs(Type t)
+    {
+        List<Buff> ans = new List<Buff>();
+        foreach(Buff buff in buffDebuffList)
+        {
+            if (buff.GetType().Equals(t))
+            {
+                ans.Add(buff);
+            }
+        }
+        return ans;
     }
 }
