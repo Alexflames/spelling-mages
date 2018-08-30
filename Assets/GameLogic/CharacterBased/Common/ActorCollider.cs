@@ -23,6 +23,25 @@ public class ActorCollider : MonoBehaviour {
                     //print("Add slow");
                 }
                 break;
+            case "Lava":
+                if (bdc.getSameBuffs(Type.GetType("LavaDebuff")).Count == 0)
+                {
+                    bdc.addBuff(new LavaDebuff(thirdPersonMovement));
+                }
+                break;
+            default:
+                break;
+        }
+    }
+
+    void OnTriggerExit(Collider collision)
+    {
+        switch (collision.gameObject.tag)
+        {
+            case "Lava":
+                print("Exit lava");
+                bdc.removeAllBuffs(Type.GetType("LavaDebuff"));
+                break;
             default:
                 break;
         }

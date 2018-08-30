@@ -70,4 +70,15 @@ public class BuffDebuffController : MonoBehaviour {
         }
         return ans;
     }
+
+    public void removeAllBuffs(Type t)
+    {
+        foreach (Buff buff in buffDebuffList)
+        {
+            if (buff.GetType().Equals(t))
+            {
+                toRemove.Add(buff);
+            }
+        }
+    }
 }
