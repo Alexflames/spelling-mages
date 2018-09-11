@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class AIRotatingShootingDummy : MonoBehaviour
 {
-    public float diamondPeriodicTime = 0;
+    private float diamondPeriodicTime = 0;
     public float timeToCastDiamond = 2.0f;
     System.Random rand = new System.Random();
     private float rotateTime = 0;
-    private float rotatePeriod = 1.5f;
+    public float rotatePeriod = 1.5f;
     SpellCreating scComp;
 
     // Use this for initialization
