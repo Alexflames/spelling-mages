@@ -11,6 +11,10 @@ public class Prediction_FateLogic : MonoBehaviour {
     public UnityStandardAssets.Characters.ThirdPerson.AICharacterControl AICharControl;
     public GameObject owner;
 
+    public bool m_activated = false;
+    [Range (0.1f, 1.0f)]
+    public float m_activated_delay = 0.2f;
+
     private float timeLeft;
 
     // Use this for initialization
@@ -25,6 +29,11 @@ public class Prediction_FateLogic : MonoBehaviour {
         SetDestination(); 
     }
 
+    public void activateTransition()
+    {
+        m_activated = true;
+    }
+
     public void SetTimeLeft(float time)
     {
         timeLeft = time;
@@ -33,7 +42,19 @@ public class Prediction_FateLogic : MonoBehaviour {
     private void Update()
     {
         timeLeft -= Time.deltaTime;
-        if (timeLeft < 0)
+        if (m_activated)
+        {
+            m_activated_delay -= Time.deltaTime;
+            if (m_activated_delay < 0)
+            {
+                Vector3 predictionPos = transform.position;
+                owner.GetComponent<UnityEngine.AI.NavMeshAgent>().Warp(predictionPos);
+                owner.transform.position = predictionPos + Vector3.up * 0.1f;
+                owner.GetComponent<UnityEngine.AI.NavMeshAgent>().ResetPath();
+                Destroy(gameObject);
+            }
+        }
+        if (timeLeft < 0 && !m_activated)
         {
             DestroySpell();
         }

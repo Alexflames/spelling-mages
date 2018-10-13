@@ -26,7 +26,7 @@ public class HighVoltageLogic : MonoBehaviour {
                     HP.lowerHP(attackPower);
                 }
             }
-            else
+            else if (!collision.gameObject.CompareTag("Spell"))
             {
                 Object.Destroy(gameObject);
             }

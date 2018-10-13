@@ -32,7 +32,8 @@ public class DiamondLogic : MonoBehaviour {
 				Mortal HP = intersectObjs[0].GetComponent<Mortal>();
 				HP.lowerHP (attackPower);
 			}
-			Object.Destroy (gameObject);
+            if (!intersectObjs[0].gameObject.CompareTag("Spell"))
+                Object.Destroy (gameObject);
 		}
 	}
 }

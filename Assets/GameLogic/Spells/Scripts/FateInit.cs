@@ -17,15 +17,8 @@ public class FateInit : MonoBehaviour, SpellInit {
     {
         if (predictionInit.spell)
         {
-            Vector3 predictionPos = predictionInit.spell.transform.position;
-            Destroy(predictionInit.spell);
-
-            gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>().Warp(predictionPos);
-            gameObject.transform.position = predictionPos + Vector3.up * 0.1f;
-            gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>().ResetPath();
-
+            predictionInit.spell.GetComponent<Prediction_FateLogic>().activateTransition();
             fateTransition.gameObject.SetActive(true);
-
 
             gameObject.GetComponent<AudioSource>().Stop();
         }

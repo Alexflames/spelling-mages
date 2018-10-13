@@ -21,7 +21,7 @@ public class SplashScript : MonoBehaviour {
                 Mortal HP = collision.gameObject.GetComponent<Mortal>();
                 HP.lowerHP(attackPower);
             }
-            else
+            else if (!collision.gameObject.CompareTag("Spell"))
             {
                 Object.Destroy(gameObject);
             }
