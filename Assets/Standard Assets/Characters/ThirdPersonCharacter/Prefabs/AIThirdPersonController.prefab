@@ -192,6 +192,7 @@ GameObject:
   - component: {fileID: 114507440140589352}
   - component: {fileID: 114234119177046436}
   - component: {fileID: 114667529912199988}
+  - component: {fileID: 82620786455139010}
   m_Layer: 8
   m_Name: AIThirdPersonController
   m_TagString: Destroyable
@@ -2714,7 +2715,7 @@ NavMeshAgent:
   m_Height: 2
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_ObstacleAvoidanceType: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -2743,6 +2744,101 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!82 &82620786455139010
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 113348}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 84b4c504a29dc7b42ad740e3c909c0a0, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &114100488336178784
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2755,13 +2851,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentText: {fileID: 0}
-  spellBookText: {fileID: 0}
-  spellBook:
-  - diamond
-  - splash
-  - high voltage
-  - phantasm
-  - prediction/fate
 --- !u!114 &114143487428236746
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2787,6 +2876,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   predictionInit: {fileID: 0}
+  fateTransition: {fileID: 0}
 --- !u!114 &114277482236019738
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2826,6 +2916,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 911457667b81be74e972092f2bd4bcc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spellBookText: {fileID: 0}
+  randomise: 0
 --- !u!114 &114507440140589352
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2860,7 +2952,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e63415c7b35dd346bc462b8e51290de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  highVoltage: {fileID: 1421359117340206, guid: fdb162c4e5057f040bc702ab012ed47b,
+  highVoltage: {fileID: 1910064500947930, guid: 36ffff86793b77043acc1e7af120eab3,
     type: 2}
 --- !u!114 &114827718314013790
 MonoBehaviour:
@@ -2875,6 +2967,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prediction: {fileID: 1541789524961282, guid: 1d099ae618471014d809c324c328e858, type: 2}
   spell: {fileID: 0}
+  clockSound: {fileID: 8300000, guid: 84b4c504a29dc7b42ad740e3c909c0a0, type: 3}
+  lastingTime: 8
 --- !u!114 &114838203839945138
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3027,7 +3121,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 113348}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 3.6000001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 434400}
@@ -3039,6 +3133,6 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 16.699982, y: -0.070007324}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}

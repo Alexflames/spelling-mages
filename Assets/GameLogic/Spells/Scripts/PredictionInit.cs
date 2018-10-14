@@ -7,7 +7,7 @@ public class PredictionInit : MonoBehaviour, SpellInit {
     public GameObject spell;       // Created prediction object
     private AudioSource audioSource;
     public AudioClip clockSound;
-    private string[] aliases = { "predicition", "sibylla" };
+    private string[] aliases = { "prediction", "sibylla" };
     [Range(5, 20)]
     public float lastingTime = 8;
 
