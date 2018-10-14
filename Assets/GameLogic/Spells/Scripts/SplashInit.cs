@@ -6,7 +6,7 @@ public class SplashInit : MonoBehaviour, SpellInit {
     // Variables for drawing circle
     public GameObject circleDrawer;
     private SplashCircleDrawer splashCircleDrawer;
-
+    private string[] aliases = { "splash", "tsunami", "killerwave", "aqua strike"};
     [Range(0, 10)]
     public float radius = 8;
 
@@ -15,7 +15,7 @@ public class SplashInit : MonoBehaviour, SpellInit {
 
     // Use this for initialization
     void Start () {
-        this.gameObject.GetComponent<SpellCreating>().addSpell("splash", this);
+        this.gameObject.GetComponent<SpellCreating>().addSpell(aliases, this);
 
         splashCircleDrawer = circleDrawer.GetComponent<SplashCircleDrawer>();
     }

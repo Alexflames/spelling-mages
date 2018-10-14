@@ -2072,6 +2072,16 @@ Prefab:
       propertyPath: fateTransition
       value: 
       objectReference: {fileID: 789082284}
+    - target: {fileID: 114472527242557820, guid: 54eb5844754051b40a918a84c33b7c1a,
+        type: 2}
+      propertyPath: randomise
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114472527242557820, guid: 54eb5844754051b40a918a84c33b7c1a,
+        type: 2}
+      propertyPath: spellBookText
+      value: 
+      objectReference: {fileID: 1598009459}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 54eb5844754051b40a918a84c33b7c1a, type: 2}
   m_IsPrefabAsset: 0

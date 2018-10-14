@@ -5,9 +5,10 @@ using UnityEngine;
 public class PhantasmInit : MonoBehaviour, SpellInit {
 
     public GameObject phantasm;
+    private string[] aliases = {"phantasm", "phantom" , "ghost"};
     // Use this for initialization
     void Start () {
-        this.gameObject.GetComponent<SpellCreating>().addSpell("phantasm", this);
+        this.gameObject.GetComponent<SpellCreating>().addSpell(aliases, this);
     }
 	
 	// Update is called once per frame

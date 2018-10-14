@@ -7,8 +7,6 @@ public class SpellTyping : MonoBehaviour
 {
 
     public Text currentText;
-    public Text spellBookText;
-    public List<string> spellBook;
     private SpellCreating spellCreateComponent;
 
     // Use this for initialization
@@ -16,11 +14,6 @@ public class SpellTyping : MonoBehaviour
     {
         currentText.text = "";
         spellCreateComponent = GetComponentInParent<SpellCreating>();
-
-        foreach (string spell in spellBook)
-        {
-            spellBookText.text += "\n" + spell;
-        }
     }
 
     // Update is called once per frame

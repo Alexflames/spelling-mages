@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class HighVoltageInit : MonoBehaviour, SpellInit {
     public GameObject highVoltage;
+    private string[] aliases = { "high voltage", "electricity", "lightning", "thunderstruck" };
     // Use this for initialization
     void Start () {
-        this.gameObject.GetComponent<SpellCreating>().addSpell("high voltage", this);
+        this.gameObject.GetComponent<SpellCreating>().addSpell(aliases, this);
     }
 	
 	// Update is called once per frame

@@ -1,16 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SpellCreating : MonoBehaviour {
-	
-    
+
+    public Text spellBookText;
 	private GameObject playerCharacter;
     private Dictionary<string, SpellInit> spellbook = new Dictionary<string, SpellInit>();
-
-    public void addSpell(string name, SpellInit sp)
+    private System.Random rand = new System.Random();
+    public bool randomise = false ;
+    public void addSpell(string[] names, SpellInit sp)
     {
+        
+        string name = names[0];
+        if (randomise)
+        {
+            name = names[rand.Next(names.Length)];
+        }
         spellbook.Add(name, sp);
+        if (spellBookText != null) spellBookText.text += "\n" + name;
     }
 
 	// Use this for initialization

@@ -6,10 +6,10 @@ using UnityEngine.UI;
 public class FateInit : MonoBehaviour, SpellInit {
     public PredictionInit predictionInit;
     public Image fateTransition;
-
-	// Use this for initialization
-	void Start () {
-        this.gameObject.GetComponent<SpellCreating>().addSpell("fate", this);
+    private string[] aliases = { "fate" };
+    // Use this for initialization
+    void Start () {
+        this.gameObject.GetComponent<SpellCreating>().addSpell(aliases, this);
         predictionInit = gameObject.GetComponent<PredictionInit>();
     }
 

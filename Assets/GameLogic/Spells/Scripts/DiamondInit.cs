@@ -5,10 +5,10 @@ using UnityEngine;
 public class DiamondInit : MonoBehaviour, SpellInit {
     public GameObject diamond;
     private Transform ownerTransform;
-
+    private string[] aliases = {"diamond", "bullet"};
     // Use this for initialization
     void Start () {
-       this.gameObject.GetComponent<SpellCreating>().addSpell("diamond", this);
+       this.gameObject.GetComponent<SpellCreating>().addSpell(aliases,this);
 	}
 	
 	// Update is called once per frame
