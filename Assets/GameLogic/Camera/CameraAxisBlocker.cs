@@ -7,13 +7,6 @@ public class CameraAxisBlocker : MonoBehaviour {
 	public Vector3 position;
 	public GameObject player;
 	private Vector3 playerInitialPosition;
-
-	// Use this for initialization
-	void Start () {
-		axisY = gameObject.transform.position.y;
-		position = gameObject.transform.position;
-		playerInitialPosition = player.transform.position;
-	}
 	
 	// Update is called once per frame
 	void Update () {
@@ -23,4 +16,16 @@ public class CameraAxisBlocker : MonoBehaviour {
 				playerInitialPosition;
 		}
 	}
+
+    public void SetPlayer(GameObject pl)
+    {
+        player = pl;
+
+        axisY = gameObject.transform.position.y;
+        position = pl.transform.position + Vector3.up * 15 + Vector3.back * 5;
+        if (player)
+        {
+            playerInitialPosition = player.transform.position;
+        }
+    }
 }
