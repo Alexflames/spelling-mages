@@ -20,11 +20,18 @@ public class DiamondInit : MonoBehaviour, SpellInit {
         return owner.position + adder;
     }
 
-    public void cast()
+    public void cast(SpellModificator sm)
     {
         ownerTransform = this.gameObject.transform;
         Vector3 spellSpawnPosition = makeSpellSpawnPos(ownerTransform.forward * 2.0F, ownerTransform);
         spellSpawnPosition += new Vector3(0, 0.5f, 0);
         Instantiate(diamond, spellSpawnPosition, ownerTransform.rotation);
+        if (sm != null)
+        {
+            if(sm is StrongModificator)
+            {
+                diamond.GetComponent<DiamondLogic>().SetFactor (((StrongModificator)sm).factor);
+            }
+        }
     }
 }

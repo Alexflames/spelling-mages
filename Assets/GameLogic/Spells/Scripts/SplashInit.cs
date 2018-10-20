@@ -20,7 +20,7 @@ public class SplashInit : MonoBehaviour, SpellInit {
         splashCircleDrawer = circleDrawer.GetComponent<SplashCircleDrawer>();
     }
 
-    public void cast()
+    public void cast(SpellModificator sm)
     {
         splashCircleDrawer.CreatePoints(radius);
 

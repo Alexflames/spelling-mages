@@ -17,7 +17,7 @@ public class PredictionInit : MonoBehaviour, SpellInit {
         audioSource = gameObject.GetComponent<AudioSource>();
     }
     
-    public void cast()
+    public void cast(SpellModificator sm)
     {
         print("noice!");
         RaycastHit hit;

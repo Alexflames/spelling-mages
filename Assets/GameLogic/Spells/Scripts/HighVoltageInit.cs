@@ -15,7 +15,7 @@ public class HighVoltageInit : MonoBehaviour, SpellInit {
 		
 	}
 
-    public void cast()
+    public void cast(SpellModificator sm)
     {
         GameObject voltage = GameObject.Instantiate(highVoltage, gameObject.transform.position + transform.forward, gameObject.transform.rotation);
         HighVoltageLogic voltageLogic = voltage.GetComponent<HighVoltageLogic>();

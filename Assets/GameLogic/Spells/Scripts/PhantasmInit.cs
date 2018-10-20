@@ -16,7 +16,7 @@ public class PhantasmInit : MonoBehaviour, SpellInit {
 		
 	}
 
-    public void cast()
+    public void cast(SpellModificator sm)
     {
         RaycastHit hit;
 

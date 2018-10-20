@@ -24,6 +24,6 @@ public class NetDiamondInit : NetworkBehaviour {
     [Command]
     public void CmdCast()
     {
-        diamondInit.cast();
+        diamondInit.cast(null);
     }
 }

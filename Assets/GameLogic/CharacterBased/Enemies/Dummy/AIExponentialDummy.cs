@@ -25,7 +25,6 @@ public class AIExponentialDummy : MonoBehaviour
             scComp.castSpell("diamond");
             diamondPeriodicTime = 0;
             timeToCastDiamond = exponential(rand,lambdaParam);
-            print(timeToCastDiamond);
         }
     }
 

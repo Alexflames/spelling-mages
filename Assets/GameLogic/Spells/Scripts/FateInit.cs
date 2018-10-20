@@ -13,7 +13,7 @@ public class FateInit : MonoBehaviour, SpellInit {
         predictionInit = gameObject.GetComponent<PredictionInit>();
     }
 
-    public void cast()
+    public void cast(SpellModificator sm)
     {
         if (predictionInit.spell)
         {
