@@ -8,6 +8,12 @@ public class CameraAxisBlocker : MonoBehaviour {
 	public GameObject player;
 	private Vector3 playerInitialPosition;
 	
+    void Awake () {
+        if (player)
+        {
+            SetPlayer(player);
+        }
+    }
 	// Update is called once per frame
 	void Update () {
 		if (player) {
