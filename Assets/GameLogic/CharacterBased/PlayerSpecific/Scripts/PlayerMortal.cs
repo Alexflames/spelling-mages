@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMortal : Mortal {
-	public UIHealthSlider UIHealthScript;
+	private UIHealthSlider UIHealthScript;
 
 	// Use this for initialization
 	void Start () {

@@ -1424,7 +1424,7 @@ MonoBehaviour:
   m_ScriptCRCCheck: 1
   m_MaxDelay: 0.01
   m_LogLevel: 2
-  m_PlayerPrefab: {fileID: 1404158713494438, guid: ad6472efc930b004cb2b87a9ad5d80bb,
+  m_PlayerPrefab: {fileID: 1268252512208058, guid: f1a1881a7d47ca7409b925fcc04dc70b,
     type: 2}
   m_AutoCreatePlayer: 1
   m_PlayerSpawnMethod: 0
@@ -2149,7 +2149,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 35.5, y: 36.5}
+  m_AnchoredPosition: {x: 2, y: 36.5}
   m_SizeDelta: {x: 150, y: 100}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1242524236
@@ -2185,7 +2185,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: asfasfasfasfafsasf
+  m_Text: TypeText
 --- !u!222 &1242524237
 CanvasRenderer:
   m_ObjectHideFlags: 0

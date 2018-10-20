@@ -12,6 +12,7 @@ public class SpellTyping : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        currentText = GameObject.Find("TypeText").GetComponent<Text>();
         currentText.text = "";
         spellCreateComponent = GetComponentInParent<SpellCreating>();
     }
