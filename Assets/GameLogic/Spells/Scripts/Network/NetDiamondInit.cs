@@ -11,7 +11,7 @@ public class NetDiamondInit : NetworkBehaviour, SpellInit
     // Use this for initialization
     void Start()
     {
-        this.gameObject.GetComponent<SpellCreating>().addSpell(aliases, this);
+        this.gameObject.GetComponent<NetSpellCreating>().addSpell(aliases, this);
     }
 
     // Update is called once per frame
@@ -24,34 +24,25 @@ public class NetDiamondInit : NetworkBehaviour, SpellInit
         return owner.position + adder;
     }
 
-    //[Command]
-    //public void CmdCast()
-    //{
-    //    ownerTransform = this.gameObject.transform;
-    //    Vector3 spellSpawnPosition = makeSpellSpawnPos(ownerTransform.forward * 2.0F, ownerTransform);
-    //    spellSpawnPosition += new Vector3(0, 0.5f, 0);
-    //    NetworkServer.(diamond, spellSpawnPosition, ownerTransform.rotation);
-    //    if (sm != null)
-    //    {
-    //        if (sm is StrongModificator)
-    //        {
-    //            diamond.GetComponent<DiamondLogic>().SetFactor(((StrongModificator)sm).factor);
-    //        }
-    //    }
-    //}
-
-    public void cast(SpellModificator sm)
+    [Command]
+    public void CmdCast()
     {
         ownerTransform = this.gameObject.transform;
         Vector3 spellSpawnPosition = makeSpellSpawnPos(ownerTransform.forward * 2.0F, ownerTransform);
         spellSpawnPosition += new Vector3(0, 0.5f, 0);
-        Instantiate(diamond, spellSpawnPosition, ownerTransform.rotation);
-        if (sm != null)
-        {
-            if (sm is StrongModificator)
-            {
-                diamond.GetComponent<DiamondLogic>().SetFactor(((StrongModificator)sm).factor);
-            }
-        }
+        GameObject spawned = Instantiate(diamond, spellSpawnPosition, ownerTransform.rotation);
+        NetworkServer.Spawn(spawned);
+        //if (sm != null)
+        //{
+        //    if (sm is StrongModificator)
+        //    {
+        //        diamond.GetComponent<DiamondLogic>().SetFactor(((StrongModificator)sm).factor);
+        //    }
+        //}
+    }
+
+    public void cast(SpellModificator sm)
+    {
+        CmdCast();
     }
 }

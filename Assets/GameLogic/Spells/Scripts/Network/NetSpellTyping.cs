@@ -8,7 +8,7 @@ public class NetSpellTyping : NetworkBehaviour
 {
 
     public Text currentText;
-    private SpellCreating spellCreateComponent;
+    private NetSpellCreating spellCreateComponent;
 
     // Use this for initialization
     void Start()
@@ -17,7 +17,7 @@ public class NetSpellTyping : NetworkBehaviour
         {
             currentText = GameObject.Find("TypeText").GetComponent<Text>();
             currentText.text = "";
-            spellCreateComponent = GetComponentInParent<SpellCreating>();
+            spellCreateComponent = GetComponentInParent<NetSpellCreating>();
         }
         
     }

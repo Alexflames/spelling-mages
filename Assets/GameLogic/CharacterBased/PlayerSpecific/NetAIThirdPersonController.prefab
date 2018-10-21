@@ -430,7 +430,7 @@ GameObject:
   - component: {fileID: 114541936451328808}
   - component: {fileID: 114074766813165698}
   - component: {fileID: 114292713353587290}
-  - component: {fileID: 114740840568840604}
+  - component: {fileID: 114802348974914060}
   - component: {fileID: 82626020980213608}
   - component: {fileID: 114525760483876076}
   - component: {fileID: 114062070676330166}
@@ -2758,7 +2758,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18a1f928646cc044eaae32c0bf3c4b86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  diamondInit: {fileID: 0}
   diamond: {fileID: 1583943583358182, guid: c17ed50af88b95d49bf882753a825e78, type: 2}
 --- !u!114 &114501888642128034
 MonoBehaviour:
@@ -2830,20 +2829,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHealth: 0
   health: 0
---- !u!114 &114740840568840604
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1268252512208058}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c5335f0882fe4d478883cc8c58ce906, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  destinationMark: {fileID: 1050820557827648, guid: a649a8602c3d82543b4c58017e45c690,
-    type: 2}
 --- !u!114 &114757318099291388
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2857,6 +2842,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthSlider: {fileID: 0}
   UIPlayerHp: {fileID: 0}
+--- !u!114 &114802348974914060
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1268252512208058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 742b49283ea6c9d4ba58a16720039bb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  destinationMark: {fileID: 1050820557827648, guid: a649a8602c3d82543b4c58017e45c690,
+    type: 2}
 --- !u!114 &114841767333938780
 MonoBehaviour:
   m_ObjectHideFlags: 1
