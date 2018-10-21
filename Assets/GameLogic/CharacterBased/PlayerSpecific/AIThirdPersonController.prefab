@@ -222,7 +222,7 @@ GameObject:
   - component: {fileID: 114744914899944064}
   - component: {fileID: 114843578921637646}
   - component: {fileID: 114131077707699304}
-  - component: {fileID: 114231753417046774}
+  - component: {fileID: 114519192942236422}
   - component: {fileID: 114923868090134674}
   - component: {fileID: 114018648803033452}
   - component: {fileID: 114116695079947804}
@@ -2722,7 +2722,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHealth: 0
   health: 0
-  UIHealthScript: {fileID: 0}
 --- !u!114 &114094249979282548
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2761,19 +2760,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentText: {fileID: 0}
---- !u!114 &114231753417046774
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1176976483925768}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 911457667b81be74e972092f2bd4bcc4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spellBookText: {fileID: 0}
-  randomise: 1
 --- !u!114 &114299710887381782
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2838,6 +2824,19 @@ MonoBehaviour:
   radius: 8.01
   waterSplash: {fileID: 1011955034818618, guid: 8817d0a3fb8ab6f4aaebe70692900f2c,
     type: 2}
+--- !u!114 &114519192942236422
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1176976483925768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 911457667b81be74e972092f2bd4bcc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spellBookText: {fileID: 0}
+  randomise: 1
 --- !u!114 &114529470484084898
 MonoBehaviour:
   m_ObjectHideFlags: 1

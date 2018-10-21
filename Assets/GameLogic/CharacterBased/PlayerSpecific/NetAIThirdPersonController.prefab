@@ -415,10 +415,11 @@ GameObject:
   - component: {fileID: 95549215371820498}
   - component: {fileID: 54635565566982344}
   - component: {fileID: 136822894657299396}
+  - component: {fileID: 114982736350640158}
   - component: {fileID: 195419523535821254}
   - component: {fileID: 114127254425932938}
+  - component: {fileID: 114350751631318998}
   - component: {fileID: 114866897204960296}
-  - component: {fileID: 114798003595996516}
   - component: {fileID: 114757318099291388}
   - component: {fileID: 114690761233379926}
   - component: {fileID: 114841767333938780}
@@ -431,7 +432,6 @@ GameObject:
   - component: {fileID: 114292713353587290}
   - component: {fileID: 114740840568840604}
   - component: {fileID: 82626020980213608}
-  - component: {fileID: 114982736350640158}
   - component: {fileID: 114525760483876076}
   - component: {fileID: 114062070676330166}
   - component: {fileID: 114661604554172790}
@@ -2735,6 +2735,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   segments: 50
   lastingTime: 0.5
+--- !u!114 &114350751631318998
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1268252512208058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a3b6fde138123742830db2fa157efe0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spellCreating: {fileID: 0}
 --- !u!114 &114496895195528568
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2746,7 +2758,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18a1f928646cc044eaae32c0bf3c4b86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  diamond: {fileID: 1628378731126820, guid: a13613f34b860bd41a77d54e09dcb3e6, type: 2}
+  diamondInit: {fileID: 0}
+  diamond: {fileID: 1583943583358182, guid: c17ed50af88b95d49bf882753a825e78, type: 2}
 --- !u!114 &114501888642128034
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2844,19 +2857,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthSlider: {fileID: 0}
   UIPlayerHp: {fileID: 0}
---- !u!114 &114798003595996516
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1268252512208058}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 911457667b81be74e972092f2bd4bcc4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spellBookText: {fileID: 0}
-  randomise: 1
 --- !u!114 &114841767333938780
 MonoBehaviour:
   m_ObjectHideFlags: 1

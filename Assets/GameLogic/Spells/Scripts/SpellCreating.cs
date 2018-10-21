@@ -33,7 +33,7 @@ public class SpellCreating : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        //spellBookText = GameObject.Find("SpellBook").GetComponent<Text>();
+        // spellBookText = GameObject.Find("SpellBook").GetComponent<Text>();
 	}
 	
 	// Update is called once per frame

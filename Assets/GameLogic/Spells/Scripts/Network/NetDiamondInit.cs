@@ -3,27 +3,55 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class NetDiamondInit : NetworkBehaviour {
-    private DiamondInit diamondInit;
+public class NetDiamondInit : NetworkBehaviour, SpellInit
+{
     public GameObject diamond;
-
-	void Awake () {
-        if (isLocalPlayer)
-        {
-            CmdInitSpell();
-            diamondInit.diamond = diamond;
-        }
-	}
-
-    [Command]
-    public void CmdInitSpell()
+    private Transform ownerTransform;
+    private string[] aliases = { "diamond", "bullet" };
+    // Use this for initialization
+    void Start()
     {
-        diamondInit = gameObject.AddComponent<DiamondInit>();
+        this.gameObject.GetComponent<SpellCreating>().addSpell(aliases, this);
     }
 
-    [Command]
-    public void CmdCast()
+    // Update is called once per frame
+    void Update()
     {
-        diamondInit.cast(null);
+    }
+
+    Vector3 makeSpellSpawnPos(Vector3 adder, Transform owner)
+    {
+        return owner.position + adder;
+    }
+
+    //[Command]
+    //public void CmdCast()
+    //{
+    //    ownerTransform = this.gameObject.transform;
+    //    Vector3 spellSpawnPosition = makeSpellSpawnPos(ownerTransform.forward * 2.0F, ownerTransform);
+    //    spellSpawnPosition += new Vector3(0, 0.5f, 0);
+    //    NetworkServer.(diamond, spellSpawnPosition, ownerTransform.rotation);
+    //    if (sm != null)
+    //    {
+    //        if (sm is StrongModificator)
+    //        {
+    //            diamond.GetComponent<DiamondLogic>().SetFactor(((StrongModificator)sm).factor);
+    //        }
+    //    }
+    //}
+
+    public void cast(SpellModificator sm)
+    {
+        ownerTransform = this.gameObject.transform;
+        Vector3 spellSpawnPosition = makeSpellSpawnPos(ownerTransform.forward * 2.0F, ownerTransform);
+        spellSpawnPosition += new Vector3(0, 0.5f, 0);
+        Instantiate(diamond, spellSpawnPosition, ownerTransform.rotation);
+        if (sm != null)
+        {
+            if (sm is StrongModificator)
+            {
+                diamond.GetComponent<DiamondLogic>().SetFactor(((StrongModificator)sm).factor);
+            }
+        }
     }
 }
