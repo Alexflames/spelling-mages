@@ -26,14 +26,7 @@ public class DiamondInit : MonoBehaviour, SpellInit {
         Vector3 spellSpawnPosition = makeSpellSpawnPos(ownerTransform.forward * 2.0F, ownerTransform);
         spellSpawnPosition += new Vector3(0, 0.5f, 0);
         double factor = 1.0;
-        if (sm != null)
-        {
-            if(sm is StrongModificator)
-            {
-                factor =  (((StrongModificator)sm).factor);
-            }
-        }
-        Instantiate(diamond, spellSpawnPosition, ownerTransform.rotation).GetComponent<DiamondLogic>().SetFactor(factor);
+        Instantiate(diamond, spellSpawnPosition, ownerTransform.rotation).GetComponent<DiamondLogic>().ApplyModificator(sm);
         
     }
 }

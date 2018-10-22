@@ -6,6 +6,7 @@ public class HighVoltageLogic : MonoBehaviour {
     float timeToAppear;
     float timeToFade;
     public int attackPower;
+    private double factor = 1.0;
     public GameObject part1;
     public GameObject part2;
     private GameObject part1_1;
@@ -13,6 +14,15 @@ public class HighVoltageLogic : MonoBehaviour {
     private GameObject part2_1;
     private GameObject part2_2;
     private GameObject owner;
+
+    public void ApplyModificator (SpellModificator sm)
+    {
+        if (sm == null) return;
+        if(sm is StrongModificator)
+        {
+                factor =  (((StrongModificator)sm).factor);
+        }
+    }
 
     void OnTriggerEnter(Collider collision)
     {
@@ -23,7 +33,7 @@ public class HighVoltageLogic : MonoBehaviour {
                 if (collision.gameObject != owner)
                 {
                     Mortal HP = collision.gameObject.GetComponent<Mortal>();
-                    HP.lowerHP(attackPower);
+                    HP.lowerHP((int)(attackPower * factor));
                 }
             }
             else if (!collision.gameObject.CompareTag("Spell"))

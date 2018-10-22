@@ -19,6 +19,7 @@ public class HighVoltageInit : MonoBehaviour, SpellInit {
     {
         GameObject voltage = GameObject.Instantiate(highVoltage, gameObject.transform.position + transform.forward, gameObject.transform.rotation);
         HighVoltageLogic voltageLogic = voltage.GetComponent<HighVoltageLogic>();
+        voltageLogic.ApplyModificator (sm);
         voltageLogic.SetOwner(gameObject);
     }
 }

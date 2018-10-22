@@ -24,9 +24,13 @@ public class DiamondLogic : MonoBehaviour {
 
 	}
 
-    public void SetFactor (double fact)
+    public void ApplyModificator (SpellModificator sm)
     {
-        factor = fact;
+        if (sm == null) return;
+        if(sm is StrongModificator)
+        {
+                factor =  (((StrongModificator)sm).factor);
+        }
     }
 
 	void FixedUpdate () {

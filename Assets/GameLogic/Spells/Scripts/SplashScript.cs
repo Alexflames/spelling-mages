@@ -11,6 +11,16 @@ public class SplashScript : MonoBehaviour {
     public bool leftSplashExists;
     public bool rightSplashExists;
     public int attackPower;
+    private double factor = 1.0;
+
+    public void ApplyModificator (SpellModificator sm)
+    {
+        if (sm == null) return;
+        if(sm is StrongModificator)
+        {
+                factor =  (((StrongModificator)sm).factor);
+        }
+    }
 
     void OnTriggerEnter(Collider collision)
     {
@@ -19,7 +29,7 @@ public class SplashScript : MonoBehaviour {
             if (collision.gameObject.CompareTag("Destroyable"))
             {   // Объект, в который врезались, уничтожаемый?
                 Mortal HP = collision.gameObject.GetComponent<Mortal>();
-                HP.lowerHP(attackPower);
+                HP.lowerHP((int)(factor * attackPower));
             }
             else if (!collision.gameObject.CompareTag("Spell"))
             {

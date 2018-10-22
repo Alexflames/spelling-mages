@@ -12,6 +12,16 @@ public class PhantasmLogic : MonoBehaviour {
     public Material activatedPhantasmMaterial;
     private Renderer rend;
     public int attackPower;
+    private double factor = 1.0;
+
+    public void ApplyModificator (SpellModificator sm)
+    {
+        if (sm == null) return;
+        if(sm is StrongModificator)
+        {
+                factor =  (((StrongModificator)sm).factor);
+        }
+    }
 
     void OnTriggerEnter(Collider collision)
     {
@@ -28,7 +38,7 @@ public class PhantasmLogic : MonoBehaviour {
         else if (collision.gameObject.CompareTag("Destroyable"))
         { // Объект, в который врезались, уничтожаемый?
             Mortal HP = collision.GetComponent<Mortal>();
-            HP.lowerHP(attackPower);
+            HP.lowerHP((int)(factor * attackPower));
         }
         else if (collision.gameObject.tag != "Spell")
             Object.Destroy(gameObject);

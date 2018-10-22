@@ -25,6 +25,7 @@ public class PhantasmInit : MonoBehaviour, SpellInit {
             Vector3 phantasmDestination = hit.point;
             GameObject spell = GameObject.Instantiate(phantasm, phantasmDestination + new Vector3(0, 1.0f, 0), gameObject.transform.rotation);
             PhantasmLogic spellComp = spell.GetComponent<PhantasmLogic>();
+            spellComp.ApplyModificator (sm);
             spellComp.SetOwner(gameObject);
         }
 

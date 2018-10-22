@@ -47,7 +47,7 @@ public class SplashInit : MonoBehaviour, SpellInit {
             {
                 waterDestination = hit.point;
                 Quaternion towaradsPoint = Quaternion.LookRotation(waterDestination - waterPos + new Vector3(0, 0.75f, 0));
-                GameObject.Instantiate(waterSplash, waterPos, towaradsPoint);
+                GameObject.Instantiate(waterSplash, waterPos, towaradsPoint).GetComponent<SplashScript>().ApplyModificator(sm);
             }
         }
     }
