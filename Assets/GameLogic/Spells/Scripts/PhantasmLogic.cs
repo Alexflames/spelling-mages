@@ -12,14 +12,21 @@ public class PhantasmLogic : MonoBehaviour {
     public Material activatedPhantasmMaterial;
     private Renderer rend;
     public int attackPower;
-    private double factor = 1.0;
+    private double attackFactor = 1.0;
+    private double speedFactor = 1.0;
 
     public void ApplyModificator (SpellModificator sm)
     {
         if (sm == null) return;
         if(sm is StrongModificator)
         {
-                factor =  (((StrongModificator)sm).factor);
+                attackFactor =  (((StrongModificator)sm).factor);
+        }
+        if(sm is QuickModificator)
+        {
+                QuickModificator qm = (QuickModificator)sm;
+                attackFactor = 1 / qm.weakFactor;
+                speedFactor = qm.speedFactor;
         }
     }
 
@@ -38,7 +45,7 @@ public class PhantasmLogic : MonoBehaviour {
         else if (collision.gameObject.CompareTag("Destroyable"))
         { // Объект, в который врезались, уничтожаемый?
             Mortal HP = collision.GetComponent<Mortal>();
-            HP.lowerHP((int)(factor * attackPower));
+            HP.lowerHP((int)(attackFactor * attackPower));
         }
         else if (collision.gameObject.tag != "Spell")
             Object.Destroy(gameObject);
@@ -60,7 +67,7 @@ public class PhantasmLogic : MonoBehaviour {
         {
             vectorToOwner = Vector3.Normalize(owner.transform.position - gameObject.transform.position + new Vector3(0, 1.0f, 0));
             if (timePassed < 7.0f)
-                rb.AddForce(vectorToOwner * timePassed * 4);
+                rb.AddForce(vectorToOwner * timePassed * 4 * (float)speedFactor);
             else
             {
                 if (!rb.isKinematic)

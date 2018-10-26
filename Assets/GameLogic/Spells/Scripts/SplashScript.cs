@@ -11,14 +11,21 @@ public class SplashScript : MonoBehaviour {
     public bool leftSplashExists;
     public bool rightSplashExists;
     public int attackPower;
-    private double factor = 1.0;
+    private double attackFactor = 1.0;
+    private double speedFactor = 1.0;
 
     public void ApplyModificator (SpellModificator sm)
     {
         if (sm == null) return;
         if(sm is StrongModificator)
         {
-                factor =  (((StrongModificator)sm).factor);
+                attackFactor =  (((StrongModificator)sm).factor);
+        }
+        if(sm is QuickModificator)
+        {
+                QuickModificator qm = (QuickModificator)sm;
+                attackFactor = 1 / qm.weakFactor;
+                speedFactor = qm.speedFactor;
         }
     }
 
@@ -29,7 +36,7 @@ public class SplashScript : MonoBehaviour {
             if (collision.gameObject.CompareTag("Destroyable"))
             {   // Объект, в который врезались, уничтожаемый?
                 Mortal HP = collision.gameObject.GetComponent<Mortal>();
-                HP.lowerHP((int)(factor * attackPower));
+                HP.lowerHP((int)(attackFactor * attackPower));
             }
             else if (!collision.gameObject.CompareTag("Spell"))
             {
@@ -48,7 +55,7 @@ public class SplashScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        transform.Translate(Vector3.forward * Time.deltaTime * speed);
+        transform.Translate(Vector3.forward * (Time.deltaTime * speed * (float)speedFactor));
         timeLeft -= Time.deltaTime;
         timeToExpand -= Time.deltaTime;
         if (timeLeft < 0)
