@@ -182,8 +182,8 @@ GameObject:
   - component: {fileID: 11450346}
   - component: {fileID: 114100488336178784}
   - component: {fileID: 114472527242557820}
-  - component: {fileID: 114277482236019738}
-  - component: {fileID: 114868473153240584}
+  - component: {fileID: 114431497317117444}
+  - component: {fileID: 114205374522743708}
   - component: {fileID: 114626987068076162}
   - component: {fileID: 114905979018374900}
   - component: {fileID: 114838203839945138}
@@ -2894,6 +2894,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   segments: 50
   lastingTime: 0.5
+--- !u!114 &114205374522743708
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 113348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 644ba4b47de2ddc479049f17999288ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHealth: 0
+  health: 0
 --- !u!114 &114234119177046436
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2907,19 +2920,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   predictionInit: {fileID: 0}
   fateTransition: {fileID: 0}
---- !u!114 &114277482236019738
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 113348}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bba077ac42155684cbb6c0be12245f06, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthSlider: {fileID: 0}
-  UIPlayerHp: {fileID: 0}
 --- !u!114 &114318705469633086
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2948,6 +2948,19 @@ MonoBehaviour:
   radius: 8.01
   waterSplash: {fileID: 1011955034818618, guid: 8817d0a3fb8ab6f4aaebe70692900f2c,
     type: 2}
+--- !u!114 &114431497317117444
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 113348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bba077ac42155684cbb6c0be12245f06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthSlider: {fileID: 0}
+  UIPlayerHp: {fileID: 0}
 --- !u!114 &114472527242557820
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3024,19 +3037,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   diamond: {fileID: 1628378731126820, guid: a13613f34b860bd41a77d54e09dcb3e6, type: 2}
---- !u!114 &114868473153240584
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 113348}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 644ba4b47de2ddc479049f17999288ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startingHealth: 0
-  health: 0
 --- !u!114 &114905979018374900
 MonoBehaviour:
   m_ObjectHideFlags: 1

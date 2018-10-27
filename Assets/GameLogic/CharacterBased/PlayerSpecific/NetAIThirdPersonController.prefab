@@ -421,12 +421,12 @@ GameObject:
   - component: {fileID: 114350751631318998}
   - component: {fileID: 114866897204960296}
   - component: {fileID: 114757318099291388}
-  - component: {fileID: 114690761233379926}
+  - component: {fileID: 114277201136214502}
   - component: {fileID: 114841767333938780}
   - component: {fileID: 114248857059657872}
   - component: {fileID: 114496895195528568}
   - component: {fileID: 114272885369278974}
-  - component: {fileID: 114206405809587014}
+  - component: {fileID: 114646233472291066}
   - component: {fileID: 114541936451328808}
   - component: {fileID: 114074766813165698}
   - component: {fileID: 114292713353587290}
@@ -435,6 +435,7 @@ GameObject:
   - component: {fileID: 114525760483876076}
   - component: {fileID: 114062070676330166}
   - component: {fileID: 114661604554172790}
+  - component: {fileID: 114804590582131456}
   m_Layer: 8
   m_Name: NetAIThirdPersonController
   m_TagString: Destroyable
@@ -2668,21 +2669,6 @@ MonoBehaviour:
   m_MoveSpeedMultiplier: 1
   m_AnimSpeedMultiplier: 1
   m_GroundCheckDistance: 0.4
---- !u!114 &114206405809587014
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1268252512208058}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd5b6fb16bed4ea42a253d4b3c4ca5fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  circleDrawer: {fileID: 1110137751783610}
-  radius: 8.01
-  waterSplash: {fileID: 1011955034818618, guid: 8817d0a3fb8ab6f4aaebe70692900f2c,
-    type: 2}
 --- !u!114 &114248857059657872
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2709,6 +2695,19 @@ MonoBehaviour:
   spell: {fileID: 0}
   clockSound: {fileID: 8300000, guid: 84b4c504a29dc7b42ad740e3c909c0a0, type: 3}
   lastingTime: 8
+--- !u!114 &114277201136214502
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1268252512208058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 767f4a3eee6788d46a493de9d7c350d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHealth: 0
+  health: 0
 --- !u!114 &114292713353587290
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2746,7 +2745,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a3b6fde138123742830db2fa157efe0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellCreating: {fileID: 0}
+  spellBookText: {fileID: 0}
+  randomise: 0
 --- !u!114 &114496895195528568
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2784,7 +2784,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_TransformSyncMode: 3
-  m_SendInterval: 0.1
+  m_SendInterval: 0.07692308
   m_SyncRotationAxis: 7
   m_RotationSyncCompression: 0
   m_SyncSpin: 0
@@ -2805,6 +2805,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   phantasm: {fileID: 1135766967251416, guid: 981a44044e14fb54fa4b10181af988fe, type: 2}
+--- !u!114 &114646233472291066
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1268252512208058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58d78dc62e2644d4fa241812997a4288, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  circleDrawer: {fileID: 1110137751783610}
+  radius: 8
+  waterSplash: {fileID: 1046446674234728, guid: 05664309b8d68554685334d7ba6e7eaf,
+    type: 2}
 --- !u!114 &114661604554172790
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2816,19 +2831,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b724f0e8fd6cc5b4ab370e3f11d1e13f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114690761233379926
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1268252512208058}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 644ba4b47de2ddc479049f17999288ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startingHealth: 0
-  health: 0
 --- !u!114 &114757318099291388
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2856,6 +2858,19 @@ MonoBehaviour:
   target: {fileID: 0}
   destinationMark: {fileID: 1050820557827648, guid: a649a8602c3d82543b4c58017e45c690,
     type: 2}
+--- !u!114 &114804590582131456
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1268252512208058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db386b65ef0a21040af1b59c8b73f3a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthSlider: {fileID: 0}
+  UIPlayerHp: {fileID: 0}
 --- !u!114 &114841767333938780
 MonoBehaviour:
   m_ObjectHideFlags: 1
