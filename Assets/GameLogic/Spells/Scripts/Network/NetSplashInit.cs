@@ -30,8 +30,6 @@ public class NetSplashInit : NetworkBehaviour, SpellInit
         var splash = GameObject.Instantiate(waterSplash, waterPos, towaradsPoint);
 
         NetworkServer.Spawn(splash);
-
-
     }
 
     public void cast(SpellModificator sm)
