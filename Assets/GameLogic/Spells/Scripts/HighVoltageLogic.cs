@@ -67,7 +67,7 @@ public class HighVoltageLogic : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update () {
+    void Update () {
         timeToAppear -= Time.deltaTime * (float)speedFactor;
         timeToFade -= Time.deltaTime * (float)speedFactor;
         if (!part1.activeSelf && timeToAppear < 0.1f)
@@ -86,7 +86,7 @@ public class HighVoltageLogic : MonoBehaviour {
         {
             Destroy(gameObject);
         }
-	}
+    }
 
     public void SetOwner(GameObject thatOwns)
     {
