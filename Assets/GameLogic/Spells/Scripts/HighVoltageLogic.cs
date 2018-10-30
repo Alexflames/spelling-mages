@@ -6,7 +6,8 @@ public class HighVoltageLogic : MonoBehaviour {
     float timeToAppear;
     float timeToFade;
     public int attackPower;
-    private double factor = 1.0;
+    private double attackFactor = 1.0;
+    private double speedFactor = 1.0;
     public GameObject part1;
     public GameObject part2;
     private GameObject part1_1;
@@ -20,7 +21,13 @@ public class HighVoltageLogic : MonoBehaviour {
         if (sm == null) return;
         if(sm is StrongModificator)
         {
-                factor =  (((StrongModificator)sm).factor);
+                attackFactor =  (((StrongModificator)sm).factor);
+        }
+        if(sm is QuickModificator)
+        {
+                QuickModificator qm = (QuickModificator)sm;
+                attackFactor = 1 / qm.weakFactor;
+                speedFactor = qm.speedFactor;
         }
     }
 
@@ -33,7 +40,7 @@ public class HighVoltageLogic : MonoBehaviour {
                 if (collision.gameObject != owner)
                 {
                     Mortal HP = collision.gameObject.GetComponent<Mortal>();
-                    HP.lowerHP((int)(attackPower * factor));
+                    HP.lowerHP((int)(attackPower * attackFactor));
                 }
             }
             else if (!collision.gameObject.CompareTag("Spell"))
@@ -61,8 +68,8 @@ public class HighVoltageLogic : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        timeToAppear -= Time.deltaTime;
-        timeToFade -= Time.deltaTime;
+        timeToAppear -= Time.deltaTime * (float)speedFactor;
+        timeToFade -= Time.deltaTime * (float)speedFactor;
         if (!part1.activeSelf && timeToAppear < 0.1f)
         {
             part1.SetActive(true);

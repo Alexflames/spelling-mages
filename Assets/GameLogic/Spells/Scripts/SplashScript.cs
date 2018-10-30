@@ -13,10 +13,12 @@ public class SplashScript : MonoBehaviour {
     public int attackPower;
     private double attackFactor = 1.0;
     private double speedFactor = 1.0;
+    private SpellModificator appliedMod = null;
 
     public void ApplyModificator (SpellModificator sm)
     {
         if (sm == null) return;
+        appliedMod = sm;
         if(sm is StrongModificator)
         {
                 attackFactor =  (((StrongModificator)sm).factor);
@@ -76,6 +78,7 @@ public class SplashScript : MonoBehaviour {
                 leftSplashExists = true;
 
                 SplashScript splController = created.GetComponent<SplashScript>();
+                splController.ApplyModificator (appliedMod);
                 splController.CreatedFromRight();
                 splController.SetTimeLeft(timeLeft);
             }
@@ -91,6 +94,7 @@ public class SplashScript : MonoBehaviour {
                 rightSplashExists = true;
 
                 SplashScript splController = created.GetComponent<SplashScript>();
+                splController.ApplyModificator (appliedMod);
                 splController.CreatedFromLeft();
                 splController.SetTimeLeft(timeLeft);
             }
