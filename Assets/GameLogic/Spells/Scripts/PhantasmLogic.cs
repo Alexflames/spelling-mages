@@ -14,6 +14,7 @@ public class PhantasmLogic : MonoBehaviour {
     public int attackPower;
     private double attackFactor = 1.0;
     private double speedFactor = 1.0;
+    private float timeToDestroy = 10.0f;
 
     public void ApplyModificator (SpellModificator sm)
     {
@@ -79,7 +80,11 @@ public class PhantasmLogic : MonoBehaviour {
             }
         }
         else
+        {
             transform.Translate(vectorToOwner * 0.25f, Space.World);
+            timeToDestroy -= Time.deltaTime;
+            if (timeToDestroy < 0.0f) Object.Destroy(gameObject);
+        }
     }
 
     public void SetOwner(GameObject thatOwns)
