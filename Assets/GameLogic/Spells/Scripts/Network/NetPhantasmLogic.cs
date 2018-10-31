@@ -15,6 +15,7 @@ public class NetPhantasmLogic : NetworkBehaviour
     public int attackPower = 25;
     private double attackFactor = 1.0;
     private double speedFactor = 1.0;
+    private List<GameObject> collidesWith = new List<GameObject>(); // Whom phantasm already collided with
 
     public void ApplyModificator(SpellModificator sm)
     {
@@ -33,7 +34,7 @@ public class NetPhantasmLogic : NetworkBehaviour
 
     void OnTriggerEnter(Collider collision)
     {
-        print(collision.name);
+        
         if (collision.gameObject == owner)  // TODO
         {
             isghost = false;
@@ -48,11 +49,24 @@ public class NetPhantasmLogic : NetworkBehaviour
         }
         else if (collision.gameObject.CompareTag("Destroyable"))
         { // Объект, в который врезались, уничтожаемый?
-            NetMortal HP = collision.GetComponent<NetMortal>();
-            HP.lowerHP((int)(attackFactor * attackPower));
+            if (!isServer) return;
+
+            RpcHit(collision.gameObject);
         }
         else if (collision.gameObject.tag != "Spell")
             Object.Destroy(gameObject);
+    }
+
+    [ClientRpc]
+    private void RpcHit(GameObject collision)
+    {
+        if (!collidesWith.Contains(collision.gameObject))
+        {
+            print(collision.name);
+            collidesWith.Add(collision.gameObject);
+            NetMortal HP = collision.GetComponent<NetMortal>();
+            HP.lowerHP((int)(attackFactor * attackPower));
+        }
     }
 
     void Awake()

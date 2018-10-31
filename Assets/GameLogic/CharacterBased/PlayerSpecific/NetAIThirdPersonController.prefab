@@ -425,10 +425,10 @@ GameObject:
   - component: {fileID: 114841767333938780}
   - component: {fileID: 114248857059657872}
   - component: {fileID: 114496895195528568}
-  - component: {fileID: 114272885369278974}
+  - component: {fileID: 114503411210391544}
   - component: {fileID: 114646233472291066}
   - component: {fileID: 114270733985843530}
-  - component: {fileID: 114074766813165698}
+  - component: {fileID: 114314522935460874}
   - component: {fileID: 114292713353587290}
   - component: {fileID: 114802348974914060}
   - component: {fileID: 82626020980213608}
@@ -2637,19 +2637,6 @@ MonoBehaviour:
   param3: 
   param4: 
   param5: 
---- !u!114 &114074766813165698
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1268252512208058}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b630054e5c442b041bbd1d899fc15b26, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  predictionInit: {fileID: 0}
-  fateTransition: {fileID: 0}
 --- !u!114 &114127254425932938
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2691,22 +2678,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07d56c6a1063d4841b5e4ea276b45d99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spellTESTTEST: {fileID: 0}
+  nextSpellOwner: {fileID: 0}
   phantasm: {fileID: 1663354409314876, guid: 7051caf984741444280afe125172103a, type: 2}
---- !u!114 &114272885369278974
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1268252512208058}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9a3b289beaab7e4c8b28456d5d1e450, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prediction: {fileID: 1541789524961282, guid: 1d099ae618471014d809c324c328e858, type: 2}
-  spell: {fileID: 0}
-  clockSound: {fileID: 8300000, guid: 84b4c504a29dc7b42ad740e3c909c0a0, type: 3}
-  lastingTime: 8
 --- !u!114 &114277201136214502
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2733,6 +2707,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   highVoltage: {fileID: 1910064500947930, guid: 36ffff86793b77043acc1e7af120eab3,
     type: 2}
+--- !u!114 &114314522935460874
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1268252512208058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2e72293c00c7a747abe4830db6d4c7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  predictionInit: {fileID: 0}
+  fateTransition: {fileID: 0}
+  UIAnimName: FateTransition
 --- !u!114 &114328040135836272
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2784,6 +2772,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   segments: 50
   lastingTime: 0.5
+--- !u!114 &114503411210391544
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1268252512208058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb2552772138cf445b0c1b05180d21ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prediction: {fileID: 1678598790896070, guid: d47d288de3190474d9a328879c687ce6, type: 2}
+  spell: {fileID: 0}
+  clockSound: {fileID: 8300000, guid: 84b4c504a29dc7b42ad740e3c909c0a0, type: 3}
+  lastingTime: 8
 --- !u!114 &114525760483876076
 MonoBehaviour:
   m_ObjectHideFlags: 1
