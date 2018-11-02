@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Somescene.unity
     guid: 8d3cc63e3f3e6bb48a01776dc086a96f
+  - enabled: 1
+    path: Assets/SomesceneK.unity
+    guid: e562957196bee494fa5d18d9d23722b9
   m_configObjects: {}

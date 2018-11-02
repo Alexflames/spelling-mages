@@ -2718,7 +2718,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2e72293c00c7a747abe4830db6d4c7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  predictionInit: {fileID: 0}
+  predictionInit: {fileID: 114503411210391544}
   fateTransition: {fileID: 0}
   UIAnimName: FateTransition
 --- !u!114 &114328040135836272

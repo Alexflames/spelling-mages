@@ -22,10 +22,6 @@ public class NetPrediction_FateLogic : NetworkBehaviour
     void Start()
     {
         thirdPersonController = gameObject.GetComponent<UnityStandardAssets.Characters.ThirdPerson.ThirdPersonCharacter>();
-
-        agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
-        agent.updateRotation = false;
-        agent.updatePosition = true;
     }
 
     public void activateTransition()
@@ -40,23 +36,18 @@ public class NetPrediction_FateLogic : NetworkBehaviour
 
     private void Update()
     {
-        if (AICharControl == null && owner != null)
-        {
-            AICharControl = owner.GetComponent<NetAICharacterControl>();
-            SetDestination();
-        }
-
         timeLeft -= Time.deltaTime;
         if (m_activated)
         {
             m_activated_delay -= Time.deltaTime;
             if (m_activated_delay < 0)
             {
+                print("teleport");
                 Vector3 predictionPos = transform.position;
                 owner.GetComponent<UnityEngine.AI.NavMeshAgent>().Warp(predictionPos);
                 owner.transform.position = predictionPos + Vector3.up * 0.1f;
                 owner.GetComponent<UnityEngine.AI.NavMeshAgent>().ResetPath();
-                Destroy(gameObject);
+                NetworkServer.Destroy(gameObject);
             }
         }
         if (timeLeft < 0 && !m_activated)
@@ -71,10 +62,16 @@ public class NetPrediction_FateLogic : NetworkBehaviour
         else
             thirdPersonController.Move(Vector3.zero, false, false);
     }
-
-    public void SetDestination()
+    
+    public void SetDestination(Vector3 ownerHitPoint)
     {
-        agent.SetDestination(AICharControl.hit.point);
+        agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
+        agent.updateRotation = false;
+        agent.updatePosition = true;
+        agent.updatePosition = true;
+
+        print(ownerHitPoint);
+        agent.SetDestination(ownerHitPoint);
     }
 
     public void SetTarget(Transform target)
@@ -91,7 +88,7 @@ public class NetPrediction_FateLogic : NetworkBehaviour
     {
         owner.GetComponent<AudioSource>().Stop();
 
-        Destroy(gameObject);
+        NetworkServer.Destroy(gameObject);
     }
 
 }

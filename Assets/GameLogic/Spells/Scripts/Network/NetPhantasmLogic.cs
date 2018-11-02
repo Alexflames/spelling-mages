@@ -84,7 +84,7 @@ public class NetPhantasmLogic : NetworkBehaviour
         if (isghost)
         {
             Vector3 distance = owner.transform.position - gameObject.transform.position + new Vector3(0, 1.0f, 0);
-            if (distance.magnitude > 1.5f)
+            if (distance.magnitude > 0.5f)
             {
                 vectorToOwner = Vector3.Normalize(owner.transform.position - gameObject.transform.position + new Vector3(0, 1.0f, 0));
             }

@@ -23,7 +23,7 @@ public class NetFateInit : NetworkBehaviour, SpellInit
         if (predictionInit.spell)
         {
             predictionInit.spell.GetComponent<NetPrediction_FateLogic>().activateTransition();
-            fateTransition.gameObject.SetActive(true);
+            // fateTransition.gameObject.SetActive(true);
 
             gameObject.GetComponent<AudioSource>().Stop();
         }

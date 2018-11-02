@@ -34,7 +34,8 @@ public class NetPredictionInit : NetworkBehaviour, SpellInit
                 NetworkServer.Destroy(spell);
             }
 
-            CmdCast(transform.position + transform.forward, transform.rotation);
+            
+            CmdCast(transform.position + transform.forward, transform.rotation, gameObject.GetComponent<NetAICharacterControl>().hit.point);
             
             if (isLocalPlayer)
             {
@@ -43,22 +44,30 @@ public class NetPredictionInit : NetworkBehaviour, SpellInit
         }
     }
 
+    /// <summary>
+    /// Call cast on server
+    /// </summary>
+    /// <param name="position">player position</param>
+    /// <param name="rotation">player rotation</param>
+    /// <param name="destination">move-to position of player</param>
     [Command]
-    private void CmdCast(Vector3 position, Quaternion rotation)
+    private void CmdCast(Vector3 position, Quaternion rotation, Vector3 destination)
     {
         spell = GameObject.Instantiate(prediction, position, rotation);
 
         NetworkServer.Spawn(spell);
 
-        RpcOtherStuff(spell);
+        RpcOtherStuff(spell, destination);
     }
 
     [ClientRpc]
-    private void RpcOtherStuff(GameObject spell)
+    private void RpcOtherStuff(GameObject spell, Vector3 destination)
     {
         NetPrediction_FateLogic spellLogic = spell.GetComponent<NetPrediction_FateLogic>();
         spellLogic.SetTimeLeft(lastingTime);
         spellLogic.SetOwner(gameObject);
+        spellLogic.SetDestination(destination);
+        this.spell = spell;
     }
 
 }
