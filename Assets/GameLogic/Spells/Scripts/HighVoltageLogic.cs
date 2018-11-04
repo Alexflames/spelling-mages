@@ -15,6 +15,8 @@ public class HighVoltageLogic : MonoBehaviour {
     private GameObject part2_1;
     private GameObject part2_2;
     private GameObject owner;
+    private bool greatMod = false;
+    private float sF = 1.0f;//scale factor for great mod
 
     public void ApplyModificator (SpellModificator sm)
     {
@@ -22,6 +24,12 @@ public class HighVoltageLogic : MonoBehaviour {
         if(sm is StrongModificator)
         {
                 attackFactor =  (((StrongModificator)sm).factor);
+        }
+        if(sm is GreatModificator)
+        {
+                greatMod = true;
+		sF = (float)(((GreatModificator)sm).scaleFactor);
+                gameObject.transform.localScale += new Vector3 (sF - 1.0f, 0, sF - 1.0f) ;
         }
         if(sm is QuickModificator)
         {
@@ -37,6 +45,7 @@ public class HighVoltageLogic : MonoBehaviour {
         {
             if (collision.gameObject.CompareTag("Destroyable"))
             {   // Объект, в который врезались, уничтожаемый?
+                
                 if (collision.gameObject != owner)
                 {
                     Mortal HP = collision.gameObject.GetComponent<Mortal>();
@@ -64,6 +73,12 @@ public class HighVoltageLogic : MonoBehaviour {
         part2_1.SetActive(false);
         part1_2.SetActive(false);
         part2_2.SetActive(false);
+        if(greatMod){
+              //part1_1.transform.localScale += new Vector3 (sF - 1.0f, 0, sF - 1.0f) ;
+              //part1_2.transform.localScale += new Vector3 (sF - 1.0f, 0, sF - 1.0f) ;
+              //part2_2.transform.localScale += new Vector3 (sF - 1.0f, 0, sF - 1.0f) ;
+              //part2_1.transform.localScale += new Vector3 (sF - 1.0f, 0, sF - 1.0f) ;
+        }
     }
 	
 	// Update is called once per frame
