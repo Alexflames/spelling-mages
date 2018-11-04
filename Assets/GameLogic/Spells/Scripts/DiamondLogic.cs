@@ -40,15 +40,20 @@ public class DiamondLogic : MonoBehaviour {
         }
     }
 
+void OnTriggerEnter(Collider collision)
+    {
+            if (collision.gameObject.CompareTag("Destroyable"))
+            {   // Объект, в который врезались, уничтожаемый?
+               Mortal HP = collision.gameObject.GetComponent<Mortal>();
+               HP.lowerHP((int)(attackPower * attackFactor));
+            }
+            if (!collision.gameObject.CompareTag("Spell"))
+            {
+                Object.Destroy(gameObject);
+            }
+    }
+
     void FixedUpdate () {
         rb.AddForce (transform.forward * 1.5f * (float)speedFactor);
-        Collider[] intersectObjs = Physics.OverlapSphere (transform.position, 0.25f);
-        if (intersectObjs.Length != 0) {
-            if (intersectObjs [0].CompareTag ("Destroyable")) { // Объект, в который врезались, уничтожаемый?
-                Mortal HP = intersectObjs[0].GetComponent<Mortal>();
-                HP.lowerHP ((int)(attackPower * attackFactor));
-            }
-            if (!intersectObjs[0].gameObject.CompareTag("Spell")) Object.Destroy (gameObject);
-        }
     }
 }
