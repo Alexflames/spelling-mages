@@ -32,6 +32,11 @@ public class DiamondLogic : MonoBehaviour {
         {
                 attackFactor =  (((StrongModificator)sm).factor);
         }
+        if(sm is GreatModificator)
+        {
+		float sF = (float)(((GreatModificator)sm).scaleFactor);
+                gameObject.transform.localScale += new Vector3 (sF - 1.0f, 0, sF - 1.0f) ;
+        }
         if(sm is QuickModificator)
         {
                 QuickModificator qm = (QuickModificator)sm;

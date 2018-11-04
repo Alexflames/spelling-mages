@@ -26,7 +26,7 @@ public class PhantasmLogic : MonoBehaviour {
         if(sm is GreatModificator)
         {
 		float sF = (float)(((GreatModificator)sm).scaleFactor);
-                gameObject.transform.localScale += new Vector3 (sF - 1.0f, sF - 1.0f, sF - 1.0f) ;
+                gameObject.transform.localScale += new Vector3 (sF - 1.0f, 0, sF - 1.0f) ;
         }
         if(sm is QuickModificator)
         {
@@ -38,7 +38,6 @@ public class PhantasmLogic : MonoBehaviour {
 
     void OnTriggerEnter(Collider collision)
     {
-        print(collision.name);
         if (collision.gameObject == owner)  // TODO
         {
             isghost = false;
