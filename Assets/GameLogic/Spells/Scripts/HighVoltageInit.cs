@@ -16,8 +16,9 @@ public class HighVoltageInit : MonoBehaviour, SpellInit {
         voltage2.GetComponent<HighVoltageLogic>().SetOwner (gameObject);
     }
 
-    public void cast (SpellModificator sm)
+    public void cast (string smName)
     {
+		SpellModificator sm = gameObject.GetComponent<SpellCreating> ().getModIfExists (smName);
         Vector3 spellSpawnPos = gameObject.transform.position + transform.forward;
         GameObject voltage = GameObject.Instantiate (highVoltage, spellSpawnPos, gameObject.transform.rotation);
         HighVoltageLogic voltageLogic = voltage.GetComponent<HighVoltageLogic>();

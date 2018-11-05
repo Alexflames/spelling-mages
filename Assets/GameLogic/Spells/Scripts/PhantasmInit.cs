@@ -18,8 +18,9 @@ public class PhantasmInit : MonoBehaviour, SpellInit {
         spellComp.SetOwner(gameObject);
     }
 
-    public void cast (SpellModificator sm)
+    public void cast (string smName)
     {
+		SpellModificator sm = gameObject.GetComponent<SpellCreating> ().getModIfExists (smName);
         RaycastHit hit;
 
         if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))

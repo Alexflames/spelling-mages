@@ -20,8 +20,9 @@ public class SplashInit : MonoBehaviour, SpellInit {
         splashCircleDrawer = circleDrawer.GetComponent<SplashCircleDrawer>();
     }
 
-    public void cast(SpellModificator sm)
+    public void cast(string smName)
     {
+		SpellModificator sm = gameObject.GetComponent<SpellCreating> ().getModIfExists (smName);
         splashCircleDrawer.CreatePoints(radius);
 
         bool waterFound = false;

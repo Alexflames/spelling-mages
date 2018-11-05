@@ -18,7 +18,7 @@ public class NetFateInit : NetworkBehaviour, SpellInit
         fateTransition = GameObject.Find(UIAnimName).GetComponent<Image>();
     }
 
-    public void cast(SpellModificator sm)
+    public void cast(string smName)
     {
         if (predictionInit.spell)
         {

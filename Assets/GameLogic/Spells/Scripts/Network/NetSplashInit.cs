@@ -32,7 +32,7 @@ public class NetSplashInit : NetworkBehaviour, SpellInit
         NetworkServer.Spawn(splash);
     }
 
-    public void cast(SpellModificator sm)
+    public void cast(string smName)
     {
         splashCircleDrawer.CreatePoints(radius);
 

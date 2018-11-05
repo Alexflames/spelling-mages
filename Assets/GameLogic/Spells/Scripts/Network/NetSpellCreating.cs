@@ -57,19 +57,17 @@ public class NetSpellCreating : NetworkBehaviour
     public void castSpell(string name)
     {
         //print(spellbook.Count);
-        SpellModificator sm = null;
-        foreach (string key in modificators.Keys)
-        {
-            if (name.StartsWith(key))
-            {
-                sm = modificators[key];
-                name = name.Substring(key.Length).Trim();
+        string smName = null;
+        foreach (string key in modificators.Keys) {
+            if (name.StartsWith(key)) {
+                smName = key;
+				name = name.Substring (key.Length).Trim ();
                 break;
             }
         }
         if (spellbook.ContainsKey(name))
         {
-            spellbook[name].cast(sm);
+            spellbook[name].cast(smName);
         }
     }
 

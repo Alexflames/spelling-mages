@@ -21,8 +21,9 @@ public class DiamondInit : MonoBehaviour, SpellInit {
         Instantiate(diamond, spellSpawnPos, rotation);
     }
 
-    public void cast(SpellModificator sm)
+    public void cast (string smName)
     {
+		SpellModificator sm = gameObject.GetComponent<SpellCreating> ().getModIfExists (smName);
         ownerTransform = this.gameObject.transform;
         Vector3 spellSpawnPosition = makeSpellSpawnPos (ownerTransform.forward * 2.0F, ownerTransform);
         spellSpawnPosition += new Vector3 (0, 0.5f, 0);

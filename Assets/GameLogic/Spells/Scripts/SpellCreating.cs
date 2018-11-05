@@ -30,31 +30,25 @@ public class SpellCreating : MonoBehaviour {
             spellBookText.text += "\n" + name;
         }
     }
-
-	// Use this for initialization
-	void Start () {
-        // spellBookText = GameObject.Find("SpellBook").GetComponent<Text>();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-    
+   
     public void castSpell (string name) {
         //print(spellbook.Count);
-        SpellModificator sm = null;
+        string smName = null;
         foreach (string key in modificators.Keys) {
             if (name.StartsWith(key)) {
-                sm = modificators[key];
-		name = name.Substring (key.Length).Trim ();
+                smName = key;
+				name = name.Substring (key.Length).Trim ();
                 break;
             }
         }
         if (spellbook.ContainsKey(name))
         {
-            spellbook[name].cast(sm);
+            spellbook[name].cast(smName);
         }
     }
     
+	public SpellModificator getModIfExists (string name){
+		if (name != null && modificators.ContainsKey(name)) return modificators[name];
+		else return null;
+	}
 }

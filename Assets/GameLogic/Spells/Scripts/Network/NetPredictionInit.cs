@@ -20,7 +20,7 @@ public class NetPredictionInit : NetworkBehaviour, SpellInit
         audioSource = gameObject.GetComponent<AudioSource>();
     }
 
-    public void cast(SpellModificator sm)
+    public void cast(string smName)
     {
         if (!isLocalPlayer) return;
 

@@ -6,7 +6,7 @@ using UnityEngine.Networking;
 public class NetPhantasmInit : NetworkBehaviour, SpellInit
 {
     public GameObject spellTESTTEST;
-    public SpellModificator nextSpellModificator;
+    //public SpellModificator nextSpellModificator;
     public GameObject nextSpellOwner;
 
     public GameObject phantasm;
@@ -40,19 +40,19 @@ public class NetPhantasmInit : NetworkBehaviour, SpellInit
         NetPhantasmLogic spellComp = spell.GetComponent<NetPhantasmLogic>();
         print(gameObject.GetInstanceID());
         spellComp.SetOwner(gameObject);
-        spellComp.ApplyModificator(nextSpellModificator);
-        nextSpellModificator = null;
+        //spellComp.ApplyModificator(nextSpellModificator);
+        //nextSpellModificator = null;
         nextSpellOwner = null;
     }
 
-    public void cast(SpellModificator sm)
+    public void cast(string smName)
     {
         RaycastHit hit;
 
         if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
         {
             Vector3 phantasmDestination = hit.point;
-            nextSpellModificator = sm;
+            //nextSpellModificator = sm;
             nextSpellOwner = gameObject;
 
             // print("local player. ok!");

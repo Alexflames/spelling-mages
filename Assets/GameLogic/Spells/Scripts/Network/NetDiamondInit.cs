@@ -41,7 +41,7 @@ public class NetDiamondInit : NetworkBehaviour, SpellInit
         //}
     }
 
-    public void cast(SpellModificator sm)
+    public void cast(string smName)
     {
         CmdCast();
     }
