@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIFateTransitionAnimation : MonoBehaviour {
     public float m_timeLeft;
@@ -10,9 +11,13 @@ public class UIFateTransitionAnimation : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        m_timeLeft = 0.5f;
-        m_scale = 1;
+        ActivateAnim();
 	}
+
+    public void ActivateAnim()
+    {
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -25,7 +30,8 @@ public class UIFateTransitionAnimation : MonoBehaviour {
             gameObject.transform.localScale = new Vector3(1, 1);
             m_timeLeft = 0.5f;
             m_scale = 1;
-            gameObject.SetActive(false);
+            gameObject.GetComponent<Image>()
+                .color = new Color(1, 1, 1, 0);
         }
 	}
 }

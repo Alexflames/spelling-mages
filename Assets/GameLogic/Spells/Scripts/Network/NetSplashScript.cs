@@ -14,6 +14,11 @@ public class NetSplashScript : NetworkBehaviour
     public bool rightSplashExists;
     public int attackPower;
 
+    // Mods
+    private SpellModificator appliedMod = null;
+    private double attackFactor = 1.0;
+    private double speedFactor = 1.0;
+
     void OnTriggerEnter(Collider collision)
     {
         if (!collidesWith.Contains(collision.gameObject) && collision.gameObject.name != "NetWaterSplash(Clone)")
@@ -22,7 +27,7 @@ public class NetSplashScript : NetworkBehaviour
             if (collision.gameObject.CompareTag("Destroyable"))
             {   // Объект, в который врезались, уничтожаемый?
                 NetMortal HP = collision.gameObject.GetComponent<NetMortal>();
-                HP.lowerHP(attackPower);
+                HP.lowerHP((int)(attackFactor * attackPower));
             }
             else if (!collision.gameObject.CompareTag("Spell"))
             {
@@ -31,7 +36,28 @@ public class NetSplashScript : NetworkBehaviour
         }
     }
 
-    
+    public void ApplyModificator(SpellModificator sm)
+    {
+        print(sm.Name);
+        if (sm == null) return;
+        appliedMod = sm;
+        if (sm is NetStrongModificator)
+        {
+            attackFactor = (((NetStrongModificator)sm).factor);
+        }
+        if (sm is NetGreatModificator)
+        {
+            float sF = (float)(((NetGreatModificator)sm).scaleFactor);
+            gameObject.transform.localScale += new Vector3(sF - 1.0f, 0, sF - 1.0f);
+        }
+        if (sm is NetQuickModificator)
+        {
+            NetQuickModificator qm = (NetQuickModificator)sm;
+            attackFactor = 1 / qm.weakFactor;
+            speedFactor = qm.speedFactor;
+        }
+    }
+
 
     // Use this for initialization
     void Awake()
@@ -79,6 +105,7 @@ public class NetSplashScript : NetworkBehaviour
             leftSplashExists = true;
 
             NetSplashScript splController = created.GetComponent<NetSplashScript>();
+            splController.ApplyModificator(appliedMod);
             splController.CreatedFromRight();
             splController.SetTimeLeft(timeLeft);
         }
@@ -98,6 +125,7 @@ public class NetSplashScript : NetworkBehaviour
             rightSplashExists = true;
 
             NetSplashScript splController = created.GetComponent<NetSplashScript>();
+            splController.ApplyModificator(appliedMod);
             splController.CreatedFromLeft();
             splController.SetTimeLeft(timeLeft);
         }

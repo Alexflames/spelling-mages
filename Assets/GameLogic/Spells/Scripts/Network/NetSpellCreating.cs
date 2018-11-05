@@ -71,4 +71,9 @@ public class NetSpellCreating : NetworkBehaviour
         }
     }
 
+    public SpellModificator getModIfExists(string name)
+    {
+        if (name != null && modificators.ContainsKey(name)) return modificators[name];
+        else return null;
+    }
 }

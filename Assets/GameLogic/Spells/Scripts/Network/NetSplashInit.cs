@@ -24,12 +24,24 @@ public class NetSplashInit : NetworkBehaviour, SpellInit
     }
 
     [Command]
-    public void CmdCast(Vector3 waterDestination, Vector3 waterPos)
+    public void CmdCast(Vector3 waterDestination, Vector3 waterPos, string smName)
     {
         Quaternion towaradsPoint = Quaternion.LookRotation(waterDestination - waterPos + new Vector3(0, 0.75f, 0));
         var splash = GameObject.Instantiate(waterSplash, waterPos, towaradsPoint);
 
         NetworkServer.Spawn(splash);
+
+        RpcOtherStuff(splash, smName);
+    }
+
+    [ClientRpc]
+    private void RpcOtherStuff(GameObject spell, string smName)
+    {
+        NetSplashScript script = spell.GetComponent<NetSplashScript>();
+
+        SpellModificator sm = gameObject.GetComponent<NetSpellCreating>().getModIfExists(smName);
+
+        script.ApplyModificator(sm);
     }
 
     public void cast(string smName)
@@ -59,7 +71,7 @@ public class NetSplashInit : NetworkBehaviour, SpellInit
             {
                 waterDestination = hit.point;
 
-                CmdCast(waterDestination, waterPos);
+                CmdCast(waterDestination, waterPos, smName);
             }
         }
     }

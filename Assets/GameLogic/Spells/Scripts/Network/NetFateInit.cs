@@ -15,7 +15,6 @@ public class NetFateInit : NetworkBehaviour, SpellInit
     {
         this.gameObject.GetComponent<NetSpellCreating>().addSpell(aliases, this);
         predictionInit = gameObject.GetComponent<NetPredictionInit>();
-        fateTransition = GameObject.Find(UIAnimName).GetComponent<Image>();
     }
 
     public void cast(string smName)
@@ -23,9 +22,14 @@ public class NetFateInit : NetworkBehaviour, SpellInit
         if (predictionInit.spell)
         {
             predictionInit.spell.GetComponent<NetPrediction_FateLogic>().activateTransition();
-            // fateTransition.gameObject.SetActive(true);
-
-            gameObject.GetComponent<AudioSource>().Stop();
+            if (isLocalPlayer)
+            {
+                fateTransition = GameObject.Find(UIAnimName).GetComponent<Image>();
+                fateTransition.color = new Color(1, 1, 1, 1);
+                fateTransition.GetComponent<UIFateTransitionAnimation>().ActivateAnim();
+                gameObject.GetComponent<AudioSource>().Stop();
+            }
+            
         }
     }
 }
