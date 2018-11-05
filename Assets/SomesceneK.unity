@@ -794,6 +794,7 @@ GameObject:
   - component: {fileID: 283253768}
   - component: {fileID: 283253788}
   - component: {fileID: 283253789}
+  - component: {fileID: 283253790}
   - component: {fileID: 283253767}
   m_Layer: 8
   m_Name: AIThirdPersonController
@@ -1231,6 +1232,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scaleFactor: 1.5
+--- !u!114 &283253790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 283253766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3bafe120dbad2743be90f6af202a04c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wait: 2
 --- !u!1 &314742749
 GameObject:
   m_ObjectHideFlags: 0

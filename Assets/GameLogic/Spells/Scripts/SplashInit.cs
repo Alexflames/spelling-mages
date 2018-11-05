@@ -47,8 +47,18 @@ public class SplashInit : MonoBehaviour, SpellInit {
             {
                 waterDestination = hit.point;
                 Quaternion towaradsPoint = Quaternion.LookRotation(waterDestination - waterPos + new Vector3(0, 0.75f, 0));
-                GameObject.Instantiate(waterSplash, waterPos, towaradsPoint).GetComponent<SplashScript>().ApplyModificator(sm);
+                GameObject splash = Instantiate(waterSplash, waterPos, towaradsPoint);
+                if (sm != null && sm is RepeatModificator) {
+                    float wait = ((RepeatModificator)sm).wait;
+                    Instantiate(waterSplash, waterPos, towaradsPoint);
+                    StartCoroutine (repeatCast (wait, waterPos, towaradsPoint));
+                } else splash.GetComponent<SplashScript>().ApplyModificator(sm);
             }
         }
+    }
+
+    private IEnumerator repeatCast (float wait, Vector3 spellSpawnPos, Quaternion rotation) {
+        yield return new WaitForSeconds (wait);
+        Instantiate(waterSplash, spellSpawnPos, rotation);
     }
 }

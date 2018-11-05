@@ -8,25 +8,30 @@ public class DiamondInit : MonoBehaviour, SpellInit {
     private string[] aliases = {"diamond", "bullet"};
     // Use this for initialization
     void Start () {
-       this.gameObject.GetComponent<SpellCreating>().addSpell(aliases,this);
-	}
-	
-	// Update is called once per frame
-	void Update () {
+        this.gameObject.GetComponent<SpellCreating>().addSpell(aliases,this);
     }
 
-    Vector3 makeSpellSpawnPos(Vector3 adder, Transform owner)
+    Vector3 makeSpellSpawnPos (Vector3 adder, Transform owner)
     {
         return owner.position + adder;
+    }
+
+    private IEnumerator repeatCast (float wait, Vector3 spellSpawnPos, Quaternion rotation) {
+        yield return new WaitForSeconds (wait);
+        Instantiate(diamond, spellSpawnPos, rotation);
     }
 
     public void cast(SpellModificator sm)
     {
         ownerTransform = this.gameObject.transform;
-        Vector3 spellSpawnPosition = makeSpellSpawnPos(ownerTransform.forward * 2.0F, ownerTransform);
-        spellSpawnPosition += new Vector3(0, 0.5f, 0);
-        double factor = 1.0;
-        Instantiate(diamond, spellSpawnPosition, ownerTransform.rotation).GetComponent<DiamondLogic>().ApplyModificator(sm);
+        Vector3 spellSpawnPosition = makeSpellSpawnPos (ownerTransform.forward * 2.0F, ownerTransform);
+        spellSpawnPosition += new Vector3 (0, 0.5f, 0);
+        GameObject d = Instantiate (diamond, spellSpawnPosition, ownerTransform.rotation);
+        if (sm != null && sm is RepeatModificator) {
+             float wait = ((RepeatModificator)sm).wait;
+             StartCoroutine (repeatCast (wait, spellSpawnPosition, ownerTransform.rotation));
+        }
+        else d.GetComponent<DiamondLogic>().ApplyModificator (sm);
         
     }
 }

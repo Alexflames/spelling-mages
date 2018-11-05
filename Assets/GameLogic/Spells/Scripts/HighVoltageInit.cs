@@ -9,17 +9,22 @@ public class HighVoltageInit : MonoBehaviour, SpellInit {
     void Start () {
         this.gameObject.GetComponent<SpellCreating>().addSpell(aliases, this);
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
-    public void cast(SpellModificator sm)
+    private IEnumerator repeatCast (float wait, Vector3 spellSpawnPos, Quaternion rotation) {
+        yield return new WaitForSeconds (wait);
+        GameObject voltage2 = Instantiate (highVoltage, spellSpawnPos, rotation);
+        voltage2.GetComponent<HighVoltageLogic>().SetOwner (gameObject);
+    }
+
+    public void cast (SpellModificator sm)
     {
-        GameObject voltage = GameObject.Instantiate(highVoltage, gameObject.transform.position + transform.forward, gameObject.transform.rotation);
+        Vector3 spellSpawnPos = gameObject.transform.position + transform.forward;
+        GameObject voltage = GameObject.Instantiate (highVoltage, spellSpawnPos, gameObject.transform.rotation);
         HighVoltageLogic voltageLogic = voltage.GetComponent<HighVoltageLogic>();
-        voltageLogic.ApplyModificator (sm);
-        voltageLogic.SetOwner(gameObject);
+        if (sm != null && sm is RepeatModificator) {
+             float wait = ((RepeatModificator)sm).wait;
+             StartCoroutine (repeatCast (wait, spellSpawnPos, gameObject.transform.rotation));
+        } else voltageLogic.ApplyModificator (sm);
+        voltageLogic.SetOwner (gameObject);
     }
 }
