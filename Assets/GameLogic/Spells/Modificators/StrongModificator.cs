@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class StrongModificator:  AbstractSpellModificator {
-	public double factor = 1.0;
+	public float factor = 1.0f;
 	public override string Name {
 		get {
 			return "strong";

@@ -11,8 +11,8 @@ public class SplashScript : MonoBehaviour {
     public bool leftSplashExists;
     public bool rightSplashExists;
     public int attackPower;
-    private double attackFactor = 1.0;
-    private double speedFactor = 1.0;
+    private float attackFactor = 1.0f;
+    private float speedFactor = 1.0f;
     private SpellModificator appliedMod = null;
 
     public void ApplyModificator (SpellModificator sm)
@@ -21,11 +21,11 @@ public class SplashScript : MonoBehaviour {
         appliedMod = sm;
         if(sm is StrongModificator)
         {
-                attackFactor =  (((StrongModificator)sm).factor);
+                attackFactor =  ((StrongModificator)sm).factor;
         }
         if(sm is GreatModificator)
         {
-		float sF = (float)(((GreatModificator)sm).scaleFactor);
+		float sF = ((GreatModificator)sm).scaleFactor;
                 gameObject.transform.localScale += new Vector3 (sF - 1.0f, 0, sF - 1.0f) ;
         }
         if(sm is QuickModificator)
@@ -62,7 +62,7 @@ public class SplashScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        transform.Translate(Vector3.forward * (Time.deltaTime * speed * (float)speedFactor));
+        transform.Translate(Vector3.forward * (Time.deltaTime * speed * speedFactor));
         timeLeft -= Time.deltaTime;
         timeToExpand -= Time.deltaTime;
         if (timeLeft < 0)

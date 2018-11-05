@@ -6,8 +6,8 @@ public class HighVoltageLogic : MonoBehaviour {
     float timeToAppear;
     float timeToFade;
     public int attackPower;
-    private double attackFactor = 1.0;
-    private double speedFactor = 1.0;
+    private float attackFactor = 1.0f;
+    private float speedFactor = 1.0f;
     public GameObject part1;
     public GameObject part2;
     private GameObject part1_1;
@@ -23,12 +23,12 @@ public class HighVoltageLogic : MonoBehaviour {
         if (sm == null) return;
         if(sm is StrongModificator)
         {
-                attackFactor =  (((StrongModificator)sm).factor);
+                attackFactor =  ((StrongModificator)sm).factor;
         }
         if(sm is GreatModificator)
         {
                 greatMod = true;
-		sF = (float)(((GreatModificator)sm).scaleFactor);
+		sF = ((GreatModificator)sm).scaleFactor;
                 gameObject.transform.localScale += new Vector3 (sF - 1.0f, 0, sF - 1.0f) ;
         }
         if(sm is QuickModificator)
@@ -73,18 +73,12 @@ public class HighVoltageLogic : MonoBehaviour {
         part2_1.SetActive(false);
         part1_2.SetActive(false);
         part2_2.SetActive(false);
-        if(greatMod){
-              //part1_1.transform.localScale += new Vector3 (sF - 1.0f, 0, sF - 1.0f) ;
-              //part1_2.transform.localScale += new Vector3 (sF - 1.0f, 0, sF - 1.0f) ;
-              //part2_2.transform.localScale += new Vector3 (sF - 1.0f, 0, sF - 1.0f) ;
-              //part2_1.transform.localScale += new Vector3 (sF - 1.0f, 0, sF - 1.0f) ;
-        }
     }
 	
 	// Update is called once per frame
     void Update () {
-        timeToAppear -= Time.deltaTime * (float)speedFactor;
-        timeToFade -= Time.deltaTime * (float)speedFactor;
+        timeToAppear -= Time.deltaTime * speedFactor;
+        timeToFade -= Time.deltaTime * speedFactor;
         if (!part1.activeSelf && timeToAppear < 0.1f)
         {
             part1.SetActive(true);

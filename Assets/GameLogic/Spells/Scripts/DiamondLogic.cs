@@ -8,8 +8,8 @@ public class DiamondLogic : MonoBehaviour {
     public Collider colli;
     int layerMask;
     public int attackPower = 150;
-    private double attackFactor = 1.0;
-    private double speedFactor = 1.0;
+    private float attackFactor = 1.0f;
+    private float speedFactor = 1.0f;
 
     void Awake () {
         Destroy (this.gameObject, 5);
@@ -19,11 +19,6 @@ public class DiamondLogic : MonoBehaviour {
         rb = GetComponent<Rigidbody> ();
         colli = GetComponent<Collider> ();
     }
-	
-	// Update is called once per frame
-	//void Update () {
-
-	//}
 
     public void ApplyModificator (SpellModificator sm)
     {
@@ -34,7 +29,7 @@ public class DiamondLogic : MonoBehaviour {
         }
         if(sm is GreatModificator)
         {
-		float sF = (float)(((GreatModificator)sm).scaleFactor);
+		float sF = ((GreatModificator)sm).scaleFactor;
                 gameObject.transform.localScale += new Vector3 (sF - 1.0f, 0, sF - 1.0f) ;
         }
         if(sm is QuickModificator)
@@ -59,6 +54,6 @@ void OnTriggerEnter(Collider collision)
     }
 
     void FixedUpdate () {
-        rb.AddForce (transform.forward * 1.5f * (float)speedFactor);
+        rb.AddForce (transform.forward * 1.5f * speedFactor);
     }
 }
