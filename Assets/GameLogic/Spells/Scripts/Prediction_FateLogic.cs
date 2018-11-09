@@ -57,6 +57,7 @@ public class Prediction_FateLogic : MonoBehaviour {
         if (timeLeft < 0 && !m_activated)
         {
             DestroySpell();
+			return;
         }
         if (target != null)
             agent.SetDestination(target.position);
