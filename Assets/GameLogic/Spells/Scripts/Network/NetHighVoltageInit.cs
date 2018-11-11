@@ -19,26 +19,30 @@ public class NetHighVoltageInit : NetworkBehaviour, SpellInit
 
     }
 
-    public void cast(string sm)
+    public void cast(string smName)
     {
-        CmdCast(gameObject.transform.position + transform.forward, gameObject.transform.rotation);
+        CmdCast(gameObject.transform.position + transform.forward, gameObject.transform.rotation, smName);
     }
 
     [Command]
-    private void CmdCast(Vector3 pos, Quaternion rot)
+    private void CmdCast(Vector3 pos, Quaternion rot, string smName)
     {
         GameObject voltage = GameObject.Instantiate(highVoltage, pos, rot);
 
         NetworkServer.Spawn(voltage);
 
-        RpcOtherStuff(voltage);
+        RpcOtherStuff(voltage, smName);
     }
 
     [ClientRpc]
-    private void RpcOtherStuff(GameObject spell)
+    private void RpcOtherStuff(GameObject spell, string smName)
     {
         NetHighVoltageLogic voltageLogic = spell.GetComponent<NetHighVoltageLogic>();
+
         voltageLogic.ApplyModificator(null);
         voltageLogic.SetOwner(gameObject);
+
+        SpellModificator sm = gameObject.GetComponent<NetSpellCreating>().getModIfExists(smName);
+        voltageLogic.ApplyModificator(sm);
     }
 }

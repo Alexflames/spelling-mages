@@ -20,10 +20,6 @@ public class NetSpellCreating : NetworkBehaviour
 
     public void addSpell(string[] names, SpellInit sp)
     {
-        if (!isLocalPlayer)
-        {
-            return;
-        }
         string name = names[0];
         if (randomise)
         {

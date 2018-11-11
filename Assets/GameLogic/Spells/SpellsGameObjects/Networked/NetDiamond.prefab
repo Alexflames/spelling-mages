@@ -22,13 +22,12 @@ GameObject:
   - component: {fileID: 33879009207449644}
   - component: {fileID: 136819586048461192}
   - component: {fileID: 23113073513601926}
-  - component: {fileID: 114063007356855346}
+  - component: {fileID: 114862164927145108}
   - component: {fileID: 54185324730162714}
   - component: {fileID: 114080267245585322}
-  - component: {fileID: 114530268716362052}
   m_Layer: 8
   m_Name: NetDiamond
-  m_TagString: Untagged
+  m_TagString: Spell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -103,20 +102,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
---- !u!114 &114063007356855346
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1583943583358182}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7c1492dd7db6e64d9bfa06554648445, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: 0}
-  colli: {fileID: 0}
-  attackPower: 99
 --- !u!114 &114080267245585322
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -149,7 +134,7 @@ MonoBehaviour:
     i15: 120
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 0
---- !u!114 &114530268716362052
+--- !u!114 &114862164927145108
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -157,19 +142,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1583943583358182}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -1768714887, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Script: {fileID: 11500000, guid: 936768aeb047cd54e9ccc165ba4790f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_TransformSyncMode: 3
-  m_SendInterval: 0.1
-  m_SyncRotationAxis: 7
-  m_RotationSyncCompression: 0
-  m_SyncSpin: 0
-  m_MovementTheshold: 0.001
-  m_VelocityThreshold: 0.0001
-  m_SnapThreshold: 5
-  m_InterpolateRotation: 1
-  m_InterpolateMovement: 1
+  rb: {fileID: 0}
+  colli: {fileID: 0}
+  attackPower: 99
 --- !u!136 &136819586048461192
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -177,8 +155,8 @@ CapsuleCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1583943583358182}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
+  m_IsTrigger: 1
+  m_Enabled: 1
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
