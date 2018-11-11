@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class NetGreatModificator : NetAbstractSpellModificator
 {
-    public double scaleFactor = 1.0;
+    public float scaleFactor = 1.0f;
     public override string Name
     {
         get

@@ -38,7 +38,6 @@ public class NetSplashScript : NetworkBehaviour
 
     public void ApplyModificator(SpellModificator sm)
     {
-        print(sm.Name);
         if (sm == null) return;
         appliedMod = sm;
         if (sm is NetStrongModificator)
@@ -47,7 +46,7 @@ public class NetSplashScript : NetworkBehaviour
         }
         if (sm is NetGreatModificator)
         {
-            float sF = (float)(((NetGreatModificator)sm).scaleFactor);
+            float sF = (((NetGreatModificator)sm).scaleFactor); // TODO: fix fix fix
             gameObject.transform.localScale += new Vector3(sF - 1.0f, 0, sF - 1.0f);
         }
         if (sm is NetQuickModificator)
@@ -71,7 +70,7 @@ public class NetSplashScript : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.forward * Time.deltaTime * speed);
+        transform.Translate(Vector3.forward * Time.deltaTime * (float)speedFactor * speed);
         timeLeft -= Time.deltaTime;
         timeToExpand -= Time.deltaTime;
         if (timeLeft < 0)

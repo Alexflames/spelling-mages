@@ -29,7 +29,7 @@ GameObject:
   - component: {fileID: 114220547413607746}
   m_Layer: 8
   m_Name: NetWaterSplash
-  m_TagString: Untagged
+  m_TagString: Spell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -20,13 +20,18 @@ public class NetPhantasmLogic : NetworkBehaviour
     public void ApplyModificator(SpellModificator sm)
     {
         if (sm == null) return;
-        if (sm is StrongModificator)
+        if (sm is NetStrongModificator)
         {
-            attackFactor = (((StrongModificator)sm).factor);
+            attackFactor = ((NetStrongModificator)sm).factor;
         }
-        if (sm is QuickModificator)
+        if (sm is NetGreatModificator)
         {
-            QuickModificator qm = (QuickModificator)sm;
+            float sF = ((NetGreatModificator)sm).scaleFactor; // TODO: fix
+            gameObject.transform.localScale += new Vector3(sF - 1.0f, 0, sF - 1.0f);
+        }
+        if (sm is NetQuickModificator)
+        {
+            NetQuickModificator qm = (NetQuickModificator)sm;
             attackFactor = 1 / qm.weakFactor;
             speedFactor = qm.speedFactor;
         }

@@ -49,9 +49,15 @@ public class NavMeshChangesScript : MonoBehaviour {
             objectsNotTreated,
             watchedSources);
 
+        var nSet = NavMesh.GetSettingsByID(0);
+        nSet.agentRadius = 0.5f;
+        nSet.agentHeight = 1.5f;
+        nSet.agentSlope = 60f;
+        nSet.agentClimb = 1.0f;
+
         status = NavMeshBuilder.UpdateNavMeshDataAsync(
             nvData,
-            NavMesh.GetSettingsByID(0),
+            nSet,
             watchedSources,
             new Bounds(gameObject.transform.position, new Vector3(bounds, bounds, bounds)));
     }
