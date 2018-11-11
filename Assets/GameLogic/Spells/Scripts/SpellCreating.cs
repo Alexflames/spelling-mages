@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class SpellCreating : MonoBehaviour {
 
     public Text spellBookText;
+	public GameObject newSpellBookPanel;
+	public GameObject modBookPanel;
 	private GameObject playerCharacter;
     private Dictionary<string, SpellInit> spellbook = new Dictionary<string, SpellInit>();
     private Dictionary<string, SpellModificator> modificators = new Dictionary<string, SpellModificator>();
@@ -14,6 +16,9 @@ public class SpellCreating : MonoBehaviour {
 
     public void addModificator (SpellModificator sm){
         modificators.Add (sm.Name, sm);
+		if(modBookPanel != null) {
+			modBookPanel.GetComponent<AddModToBook>().addModBookEntry (sm.Name, sm);
+		}
     }
 
     public void addSpell(string[] names, SpellInit sp)
@@ -25,10 +30,13 @@ public class SpellCreating : MonoBehaviour {
             name = names[rand.Next(names.Length)];
         }
         spellbook.Add(name, sp);
-        if (spellBookText != null)
+        /*if (spellBookText != null)
         {
             spellBookText.text += "\n" + name;
-        }
+        }*/
+		if(newSpellBookPanel != null) {
+			newSpellBookPanel.GetComponent<AddSpellToBook>().addSpellBookEntry (name, sp);
+		}
     }
    
     public void castSpell (string name) {
