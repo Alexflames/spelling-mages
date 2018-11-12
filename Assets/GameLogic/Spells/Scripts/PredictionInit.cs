@@ -37,4 +37,10 @@ public class PredictionInit : MonoBehaviour, SpellInit {
         }
     }
 
+    public string Description {
+		get {
+			return "prediction";
+		}
+    }
+
 }

@@ -62,4 +62,10 @@ public class SplashInit : MonoBehaviour, SpellInit {
         yield return new WaitForSeconds (wait);
         Instantiate(waterSplash, spellSpawnPos, rotation);
     }
+
+    public string Description {
+		get {
+			return "splash";
+		}
+    }
 }

@@ -62,4 +62,10 @@ public class NetPhantasmInit : NetworkBehaviour, SpellInit
         }
 
     }
+
+    public string Description {
+		get {
+			return "netphantasm";
+		}
+    }
 }

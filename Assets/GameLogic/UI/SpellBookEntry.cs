@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class SpellBookEntry : MonoBehaviour {
-
+	//private Text
 	public void setText (string text) {
 		gameObject.GetComponentInChildren<Text>().text = text;
 	}

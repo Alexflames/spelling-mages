@@ -32,4 +32,10 @@ public class NetFateInit : NetworkBehaviour, SpellInit
             
         }
     }
+
+    public string Description {
+		get {
+			return "netfate";
+		}
+    }
 }

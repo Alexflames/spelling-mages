@@ -69,5 +69,9 @@ public class NetPredictionInit : NetworkBehaviour, SpellInit
         spellLogic.SetDestination(destination);
         this.spell = spell;
     }
-
+    public string Description {
+		get {
+			return "netprediction";
+		}
+    }
 }

@@ -75,4 +75,10 @@ public class NetSplashInit : NetworkBehaviour, SpellInit
             }
         }
     }
+
+    public string Description {
+		get {
+			return "netsplash";
+		}
+    }
 }

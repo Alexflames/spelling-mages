@@ -64,4 +64,10 @@ public class NetDiamondInit : NetworkBehaviour, SpellInit
             SpawnLogic(smName);
         }
     }
+
+    public string Description {
+		get {
+			return "netdiamond";
+		}
+    }
 }

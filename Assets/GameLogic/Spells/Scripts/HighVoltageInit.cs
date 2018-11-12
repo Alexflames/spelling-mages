@@ -28,4 +28,10 @@ public class HighVoltageInit : MonoBehaviour, SpellInit {
         } else voltageLogic.ApplyModificator (sm);
         voltageLogic.SetOwner (gameObject);
     }
+
+    public string Description {
+		get {
+			return "High voltage";
+		}
+    }
 }

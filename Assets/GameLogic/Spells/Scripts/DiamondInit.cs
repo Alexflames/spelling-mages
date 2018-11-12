@@ -35,4 +35,10 @@ public class DiamondInit : MonoBehaviour, SpellInit {
         else d.GetComponent<DiamondLogic>().ApplyModificator (sm);
         
     }
+
+    public string Description {
+		get {
+			return "diamond";
+		}
+    }
 }

@@ -45,4 +45,10 @@ public class NetHighVoltageInit : NetworkBehaviour, SpellInit
         SpellModificator sm = gameObject.GetComponent<NetSpellCreating>().getModIfExists(smName);
         voltageLogic.ApplyModificator(sm);
     }
+
+    public string Description {
+		get {
+			return "nethighvoltage";
+		}
+    }
 }

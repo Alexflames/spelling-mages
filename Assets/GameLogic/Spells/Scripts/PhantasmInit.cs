@@ -37,4 +37,10 @@ public class PhantasmInit : MonoBehaviour, SpellInit {
         }
 
     }
+
+    public string Description {
+		get {
+			return "phantasm";
+		}
+    }
 }

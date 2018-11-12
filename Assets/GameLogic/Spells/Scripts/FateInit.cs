@@ -23,4 +23,10 @@ public class FateInit : MonoBehaviour, SpellInit {
             gameObject.GetComponent<AudioSource>().Stop();
         }
     }
+
+    public string Description {
+		get {
+			return "fate";
+		}
+    }
 }
