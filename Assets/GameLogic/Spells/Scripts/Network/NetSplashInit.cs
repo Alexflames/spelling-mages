@@ -8,7 +8,7 @@ public class NetSplashInit : NetworkBehaviour, SpellInit
     // Variables for drawing circle
     public GameObject circleDrawer;
     private SplashCircleDrawer splashCircleDrawer;
-    private string[] aliases = { "splash", "tsunami", "killerwave", "aqua strike" };
+    private string[] aliases = { "splash", "tsunami", "killerwave", "aqua strike", "tidal wave" };
     [Range(0, 10)]
     public float radius = 8;
 

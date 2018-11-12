@@ -6,7 +6,7 @@ using UnityEngine.Networking;
 public class NetHighVoltageInit : NetworkBehaviour, SpellInit
 {
     public GameObject highVoltage;
-    private string[] aliases = { "high voltage", "electricity", "lightning", "thunderstruck" };
+    private string[] aliases = { "high voltage", "electricity", "lightning", "thunderstruck", "supercharge", "coil overload" };
     // Use this for initialization
     void Start()
     {

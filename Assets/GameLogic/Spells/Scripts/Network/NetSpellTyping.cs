@@ -10,6 +10,14 @@ public class NetSpellTyping : NetworkBehaviour
     public Text currentText;
     private NetSpellCreating spellCreateComponent;
 
+    private GameObject newSpellBook;
+    private Info hintLogic;
+
+    void Awake()
+    {
+        
+    }
+
     // Use this for initialization
     void Start()
     {
@@ -18,6 +26,11 @@ public class NetSpellTyping : NetworkBehaviour
             currentText = GameObject.Find("TypeText").GetComponent<Text>();
             currentText.text = "";
             spellCreateComponent = GetComponentInParent<NetSpellCreating>();
+
+            newSpellBook = GameObject.Find("NewSpellBook");
+
+            hintLogic = newSpellBook.GetComponent<Info>();
+            hintLogic.infoPanel.SetActive(false);
         }
         
     }
@@ -28,6 +41,11 @@ public class NetSpellTyping : NetworkBehaviour
         if (!isLocalPlayer)
         {
             return;
+        }
+
+        if (Input.GetKeyDown(KeyCode.F1) && currentText.text.Trim().Length >= 3 && newSpellBook.activeSelf)
+        {
+            hintLogic.TryActivate(currentText.text.Trim());
         }
 
         if (Input.GetButtonDown("Submit") && Input.GetButton("Shift"))

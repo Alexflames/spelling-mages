@@ -9,7 +9,7 @@ public class NetPredictionInit : NetworkBehaviour, SpellInit
     public GameObject spell;       // Created prediction object
     private AudioSource audioSource;
     public AudioClip clockSound;
-    private string[] aliases = { "prediction", "sibylla" };
+    private string[] aliases = { "prediction", "forecast", "farseer" };
     [Range(5, 20)]
     public float lastingTime = 8;
 

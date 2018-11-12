@@ -20,7 +20,6 @@ public class Info : MonoBehaviour {
 				content = child.gameObject.GetComponent<Text> ();
 			}
 		}
-		infoPanel.SetActive (false);
 	}
 	
 	void SetInfo (string name, string con) {

@@ -1,0 +1,416 @@
+fileFormatVersion: 2
+guid: 008fe7e2bf188a04f80be11d6a63dd91
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Chest
+    100002: Joe
+    100004: //RootNode
+    100006: Neck
+    100008: Pelvis
+    100010: Stomach
+    100012: Vertex
+    100014: "\u041E\u0431\u044A\u0435\u043A\u0442_\u0421\u0444\u0435\u0440\u0430_1"
+    100016: "\u0421\u0443\u0441\u0442\u0430\u0432"
+    100018: "\u0421\u0443\u0441\u0442\u0430\u0432_1"
+    100020: "\u0421\u0443\u0441\u0442\u0430\u0432_1_2"
+    100022: "\u0421\u0443\u0441\u0442\u0430\u0432_1_3"
+    100024: "\u0421\u0443\u0441\u0442\u0430\u0432_1_4"
+    100026: "\u0421\u0443\u0441\u0442\u0430\u0432_2"
+    100028: "\u0421\u0443\u0441\u0442\u0430\u0432_2_2"
+    100030: "\u0421\u0443\u0441\u0442\u0430\u0432_2_3"
+    100032: "\u0421\u0443\u0441\u0442\u0430\u0432_2_4"
+    100034: "\u0421\u0443\u0441\u0442\u0430\u0432_2_5"
+    100036: "\u0421\u0443\u0441\u0442\u0430\u0432_3"
+    100038: "\u0421\u0443\u0441\u0442\u0430\u0432_3_2"
+    100040: "\u0421\u0443\u0441\u0442\u0430\u0432_3_3"
+    100042: "\u0421\u0443\u0441\u0442\u0430\u0432_3_4"
+    100044: "\u0421\u0443\u0441\u0442\u0430\u0432_3_5"
+    100046: "\u0421\u0443\u0441\u0442\u0430\u0432_4"
+    100048: "\u0421\u0443\u0441\u0442\u0430\u0432_4_2"
+    100050: "\u0421\u0443\u0441\u0442\u0430\u0432_5"
+    400000: Chest
+    400002: Joe
+    400004: //RootNode
+    400006: Neck
+    400008: Pelvis
+    400010: Stomach
+    400012: Vertex
+    400014: "\u041E\u0431\u044A\u0435\u043A\u0442_\u0421\u0444\u0435\u0440\u0430_1"
+    400016: "\u0421\u0443\u0441\u0442\u0430\u0432"
+    400018: "\u0421\u0443\u0441\u0442\u0430\u0432_1"
+    400020: "\u0421\u0443\u0441\u0442\u0430\u0432_1_2"
+    400022: "\u0421\u0443\u0441\u0442\u0430\u0432_1_3"
+    400024: "\u0421\u0443\u0441\u0442\u0430\u0432_1_4"
+    400026: "\u0421\u0443\u0441\u0442\u0430\u0432_2"
+    400028: "\u0421\u0443\u0441\u0442\u0430\u0432_2_2"
+    400030: "\u0421\u0443\u0441\u0442\u0430\u0432_2_3"
+    400032: "\u0421\u0443\u0441\u0442\u0430\u0432_2_4"
+    400034: "\u0421\u0443\u0441\u0442\u0430\u0432_2_5"
+    400036: "\u0421\u0443\u0441\u0442\u0430\u0432_3"
+    400038: "\u0421\u0443\u0441\u0442\u0430\u0432_3_2"
+    400040: "\u0421\u0443\u0441\u0442\u0430\u0432_3_3"
+    400042: "\u0421\u0443\u0441\u0442\u0430\u0432_3_4"
+    400044: "\u0421\u0443\u0441\u0442\u0430\u0432_3_5"
+    400046: "\u0421\u0443\u0441\u0442\u0430\u0432_4"
+    400048: "\u0421\u0443\u0441\u0442\u0430\u0432_4_2"
+    400050: "\u0421\u0443\u0441\u0442\u0430\u0432_5"
+    2100000: "\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B.1"
+    2100002: "\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B.2"
+    2100004: "\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B.3"
+    2100006: "\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B.5"
+    2100008: "\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B.4"
+    2100010: No Name
+    4300000: "\u041E\u0431\u044A\u0435\u043A\u0442_\u0421\u0444\u0435\u0440\u0430_1"
+    9500000: //RootNode
+    13700000: "\u041E\u0431\u044A\u0435\u043A\u0442_\u0421\u0444\u0435\u0440\u0430_1"
+    2186277476908879412: ImportLogs
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: "Invalid Avatar Rig Configuration. Missing or invalid transform:\n\tRequired
+      human bone 'RightUpperArm' not found\n"
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human:
+    - boneName: Pelvis
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: "\u0421\u0443\u0441\u0442\u0430\u0432_1_2"
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: "\u0421\u0443\u0441\u0442\u0430\u0432"
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: "\u0421\u0443\u0441\u0442\u0430\u0432_2_2"
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: "\u0421\u0443\u0441\u0442\u0430\u0432_1"
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: "\u0421\u0443\u0441\u0442\u0430\u0432_3_2"
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: "\u0421\u0443\u0441\u0442\u0430\u0432_2"
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Stomach
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Neck
+      humanName: Neck
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Joe
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: "\u0421\u0443\u0441\u0442\u0430\u0432_3_4"
+      humanName: LeftShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: "\u0421\u0443\u0441\u0442\u0430\u0432_2_3"
+      humanName: RightShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: "\u0421\u0443\u0441\u0442\u0430\u0432_1_4"
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: "\u0421\u0443\u0441\u0442\u0430\u0432_2_5"
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: "\u0421\u0443\u0441\u0442\u0430\u0432_4_2"
+      humanName: LeftToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: "\u0421\u0443\u0441\u0442\u0430\u0432_3"
+      humanName: RightToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: "\u0421\u0443\u0441\u0442\u0430\u0432_3_5"
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: MAGTHELASTONE(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: "\u041E\u0431\u044A\u0435\u043A\u0442_\u0421\u0444\u0435\u0440\u0430_1"
+      parentName: MAGTHELASTONE(Clone)
+      position: {x: -0, y: 1.0847187, z: 0.13974428}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Pelvis
+      parentName: MAGTHELASTONE(Clone)
+      position: {x: 0.003049471, y: 1.1096096, z: -0.12448345}
+      rotation: {x: 0.62343407, y: 0.0035347794, z: -0.0028185274, w: 0.78186285}
+      scale: {x: 1, y: 1, z: 1}
+    - name: "\u0421\u0443\u0441\u0442\u0430\u0432"
+      parentName: Pelvis
+      position: {x: 0.105181016, y: -0.00952313, z: 0.111356206}
+      rotation: {x: 0.69696325, y: 0.7077924, z: 0.059588496, w: -0.098597385}
+      scale: {x: 1, y: 1, z: 1}
+    - name: "\u0421\u0443\u0441\u0442\u0430\u0432_1"
+      parentName: "\u0421\u0443\u0441\u0442\u0430\u0432"
+      position: {x: 0.042491, y: 0.032811064, z: -0.37845713}
+      rotation: {x: -0.028267952, y: 3.138373e-18, z: 1.1097794e-16, w: 0.9996004}
+      scale: {x: 1, y: 1, z: 1}
+    - name: "\u0421\u0443\u0441\u0442\u0430\u0432_2"
+      parentName: "\u0421\u0443\u0441\u0442\u0430\u0432_1"
+      position: {x: -0.02728712, y: -0.020531503, z: -0.49443015}
+      rotation: {x: 0.033277936, y: 1.681433e-10, z: 0.000000005049898, w: 0.99944615}
+      scale: {x: 1, y: 1, z: 1}
+    - name: "\u0421\u0443\u0441\u0442\u0430\u0432_3"
+      parentName: "\u0421\u0443\u0441\u0442\u0430\u0432_2"
+      position: {x: 0.09226326, y: -0.0025233873, z: -0.07367792}
+      rotation: {x: 0.19723797, y: -0.0000000012283824, z: -0.0000000045244555, w: 0.9803557}
+      scale: {x: 1, y: 1, z: 1}
+    - name: "\u0421\u0443\u0441\u0442\u0430\u0432_4"
+      parentName: "\u0421\u0443\u0441\u0442\u0430\u0432_3"
+      position: {x: 0.13449337, y: -0.004290298, z: -0.024567485}
+      rotation: {x: 8.0212555e-15, y: -4.9650682e-17, z: -9.9301365e-17, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: "\u0421\u0443\u0441\u0442\u0430\u0432_1_2"
+      parentName: Pelvis
+      position: {x: -0.098152384, y: -0.01227187, z: 0.11513435}
+      rotation: {x: 0.7032937, y: -0.70142144, z: -0.059052125, w: -0.09949296}
+      scale: {x: 1, y: 1, z: 1}
+    - name: "\u0421\u0443\u0441\u0442\u0430\u0432_2_2"
+      parentName: "\u0421\u0443\u0441\u0442\u0430\u0432_1_2"
+      position: {x: -0.042491, y: 0.026875505, z: -0.37812117}
+      rotation: {x: -0.028267952, y: -2.1061265e-10, z: -0.000000007447603, w: 0.9996004}
+      scale: {x: 1, y: 1, z: 1}
+    - name: "\u0421\u0443\u0441\u0442\u0430\u0432_3_2"
+      parentName: "\u0421\u0443\u0441\u0442\u0430\u0432_2_2"
+      position: {x: 0.02728712, y: 0.00910173, z: -0.49007654}
+      rotation: {x: 0.033277936, y: -5.5035767e-13, z: -1.6529056e-11, w: 0.99944615}
+      scale: {x: 1, y: 1, z: 1}
+    - name: "\u0421\u0443\u0441\u0442\u0430\u0432_4_2"
+      parentName: "\u0421\u0443\u0441\u0442\u0430\u0432_3_2"
+      position: {x: -0.09226326, y: -0.002523388, z: -0.07367792}
+      rotation: {x: 0.19723797, y: -1.650696e-10, z: -6.0799477e-10, w: 0.9803557}
+      scale: {x: 1, y: 1, z: 1}
+    - name: "\u0421\u0443\u0441\u0442\u0430\u0432_5"
+      parentName: "\u0421\u0443\u0441\u0442\u0430\u0432_4_2"
+      position: {x: -0.13449337, y: -0.0042903004, z: -0.024567485}
+      rotation: {x: 5.548511e-16, y: -2.2243615e-10, z: -4.448723e-10, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Stomach
+      parentName: Pelvis
+      position: {x: -8.881784e-18, y: 0.035592623, z: -0.19254081}
+      rotation: {x: -1.4294121e-15, y: -1.3010426e-18, z: 1.7347235e-18, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Chest
+      parentName: Stomach
+      position: {x: -1.6653345e-18, y: 0.050995965, z: -0.2957066}
+      rotation: {x: 5.3151927e-15, y: 1.517883e-18, z: -1.7347235e-18, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: "\u0421\u0443\u0441\u0442\u0430\u0432_2_3"
+      parentName: Chest
+      position: {x: 0.22588621, y: 0.055208683, z: -0.11641507}
+      rotation: {x: -0.43681514, y: -0.5537282, z: 0.44486618, w: 0.5519707}
+      scale: {x: 1, y: 1, z: 1}
+    - name: "\u0421\u0443\u0441\u0442\u0430\u0432_1_3"
+      parentName: "\u0421\u0443\u0441\u0442\u0430\u0432_2_3"
+      position: {x: -0.06144052, y: -0.0063916747, z: -0.13994873}
+      rotation: {x: 0.0045195674, y: 0.000000007450054, z: -8.845411e-11, w: 0.9999898}
+      scale: {x: 1, y: 1, z: 1}
+    - name: "\u0421\u0443\u0441\u0442\u0430\u0432_2_4"
+      parentName: "\u0421\u0443\u0441\u0442\u0430\u0432_1_3"
+      position: {x: 0.0000000014929022, y: -0.005787362, z: -0.100142375}
+      rotation: {x: -0.031982087, y: -0.0000000074344038, z: -1.1595312e-10, w: 0.9994885}
+      scale: {x: 1, y: 1, z: 1}
+    - name: "\u0421\u0443\u0441\u0442\u0430\u0432_3_3"
+      parentName: "\u0421\u0443\u0441\u0442\u0430\u0432_2_4"
+      position: {x: 2.9417178e-12, y: -0.0021902022, z: -0.09870224}
+      rotation: {x: -5.551117e-17, y: 0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: "\u0421\u0443\u0441\u0442\u0430\u0432_3_4"
+      parentName: Chest
+      position: {x: -0.18758415, y: 0.060157273, z: -0.09968175}
+      rotation: {x: -0.44078276, y: 0.548744, z: -0.44086185, w: 0.5569843}
+      scale: {x: 1, y: 1, z: 1}
+    - name: "\u0421\u0443\u0441\u0442\u0430\u0432_1_4"
+      parentName: "\u0421\u0443\u0441\u0442\u0430\u0432_3_4"
+      position: {x: 0.010240086, y: 0.0339062, z: -0.2874251}
+      rotation: {x: 0.0045195674, y: -0.0000000074500552, z: 8.8454126e-11, w: 0.9999898}
+      scale: {x: 1, y: 1, z: 1}
+    - name: "\u0421\u0443\u0441\u0442\u0430\u0432_2_5"
+      parentName: "\u0421\u0443\u0441\u0442\u0430\u0432_1_4"
+      position: {x: -0.0000000041993835, y: -0.004702184, z: -0.29112896}
+      rotation: {x: -0.031982087, y: -0.000000007464947, z: -1.1642949e-10, w: 0.9994885}
+      scale: {x: 1, y: 1, z: 1}
+    - name: "\u0421\u0443\u0441\u0442\u0430\u0432_3_5"
+      parentName: "\u0421\u0443\u0441\u0442\u0430\u0432_2_5"
+      position: {x: -0.000000004596906, y: 0.0025280123, z: -0.15287612}
+      rotation: {x: -5.1383414e-17, y: 0.000000007442148, z: 3.54388e-10, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Neck
+      parentName: Chest
+      position: {x: 0.0032713567, y: 0.048491653, z: -0.17804004}
+      rotation: {x: -5.0829914e-15, y: -0.022709688, z: -1.06136385e-16, w: 0.9997421}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Joe
+      parentName: Neck
+      position: {x: -0.0059251892, y: 0.027162554, z: -0.053127665}
+      rotation: {x: 8.749777e-16, y: 0.022709688, z: -1.9875595e-17, w: 0.9997421}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Vertex
+      parentName: Joe
+      position: {x: 2.4980017e-17, y: 0.12371269, z: -0.33238044}
+      rotation: {x: -1.110223e-16, y: -1.4203048e-16, z: 8.6736174e-19, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 3
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

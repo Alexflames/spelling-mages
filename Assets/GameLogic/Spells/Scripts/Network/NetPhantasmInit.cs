@@ -10,7 +10,7 @@ public class NetPhantasmInit : NetworkBehaviour, SpellInit
     public GameObject nextSpellOwner;
 
     public GameObject phantasm;
-    private string[] aliases = { "phantasm", "phantom", "ghost" };
+    private string[] aliases = { "phantasm", "phantom", "ghost", "spectre", "apparition" };
     // Use this for initialization
     void Start()
     {

@@ -9,7 +9,7 @@ public class NetFateInit : NetworkBehaviour, SpellInit
     public NetPredictionInit predictionInit;
     public Image fateTransition;
     public string UIAnimName = "FateTransition";
-    private string[] aliases = { "fate" };
+    private string[] aliases = { "fate", "rewind" };
     // Use this for initialization
     void Start()
     {

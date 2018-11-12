@@ -8,6 +8,8 @@ public class NetSpellCreating : NetworkBehaviour
 {
     public Text spellBookText;
     private GameObject playerCharacter;
+    private GameObject newSpellBookPanel;
+    public GameObject modBookPanel;
     private Dictionary<string, SpellInit> spellbook = new Dictionary<string, SpellInit>();
     private Dictionary<string, SpellModificator> modificators = new Dictionary<string, SpellModificator>();
     private System.Random rand = new System.Random();
@@ -16,6 +18,10 @@ public class NetSpellCreating : NetworkBehaviour
     public void addModificator(SpellModificator sm)
     {
         modificators.Add(sm.Name, sm);
+        if (modBookPanel != null)
+        {
+            modBookPanel.GetComponent<AddModToBook>().addModBookEntry(sm.Name, sm);
+        }
     }
 
     public void addSpell(string[] names, SpellInit sp)
@@ -26,9 +32,13 @@ public class NetSpellCreating : NetworkBehaviour
             name = names[rand.Next(names.Length)];
         }
         spellbook.Add(name, sp);
-        if (spellBookText != null)
+        //if (spellBookText != null)
+        //{
+        //    spellBookText.text += "\n" + name;
+        //}
+        if (newSpellBookPanel != null)
         {
-            spellBookText.text += "\n" + name;
+            newSpellBookPanel.GetComponent<AddSpellToBook>().addSpellBookEntry(name, sp);
         }
     }
 
@@ -37,16 +47,11 @@ public class NetSpellCreating : NetworkBehaviour
     {
         if (isLocalPlayer)
         {
-            spellBookText = GameObject.Find("SpellBook").GetComponent<Text>();
-            spellBookText.text = "SpellBook \n";
+            newSpellBookPanel = GameObject.Find("NewSpellBook");
             randomise = true;
-        }
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
+            modBookPanel = GameObject.Find("ModBook");
+        }
 
     }
 
