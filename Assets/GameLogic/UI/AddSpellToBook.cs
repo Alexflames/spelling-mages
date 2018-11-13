@@ -6,13 +6,13 @@ public class AddSpellToBook : MonoBehaviour {
 
 	public GameObject templateEntry;
 	private Dictionary<string, SpellInit> spells = new Dictionary<string, SpellInit>();
-	private Dictionary<string, SpellBookEntry> entries = new Dictionary<string, SpellBookEntry>();
+	private Dictionary<string, GameObject> entries = new Dictionary<string, GameObject>();
 	public void addSpellBookEntry (string name, SpellInit spell) {
 		GameObject newEntry = Instantiate (templateEntry);
 		newEntry.GetComponent<SpellBookEntry>().setText (name);
 		newEntry.transform.SetParent (gameObject.transform, false);
 		spells.Add (name, spell);
-		entries.Add (name, newEntry.GetComponent<SpellBookEntry>());
+		entries.Add (name, newEntry);
 	}
 
 	public string Search (string prename){
