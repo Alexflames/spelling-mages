@@ -33,16 +33,17 @@ public class NetPlayerMortal : NetMortal
         {
             UIHealthScript.changeHP(0);
             dies();
-            if (isLocalPlayer) {
-                spellBook.GetComponent<AddSpellToBook> ().Reset ();
-                modBook.GetComponent<AddModToBook> ().Reset ();
-            }
         }
         UIHealthScript.changeHP(health);
     }
 
     void dies()
     {
+        if (isLocalPlayer)
+        {
+            spellBook.GetComponent<AddSpellToBook>().Reset();
+            modBook.GetComponent<AddModToBook>().Reset();
+        }
         print(gameObject.name + " is ded");
         Destroy(gameObject);
     }

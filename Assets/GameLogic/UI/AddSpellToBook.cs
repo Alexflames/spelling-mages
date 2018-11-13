@@ -23,8 +23,10 @@ public class AddSpellToBook : MonoBehaviour {
 	}
 
 	public void Reset () {
+        
 		foreach (string key in entries.Keys) {
-			Destroy (entries[key]);
+            print("i wanna reset spellbook");
+            Destroy (entries[key]);
 		}
 		spells.Clear ();
 		entries.Clear ();
