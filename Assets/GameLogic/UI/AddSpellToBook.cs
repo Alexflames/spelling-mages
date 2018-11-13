@@ -22,6 +22,14 @@ public class AddSpellToBook : MonoBehaviour {
 		return null;
 	}
 
+	public void Reset () {
+		foreach (string key in entries.Keys) {
+			Destroy (entries[key]);
+		}
+		spells.Clear ();
+		entries.Clear ();
+	}
+
 	public SpellInit ReturnInit (string name) {
 		return spells[name];
 	}

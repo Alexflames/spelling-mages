@@ -6246,7 +6246,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1712788162
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6271,7 +6271,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1712788161}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 67a72522050c9b5429fc7411207c4de8, type: 3}
   m_Name: 
@@ -7781,7 +7781,6 @@ GameObject:
   - component: {fileID: 2102930933}
   - component: {fileID: 2102930936}
   - component: {fileID: 2102930937}
-  - component: {fileID: 2102930938}
   - component: {fileID: 2102930939}
   m_Layer: 5
   m_Name: NewSpellBook
@@ -7892,19 +7891,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   templateEntry: {fileID: 1657280884853870, guid: ce9f6a9944795714f84edb30aa9bf6ed,
     type: 2}
---- !u!114 &2102930938
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2102930931}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67a72522050c9b5429fc7411207c4de8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spellBook: {fileID: 0}
-  modBook: {fileID: 0}
 --- !u!114 &2102930939
 MonoBehaviour:
   m_ObjectHideFlags: 0
