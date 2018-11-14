@@ -43,7 +43,7 @@ public class NetSpellTyping : NetworkBehaviour
             return;
         }
 
-        if (Input.GetKeyDown(KeyCode.F1) && currentText.text.Trim().Length >= 3 && newSpellBook.activeSelf)
+        if (currentText.text.Trim().Length >= 3 && newSpellBook.activeSelf)
         {
             hintLogic.TryActivate(currentText.text.Trim());
         }

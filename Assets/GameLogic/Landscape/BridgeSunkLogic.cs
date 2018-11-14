@@ -5,7 +5,7 @@ using UnityEngine;
 public class BridgeSunkLogic : MonoBehaviour {
     private bool bridgeUp = true;
     public bool activated = false;
-    private float timeLeft = 3.0f;
+    private float timeLeft = 1.0f;
 
     public void Activate () {
         activated = true;
@@ -18,23 +18,23 @@ public class BridgeSunkLogic : MonoBehaviour {
             if (bridgeUp)
             {
                 timeLeft -= Time.deltaTime;
-                transform.Translate(Vector3.down * 0.02f, Space.World);
+                transform.Translate(Vector3.down * 0.06f, Space.World);
                 if (timeLeft < 0)
                 {
                     activated = false;
                     bridgeUp = false;
-                    timeLeft = 3.0f;
+                    timeLeft = 1.0f;
                 }
             }
             else
             {
                 timeLeft -= Time.deltaTime;
-                transform.Translate(Vector3.up * 0.02f, Space.World);
+                transform.Translate(Vector3.up * 0.06f, Space.World);
                 if (timeLeft < 0)
                 {
                     activated = false;
                     bridgeUp = true;
-                    timeLeft = 3.0f;
+                    timeLeft = 1.0f;
                 }
             }
         }
