@@ -28,7 +28,7 @@ public class BridgeLeverLogic : MonoBehaviour
         if (collision.gameObject.tag == "Destroyable" && lockTimer <= 1e-3)
         {
             print("lock");
-            lockTimer = 5.0f;
+            lockTimer = 3.0f;
             bsl.Activate();
             bsl2.Activate();
             if (leverPingPong)
