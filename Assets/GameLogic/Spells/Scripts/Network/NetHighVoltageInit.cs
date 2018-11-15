@@ -7,10 +7,14 @@ public class NetHighVoltageInit : NetworkBehaviour, SpellInit
 {
     public GameObject highVoltage;
     private string[] aliases = { "high voltage", "electricity", "lightning", "thunderstruck", "supercharge", "coil overload" };
+
+    // Name in the current game session
+    public string SessionName = "";
+
     // Use this for initialization
     void Start()
     {
-        this.gameObject.GetComponent<NetSpellCreating>().addSpell(aliases, this);
+        SessionName = this.gameObject.GetComponent<NetSpellCreating>().addSpell(aliases, this);
     }
 
     // Update is called once per frame
@@ -48,7 +52,31 @@ public class NetHighVoltageInit : NetworkBehaviour, SpellInit
 
     public string Description {
 		get {
-			return "nethighvoltage";
-		}
+            string translation = "";
+            switch (SessionName)
+            {
+                case "high voltage":
+                    translation = "<color=#e6b800ff>Высокое напряжение</color>";
+                    break;
+                case "electricity":
+                    translation = "<color=#e6b800ff>Электричество</color>";
+                    break;
+                case "lightning":
+                    translation = "<color=#e6b800ff>Молния</color>";
+                    break;
+                case "thunderstruck":
+                    translation = "<color=#e6b800ff>\"Пораженный молнией\"</color>";
+                    break;
+                case "supercharge":
+                    translation = "<color=#e6b800ff>Перезгрузить</color>";
+                    break;
+                case "coil overload":
+                    translation = "<color=#e6b800ff>Перегрузка катушки</color>";
+                    break;
+                default:
+                    break;
+            }
+            return translation + "(high voltage) Создает <color=#e6b800ff>электрический разряд</color> в направлении взгляда персонажа.";
+        }
     }
 }

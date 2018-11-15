@@ -8,10 +8,14 @@ public class NetDiamondInit : NetworkBehaviour, SpellInit
     public GameObject diamond;
     private Transform ownerTransform;
     private string[] aliases = { "diamond", "bullet" };
+
+    // Name in the current game session
+    public string SessionName = "";
+
     // Use this for initialization
     void Start()
     {
-        this.gameObject.GetComponent<NetSpellCreating>().addSpell(aliases, this);
+        SessionName = this.gameObject.GetComponent<NetSpellCreating>().addSpell(aliases, this);
     }
 
     // Update is called once per frame
@@ -67,7 +71,19 @@ public class NetDiamondInit : NetworkBehaviour, SpellInit
 
     public string Description {
 		get {
-			return "netdiamond";
-		}
+            string translation = "";
+            switch (SessionName)
+            {
+                case "diamond":
+                    translation = "<b><color=#eeeeeeff>Алмаз</color></b>";
+                    break;
+                case "bullet":
+                    translation = "<b><color=#eeeeeeff>Пуля</color></b>";
+                    break;
+                default:
+                    break;
+            }
+            return translation + "(Diamond) Создает крайне острый <b><color=#eeeeeeff>объект</color></b>. Использовать с осторожностью!";
+        }
     }
 }

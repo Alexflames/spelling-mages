@@ -13,10 +13,13 @@ public class NetPredictionInit : NetworkBehaviour, SpellInit
     [Range(5, 20)]
     public float lastingTime = 8;
 
+    // Name in the current game session
+    public string SessionName = "";
+
     // Use this for initialization
     void Start()
     {
-        this.gameObject.GetComponent<NetSpellCreating>().addSpell(aliases, this);
+        SessionName = this.gameObject.GetComponent<NetSpellCreating>().addSpell(aliases, this);
         audioSource = gameObject.GetComponent<AudioSource>();
     }
 
@@ -70,8 +73,25 @@ public class NetPredictionInit : NetworkBehaviour, SpellInit
         this.spell = spell;
     }
     public string Description {
-		get {
-			return "netprediction";
-		}
+        get
+        {
+            string translation = "";
+            switch (SessionName)
+            {
+                case "prediction":
+                    translation = "<color=#7d00c8ff>Предсказание</color>";
+                    break;
+                case "forecast":
+                    translation = "<color=#7d00c8ff>Прогноз</color>";
+                    break;
+                case "farseer":
+                    translation = "<color=#7d00c8ff>Предсказатель</color>";
+                    break;
+                default:
+                    break;
+            }
+            return translation + "(Prediction) Создает <color=#7d00c8ff>копию</color>, идущую в направлении движения." +
+                " Используйте <color=#7d00c8ff>fate</color> для перемещения на место <color=#7d00c8ff>копии</color>";
+        }
     }
 }

@@ -8,7 +8,7 @@ public class NetSplashInit : NetworkBehaviour, SpellInit
     // Variables for drawing circle
     public GameObject circleDrawer;
     private SplashCircleDrawer splashCircleDrawer;
-    private string[] aliases = { "splash", "tsunami", "aqua strike", "tidal wave" };
+    private string[] aliases = { "splash", "tsunami", "aqua strike", "tidal wave", "rogue wave" };
     [Range(0, 10)]
     public float radius = 8;
 
@@ -95,6 +95,9 @@ public class NetSplashInit : NetworkBehaviour, SpellInit
                     break;
                 case "tidal wave":
                     translation = "<color=#0000ffff>Приливная волна</color>";
+                    break;
+                case "rogue wave":
+                    translation = "<color=#0000ffff>Волна-убийца</color>";
                     break;
                 default:
                     break;

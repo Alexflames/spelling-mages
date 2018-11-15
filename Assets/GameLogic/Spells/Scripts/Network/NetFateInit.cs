@@ -10,10 +10,14 @@ public class NetFateInit : NetworkBehaviour, SpellInit
     public Image fateTransition;
     public string UIAnimName = "FateTransition";
     private string[] aliases = { "fate", "rewind" };
+
+    // Name in the current game session
+    public string SessionName = "";
+
     // Use this for initialization
     void Start()
     {
-        this.gameObject.GetComponent<NetSpellCreating>().addSpell(aliases, this);
+        SessionName = this.gameObject.GetComponent<NetSpellCreating>().addSpell(aliases, this);
         predictionInit = gameObject.GetComponent<NetPredictionInit>();
     }
 
@@ -33,9 +37,24 @@ public class NetFateInit : NetworkBehaviour, SpellInit
         }
     }
 
-    public string Description {
-		get {
-			return "netfate";
-		}
+    public string Description
+    {
+        get
+        {
+            string translation = "";
+            switch (SessionName)
+            {
+                case "fate":
+                    translation = "<color=#7d00c8ff>Судьба</color>";
+                    break;
+                case "rewind":
+                    translation = "<color=#7d00c8ff>Перемотка</color>";
+                    break;
+                default:
+                    break;
+            }
+            return translation + "(Fate) Перемещает  персонажа на место <color=#7d00c8ff>копии</color>. " +
+                "Используйте <color=#7d00c8ff>prediction</color> для создания <color=#7d00c8ff>копии</color>";
+        }
     }
 }

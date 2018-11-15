@@ -11,10 +11,14 @@ public class NetPhantasmInit : NetworkBehaviour, SpellInit
 
     public GameObject phantasm;
     private string[] aliases = { "phantasm", "phantom", "ghost", "spectre", "apparition" };
+
+    // Name in the current game session
+    public string SessionName = "";
+
     // Use this for initialization
     void Start()
     {
-        this.gameObject.GetComponent<NetSpellCreating>().addSpell(aliases, this);
+        SessionName = this.gameObject.GetComponent<NetSpellCreating>().addSpell(aliases, this);
     }
 
     // Update is called once per frame
@@ -65,7 +69,24 @@ public class NetPhantasmInit : NetworkBehaviour, SpellInit
 
     public string Description {
 		get {
-			return "netphantasm";
-		}
+            string translation = "";
+            switch (SessionName)
+            {
+                case "apparition":
+                    translation = "<b><color=#A67474ff>Призрак</color></b>";
+                    break;
+                case "ghost":
+                    translation = "<b><color=#A67474ff>Призрак</color></b>";
+                    break;
+                case "spectre":
+                    translation = "<b><color=#A67474ff>Привидение</color></b>";
+                    break;
+                default:
+                    translation = "<b><color=#A67474ff>Фантом</color></b>";
+                    break;
+            }
+            return translation + "(Phantom) Призывает <b><color=#A67474ff>тень</color></b>, идущую в сторону персонажа. " +
+                "Прикосновение с вами <color=#9d20e8ff>активирует</color> <b><color=#A67474ff>его</color></b>";
+        }
     }
 }
