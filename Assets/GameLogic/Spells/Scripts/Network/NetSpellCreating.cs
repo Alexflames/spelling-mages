@@ -38,7 +38,7 @@ public class NetSpellCreating : NetworkBehaviour
         //}
         if (newSpellBookPanel != null)
         {
-            newSpellBookPanel.GetComponent<AddSpellToBook>().addSpellBookEntry(name, sp);
+            newSpellBookPanel.GetComponent<AddSpellToBook>().addSpellBookEntry(name, sp, names[0]);
         }
     }
 

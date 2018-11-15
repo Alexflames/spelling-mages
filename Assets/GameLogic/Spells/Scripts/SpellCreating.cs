@@ -35,7 +35,7 @@ public class SpellCreating : MonoBehaviour {
             spellBookText.text += "\n" + name;
         }*/
 		if(newSpellBookPanel != null) {
-			newSpellBookPanel.GetComponent<AddSpellToBook>().addSpellBookEntry (name, sp);
+			newSpellBookPanel.GetComponent<AddSpellToBook>().addSpellBookEntry (name, sp, names[0]);
 		}
     }
    

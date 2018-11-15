@@ -8015,12 +8015,12 @@ Prefab:
     - target: {fileID: 224806253312593978, guid: ce9f6a9944795714f84edb30aa9bf6ed,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 80
+      value: 81
       objectReference: {fileID: 0}
     - target: {fileID: 224806253312593978, guid: ce9f6a9944795714f84edb30aa9bf6ed,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -45
+      value: -47
       objectReference: {fileID: 0}
     - target: {fileID: 224806253312593978, guid: ce9f6a9944795714f84edb30aa9bf6ed,
         type: 2}

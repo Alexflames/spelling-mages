@@ -9,6 +9,7 @@ public class AddModToBook : MonoBehaviour {
 	public void addModBookEntry (string name, SpellModificator sm) {
 		GameObject newEntry = Instantiate (templateEntry)  as GameObject;
 		newEntry.GetComponent<SpellBookEntry>().setText (name);
+		newEntry.GetComponent<SpellBookEntry>().setSprite (name);
 		newEntry.transform.SetParent (gameObject.transform, false);
 		entries.Add (name, newEntry);
 	}

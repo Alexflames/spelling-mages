@@ -7,9 +7,10 @@ public class AddSpellToBook : MonoBehaviour {
 	public GameObject templateEntry;
 	private Dictionary<string, SpellInit> spells = new Dictionary<string, SpellInit>();
 	private Dictionary<string, GameObject> entries = new Dictionary<string, GameObject>();
-	public void addSpellBookEntry (string name, SpellInit spell) {
+	public void addSpellBookEntry (string name, SpellInit spell, string firstname) {
 		GameObject newEntry = Instantiate (templateEntry);
 		newEntry.GetComponent<SpellBookEntry>().setText (name);
+		newEntry.GetComponent<SpellBookEntry>().setSprite (firstname);
 		newEntry.transform.SetParent (gameObject.transform, false);
 		spells.Add (name, spell);
 		entries.Add (name, newEntry);
