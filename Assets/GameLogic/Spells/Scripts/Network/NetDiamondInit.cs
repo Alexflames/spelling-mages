@@ -75,15 +75,15 @@ public class NetDiamondInit : NetworkBehaviour, SpellInit
             switch (SessionName)
             {
                 case "diamond":
-                    translation = "<b><color=#eeeeeeff>Алмаз</color></b>";
+                    translation = "<color=#ffffffff>Алмаз</color>";
                     break;
                 case "bullet":
-                    translation = "<b><color=#eeeeeeff>Пуля</color></b>";
+                    translation = "<color=#ffffffff>Пуля</color>";
                     break;
                 default:
                     break;
             }
-            return translation + "(Diamond) Создает крайне острый <b><color=#eeeeeeff>объект</color></b>. Использовать с осторожностью!";
+            return translation + "(Diamond) Создает крайне острый <color=#ffffffff>объект</color>. Использовать с осторожностью!";
         }
     }
 }
