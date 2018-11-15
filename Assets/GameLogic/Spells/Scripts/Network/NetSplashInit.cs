@@ -8,9 +8,12 @@ public class NetSplashInit : NetworkBehaviour, SpellInit
     // Variables for drawing circle
     public GameObject circleDrawer;
     private SplashCircleDrawer splashCircleDrawer;
-    private string[] aliases = { "splash", "tsunami", "killerwave", "aqua strike", "tidal wave" };
+    private string[] aliases = { "splash", "tsunami", "aqua strike", "tidal wave" };
     [Range(0, 10)]
     public float radius = 8;
+
+    // Name in the current game session
+    public string SessionName = "";
 
     // Other variables
     public GameObject waterSplash;
@@ -18,7 +21,7 @@ public class NetSplashInit : NetworkBehaviour, SpellInit
     // Use this for initialization
     void Start()
     {
-        this.gameObject.GetComponent<NetSpellCreating>().addSpell(aliases, this);
+        SessionName = gameObject.GetComponent<NetSpellCreating>().addSpell(aliases, this);
 
         splashCircleDrawer = circleDrawer.GetComponent<SplashCircleDrawer>();
     }
@@ -78,7 +81,25 @@ public class NetSplashInit : NetworkBehaviour, SpellInit
 
     public string Description {
 		get {
-			return "netsplash";
+            string translation = "";
+            switch (SessionName)
+            {
+                case "splash":
+                    translation = "<color=#0000ffff>Всплеск</color>";
+                    break;
+                case "tsunami":
+                    translation = "<color=#0000ffff>Цунами</color>";
+                    break;
+                case "aqua strike":
+                    translation = "<color=#0000ffff>Водяной удар</color>";
+                    break;
+                case "tidal wave":
+                    translation = "<color=#0000ffff>Приливная волна</color>";
+                    break;
+                default:
+                    break;
+            }
+            return translation + "(Splash) Требует нахождение <color=#0000ffff>источника воды</color> поблизости. Пустить волну в направление курсора";
 		}
     }
 }
