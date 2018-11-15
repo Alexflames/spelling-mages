@@ -24,7 +24,7 @@ public class NetSpellCreating : NetworkBehaviour
         }
     }
 
-    public void addSpell(string[] names, SpellInit sp)
+    public string addSpell(string[] names, SpellInit sp)
     {
         string name = names[0];
         if (randomise)
@@ -40,6 +40,7 @@ public class NetSpellCreating : NetworkBehaviour
         {
             newSpellBookPanel.GetComponent<AddSpellToBook>().addSpellBookEntry(name, sp, names[0]);
         }
+        return name;
     }
 
     // Use this for initialization
