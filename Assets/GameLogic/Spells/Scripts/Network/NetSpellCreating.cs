@@ -20,7 +20,7 @@ public class NetSpellCreating : NetworkBehaviour
         modificators.Add(sm.Name, sm);
         if (modBookPanel != null)
         {
-            modBookPanel.GetComponent<AddModToBook>().addModBookEntry(sm.Name, sm);
+            modBookPanel.GetComponent<ModBookLogic>().addModBookEntry(sm.Name, sm);
         }
     }
 
@@ -38,7 +38,7 @@ public class NetSpellCreating : NetworkBehaviour
         //}
         if (newSpellBookPanel != null)
         {
-            newSpellBookPanel.GetComponent<AddSpellToBook>().addSpellBookEntry(name, sp, names[0]);
+            newSpellBookPanel.GetComponent<SpellBookLogic>().addSpellBookEntry(name, sp, names[0]);
         }
         return name;
     }

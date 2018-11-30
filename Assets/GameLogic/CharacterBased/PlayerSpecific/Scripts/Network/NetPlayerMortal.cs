@@ -69,8 +69,8 @@ public class NetPlayerMortal : NetMortal
     {
         if (isLocalPlayer)
         {
-            spellBook.GetComponent<AddSpellToBook>().Reset();
-            modBook.GetComponent<AddModToBook>().Reset();
+            spellBook.GetComponent<SpellBookLogic>().Reset();
+            modBook.GetComponent<ModBookLogic>().Reset();
         }
         print(gameObject.name + " is ded");
 

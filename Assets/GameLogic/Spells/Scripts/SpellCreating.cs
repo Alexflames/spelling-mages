@@ -17,7 +17,7 @@ public class SpellCreating : MonoBehaviour {
     public void addModificator (SpellModificator sm){
         modificators.Add (sm.Name, sm);
 		if(modBookPanel != null) {
-			modBookPanel.GetComponent<AddModToBook>().addModBookEntry (sm.Name, sm);
+			modBookPanel.GetComponent<ModBookLogic>().addModBookEntry (sm.Name, sm);
 		}
     }
 
@@ -35,7 +35,7 @@ public class SpellCreating : MonoBehaviour {
             spellBookText.text += "\n" + name;
         }*/
 		if(newSpellBookPanel != null) {
-			newSpellBookPanel.GetComponent<AddSpellToBook>().addSpellBookEntry (name, sp, names[0]);
+			newSpellBookPanel.GetComponent<SpellBookLogic>().addSpellBookEntry (name, sp, names[0]);
 		}
     }
    

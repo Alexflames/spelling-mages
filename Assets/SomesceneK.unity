@@ -1515,7 +1515,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 80, y: -15}
+  m_AnchoredPosition: {x: 81, y: -16}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &365419967
@@ -1703,12 +1703,12 @@ RectTransform:
   - {fileID: 365419966}
   - {fileID: 388673616}
   m_Father: {fileID: 1405553702}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 153, y: -392}
-  m_SizeDelta: {x: 162, y: 32}
+  m_SizeDelta: {x: 162, y: 63}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &379829653
 MonoBehaviour:
@@ -1756,12 +1756,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 0
-    m_Right: 0
-    m_Top: 0
-    m_Bottom: 0
+    m_Left: 1
+    m_Right: 1
+    m_Top: 1
+    m_Bottom: 1
   m_ChildAlignment: 0
-  m_Spacing: 0
+  m_Spacing: 1
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
@@ -1778,7 +1778,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_HorizontalFit: 0
-  m_VerticalFit: 0
+  m_VerticalFit: 1
 --- !u!1 &388673615
 GameObject:
   m_ObjectHideFlags: 0
@@ -1811,7 +1811,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 80, y: -45}
+  m_AnchoredPosition: {x: 81, y: -47}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &388673617
@@ -3038,6 +3038,7 @@ GameObject:
   - component: {fileID: 707065914}
   - component: {fileID: 707065913}
   - component: {fileID: 707065912}
+  - component: {fileID: 707065917}
   m_Layer: 5
   m_Name: ModBook
   m_TagString: Untagged
@@ -3058,11 +3059,11 @@ RectTransform:
   - {fileID: 1358767275}
   - {fileID: 760145225}
   m_Father: {fileID: 1405553702}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1054, y: -98}
+  m_AnchoredPosition: {x: 986, y: -98}
   m_SizeDelta: {x: 162, y: 32}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &707065912
@@ -3073,7 +3074,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 707065910}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6041fb1e7ce6a674cb3ff4e012f561a0, type: 3}
+  m_Script: {fileID: 11500000, guid: f23ebe955e06c4d628e52abcda0739fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   templateEntry: {fileID: 1657280884853870, guid: ce9f6a9944795714f84edb30aa9bf6ed,
@@ -3147,6 +3148,17 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 707065910}
   m_CullTransparentMesh: 0
+--- !u!225 &707065917
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 707065910}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &758603945
 GameObject:
   m_ObjectHideFlags: 0
@@ -5370,7 +5382,6 @@ RectTransform:
   - {fileID: 1598009458}
   - {fileID: 765108557}
   - {fileID: 789082283}
-  - {fileID: 1712788162}
   - {fileID: 707065911}
   - {fileID: 379829652}
   m_Father: {fileID: 0}
@@ -6231,53 +6242,6 @@ Transform:
   m_Father: {fileID: 1628251614}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1712788161
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1712788162}
-  - component: {fileID: 1712788163}
-  m_Layer: 5
-  m_Name: BookExpandControl
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &1712788162
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1712788161}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1405553702}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1712788163
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1712788161}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67a72522050c9b5429fc7411207c4de8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spellBook: {fileID: 2102930931}
-  modBook: {fileID: 707065910}
 --- !u!1 &1735338973
 GameObject:
   m_ObjectHideFlags: 0
@@ -7782,6 +7746,7 @@ GameObject:
   - component: {fileID: 2102930936}
   - component: {fileID: 2102930937}
   - component: {fileID: 2102930939}
+  - component: {fileID: 2102930938}
   m_Layer: 5
   m_Name: NewSpellBook
   m_TagString: Untagged
@@ -7886,11 +7851,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 2102930931}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12b209b0aa27dd443a2204affa48b3b3, type: 3}
+  m_Script: {fileID: 11500000, guid: 23d0d82796e954bd38b62f91d73f2f24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   templateEntry: {fileID: 1657280884853870, guid: ce9f6a9944795714f84edb30aa9bf6ed,
     type: 2}
+--- !u!225 &2102930938
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2102930931}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!114 &2102930939
 MonoBehaviour:
   m_ObjectHideFlags: 0

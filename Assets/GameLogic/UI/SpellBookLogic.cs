@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AddSpellToBook : MonoBehaviour {
+public class SpellBookLogic: MonoBehaviour {
 
 	public GameObject templateEntry;
+	private CanvasGroup cg;
 	private Dictionary<string, SpellInit> spells = new Dictionary<string, SpellInit>();
 	private Dictionary<string, GameObject> entries = new Dictionary<string, GameObject>();
 	public void addSpellBookEntry (string name, SpellInit spell, string firstname) {
@@ -15,6 +16,11 @@ public class AddSpellToBook : MonoBehaviour {
 		spells.Add (name, spell);
 		entries.Add (name, newEntry);
 	}
+
+
+        public void Start () {
+                cg = this.gameObject.GetComponent<CanvasGroup>();
+        }
 
 	public string Search (string prename){
 		foreach (string key in spells.Keys) {
@@ -36,4 +42,11 @@ public class AddSpellToBook : MonoBehaviour {
 	public SpellInit ReturnInit (string name) {
 		return spells[name];
 	}
+
+	void Update () {
+		if (Input.GetKeyDown(KeyCode.Tab)){
+			cg.alpha = 1f - cg.alpha;
+		}
+	}
+
 }

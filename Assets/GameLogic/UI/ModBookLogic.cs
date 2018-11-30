@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AddModToBook : MonoBehaviour {
+public class ModBookLogic : MonoBehaviour {
 
 	public GameObject templateEntry;
 	private Dictionary<string, GameObject> entries = new Dictionary<string, GameObject>();
+	private CanvasGroup cg;
 	public void addModBookEntry (string name, SpellModificator sm) {
 		GameObject newEntry = Instantiate (templateEntry)  as GameObject;
 		newEntry.GetComponent<SpellBookEntry>().setText (name);
@@ -14,10 +15,21 @@ public class AddModToBook : MonoBehaviour {
 		entries.Add (name, newEntry);
 	}
 
+	public void Start () {
+		cg = this.gameObject.GetComponent<CanvasGroup>();
+	}
+
 	public void Reset () {
 		foreach (string key in entries.Keys) {
 			Destroy (entries[key]);
 		}
 		entries.Clear ();
 	}
+
+        void Update () {
+                if (Input.GetKeyDown(KeyCode.LeftControl)){
+                        cg.alpha = 1f - cg.alpha;
+                }
+        }
+
 }

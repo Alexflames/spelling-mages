@@ -29,9 +29,9 @@ public class Info : MonoBehaviour {
 	}
 
 	public void TryActivate (string prename) {
-		string sp = gameObject.GetComponent<AddSpellToBook>().Search (prename);
+		string sp = gameObject.GetComponent<SpellBookLogic>().Search (prename);
 		if (sp != null){
-			SetInfo (sp, gameObject.GetComponent<AddSpellToBook>().ReturnInit (sp).Description);
+			SetInfo (sp, gameObject.GetComponent<SpellBookLogic>().ReturnInit (sp).Description);
 		}
 	}
 
