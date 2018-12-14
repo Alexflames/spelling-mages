@@ -3446,6 +3446,7 @@ MonoBehaviour:
   spellTESTTEST: {fileID: 0}
   nextSpellOwner: {fileID: 0}
   phantasm: {fileID: 1663354409314876, guid: 7051caf984741444280afe125172103a, type: 2}
+  SessionName: 
 --- !u!114 &114277201136214502
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3538,6 +3539,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   diamond: {fileID: 1583943583358182, guid: c17ed50af88b95d49bf882753a825e78, type: 2}
+  SessionName: 
 --- !u!114 &114501888642128034
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3565,7 +3567,7 @@ MonoBehaviour:
   prediction: {fileID: 1678598790896070, guid: d47d288de3190474d9a328879c687ce6, type: 2}
   spell: {fileID: 0}
   clockSound: {fileID: 8300000, guid: 84b4c504a29dc7b42ad740e3c909c0a0, type: 3}
-  lastingTime: 8
+  lastingTime: 11.06
   SessionName: 
 --- !u!114 &114525760483876076
 MonoBehaviour:
@@ -3714,6 +3716,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   highVoltage: {fileID: 1322227189061346, guid: fa2f399abd237d94fb7c5d1efc069d33,
     type: 2}
+  SessionName: 
 --- !u!114 &114982736350640158
 MonoBehaviour:
   m_ObjectHideFlags: 1
