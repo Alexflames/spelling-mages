@@ -34,7 +34,8 @@ public class GraphController : MonoBehaviour {
     {
         // input_graph_orient_acycle
         // input_graph_Grigoriev2
-        g_Graph = new G_Graph("Assets/GameLogic/Scenario/input_graph_Grigoriev2.txt");
+        //var textfile = Resources.Load("input_graph_Grigoriev2.txt");
+        g_Graph = new G_Graph("C:/WithoutPermission/graph.txt");
         graphNodes = new List<GameObject>();
         gr2scene = new Dictionary<Node, GameObject>();
         scene2gr = new Dictionary<GameObject, Node>();
@@ -180,10 +181,5 @@ public class GraphController : MonoBehaviour {
         MakeNodes();
         MakeEdges();
         InitKarkas();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
 	}
 }

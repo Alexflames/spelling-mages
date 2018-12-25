@@ -18,11 +18,6 @@ public class NetDiamondInit : NetworkBehaviour, SpellInit
         SessionName = this.gameObject.GetComponent<NetSpellCreating>().addSpell(aliases, this);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-    }
-
     Vector3 makeSpellSpawnPos(Vector3 adder, Transform owner)
     {
         return owner.position + adder;
@@ -60,13 +55,10 @@ public class NetDiamondInit : NetworkBehaviour, SpellInit
 
     public void cast(string smName)
     {
-        if (isLocalPlayer)
-        {
-            CmdCast(smName);
-        }
-        else if (isServer) {
-            SpawnLogic(smName);
-        }
+        CmdCast(smName);
+        //else if (isServer) {
+        //    SpawnLogic(smName);
+        //}
     }
 
     public string Description {
@@ -83,7 +75,7 @@ public class NetDiamondInit : NetworkBehaviour, SpellInit
                 default:
                     break;
             }
-            return translation + "(Diamond) Создает крайне острый <color=#ffffffff>объект</color>. Использовать с осторожностью!";
+            return translation + "(" + SessionName + ") " + "(Diamond) Создает крайне острый <color=#ffffffff>объект</color>. Использовать с осторожностью!";
         }
     }
 }

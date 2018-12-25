@@ -22,7 +22,6 @@ public class NetSplashInit : NetworkBehaviour, SpellInit
     void Start()
     {
         SessionName = gameObject.GetComponent<NetSpellCreating>().addSpell(aliases, this);
-
         splashCircleDrawer = circleDrawer.GetComponent<SplashCircleDrawer>();
     }
 
@@ -41,9 +40,7 @@ public class NetSplashInit : NetworkBehaviour, SpellInit
     private void RpcOtherStuff(GameObject spell, string smName)
     {
         NetSplashScript script = spell.GetComponent<NetSplashScript>();
-
         SpellModificator sm = gameObject.GetComponent<NetSpellCreating>().getModIfExists(smName);
-
         script.ApplyModificator(sm);
     }
 
@@ -53,7 +50,6 @@ public class NetSplashInit : NetworkBehaviour, SpellInit
 
         bool waterFound = false;
         Vector3 waterPos = new Vector3();
-        Vector3 waterDestination;
         Collider[] intersectObjs = Physics.OverlapSphere(transform.position, radius);
         foreach (var obj in intersectObjs)
         {
@@ -61,7 +57,6 @@ public class NetSplashInit : NetworkBehaviour, SpellInit
             {
                 waterFound = true;
                 waterPos = obj.transform.position + new Vector3(0, 1.5f, 0);
-                print("Water for splash casting found");
                 break;
             }
         }
@@ -69,12 +64,9 @@ public class NetSplashInit : NetworkBehaviour, SpellInit
         if (waterFound)
         {
             RaycastHit hit;
-
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
             {
-                waterDestination = hit.point;
-
-                CmdCast(waterDestination, waterPos, smName);
+                CmdCast(hit.point, waterPos, smName);
             }
         }
     }
@@ -102,7 +94,7 @@ public class NetSplashInit : NetworkBehaviour, SpellInit
                 default:
                     break;
             }
-            return translation + "(Splash) Требует нахождение <color=#0000ffff>источника воды</color> поблизости. Пустить волну в направление курсора";
+            return translation + "(" + SessionName + ") " + "(Splash) Требует нахождение <color=#0000ffff>источника воды</color> поблизости. Пустить волну в направление курсора";
 		}
     }
 }

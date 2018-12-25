@@ -25,25 +25,18 @@ public class NetPredictionInit : NetworkBehaviour, SpellInit
 
     public void cast(string smName)
     {
-        if (!isLocalPlayer) return;
-
         RaycastHit hit;
 
         if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
         {
-            Vector3 predictionDestination = hit.point;
             if (spell)
             {
                 NetworkServer.Destroy(spell);
             }
-
             
             CmdCast(transform.position + transform.forward, transform.rotation, gameObject.GetComponent<NetAICharacterControl>().hit.point);
             
-            if (isLocalPlayer)
-            {
-                audioSource.Play();
-            }
+            audioSource.Play();
         }
     }
 
@@ -70,7 +63,6 @@ public class NetPredictionInit : NetworkBehaviour, SpellInit
         spellLogic.SetTimeLeft(lastingTime);
         spellLogic.SetOwner(gameObject);
         spellLogic.SetDestination(destination);
-        this.spell = spell;
     }
     public string Description {
         get

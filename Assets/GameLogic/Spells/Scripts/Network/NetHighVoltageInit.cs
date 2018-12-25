@@ -17,12 +17,6 @@ public class NetHighVoltageInit : NetworkBehaviour, SpellInit
         SessionName = this.gameObject.GetComponent<NetSpellCreating>().addSpell(aliases, this);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void cast(string smName)
     {
         CmdCast(gameObject.transform.position + transform.forward, gameObject.transform.rotation, smName);
@@ -42,8 +36,7 @@ public class NetHighVoltageInit : NetworkBehaviour, SpellInit
     private void RpcOtherStuff(GameObject spell, string smName)
     {
         NetHighVoltageLogic voltageLogic = spell.GetComponent<NetHighVoltageLogic>();
-
-        voltageLogic.ApplyModificator(null);
+        
         voltageLogic.SetOwner(gameObject);
 
         SpellModificator sm = gameObject.GetComponent<NetSpellCreating>().getModIfExists(smName);
@@ -76,7 +69,7 @@ public class NetHighVoltageInit : NetworkBehaviour, SpellInit
                 default:
                     break;
             }
-            return translation + "(high voltage) Создает <color=#e6b800ff>электрический разряд</color> в направлении взгляда персонажа.";
+            return translation + "(" + SessionName + ") " + "(high voltage) Создает <color=#e6b800ff>электрический разряд</color> в направлении взгляда персонажа.";
         }
     }
 }

@@ -58,7 +58,7 @@ public class NetHighVoltageLogic : NetworkBehaviour
             }
             else if (!collision.gameObject.CompareTag("Spell"))
             {
-                Object.Destroy(gameObject);
+                NetworkServer.Destroy(gameObject);
             }
         }
     }
@@ -99,7 +99,7 @@ public class NetHighVoltageLogic : NetworkBehaviour
         }
         else if (timeToFade < 0)
         {
-            Destroy(gameObject);
+            NetworkServer.Destroy(gameObject);
         }
     }
 

@@ -33,7 +33,6 @@ public class NetFateInit : NetworkBehaviour, SpellInit
                 fateTransition.GetComponent<UIFateTransitionAnimation>().ActivateAnim();
                 gameObject.GetComponent<AudioSource>().Stop();
             }
-            
         }
     }
 
@@ -53,7 +52,7 @@ public class NetFateInit : NetworkBehaviour, SpellInit
                 default:
                     break;
             }
-            return translation + "(Fate) Перемещает  персонажа на место <color=#7d00c8ff>копии</color>. " +
+            return translation + "(" + SessionName + ") " + "(Fate) Перемещает  персонажа на место <color=#7d00c8ff>копии</color>. " +
                 "Используйте <color=#7d00c8ff>prediction</color> для создания <color=#7d00c8ff>копии</color>";
         }
     }

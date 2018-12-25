@@ -5,10 +5,6 @@ using UnityEngine.Networking;
 
 public class NetPhantasmInit : NetworkBehaviour, SpellInit
 {
-    public GameObject spellTESTTEST;
-    //public SpellModificator nextSpellModificator;
-    public GameObject nextSpellOwner;
-
     public GameObject phantasm;
     private string[] aliases = { "phantasm", "phantom", "ghost", "spectre", "apparition" };
 
@@ -19,12 +15,6 @@ public class NetPhantasmInit : NetworkBehaviour, SpellInit
     void Start()
     {
         SessionName = this.gameObject.GetComponent<NetSpellCreating>().addSpell(aliases, this);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     [Command]
@@ -40,13 +30,9 @@ public class NetPhantasmInit : NetworkBehaviour, SpellInit
     [ClientRpc]
     private void RpcOtherStuff(GameObject spell, string smName)
     {
-        
         NetPhantasmLogic spellComp = spell.GetComponent<NetPhantasmLogic>();
-        print(gameObject.GetInstanceID());
         spellComp.SetOwner(gameObject);
-        //spellComp.ApplyModificator(nextSpellModificator);
-        //nextSpellModificator = null;
-        nextSpellOwner = null;
+
         SpellModificator sm = gameObject.GetComponent<NetSpellCreating>().getModIfExists(smName);
         spellComp.ApplyModificator(sm);
     }
@@ -57,14 +43,8 @@ public class NetPhantasmInit : NetworkBehaviour, SpellInit
 
         if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
         {
-            Vector3 phantasmDestination = hit.point;
-            //nextSpellModificator = sm;
-            nextSpellOwner = gameObject;
-
-            // print("local player. ok!");
-            CmdCast(phantasmDestination, gameObject.transform.rotation, smName);
+            CmdCast(hit.point, gameObject.transform.rotation, smName);
         }
-
     }
 
     public string Description {
@@ -85,7 +65,8 @@ public class NetPhantasmInit : NetworkBehaviour, SpellInit
                     translation = "<b><color=#A67474ff>Фантом</color></b>";
                     break;
             }
-            return translation + "(Phantom) Призывает <b><color=#A67474ff>тень</color></b>, идущую в сторону персонажа. " +
+            return translation + "(" + SessionName + ") " + "Призывает <b><color=#A67474ff>тень</color></b>, " +
+                "идущую в сторону персонажа. " +
                 "Прикосновение с вами <color=#9d20e8ff>активирует</color> <b><color=#A67474ff>его</color></b>";
         }
     }

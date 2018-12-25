@@ -5,7 +5,6 @@ using UnityEngine.Networking;
 
 public class NetSplashScript : NetworkBehaviour
 {
-
     public float speed;
     private float timeLeft;
     private float timeToExpand;

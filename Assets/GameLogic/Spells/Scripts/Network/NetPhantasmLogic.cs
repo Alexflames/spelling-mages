@@ -39,7 +39,6 @@ public class NetPhantasmLogic : NetworkBehaviour
 
     void OnTriggerEnter(Collider collision)
     {
-        
         if (collision.gameObject == owner)  // TODO
         {
             isghost = false;
@@ -48,10 +47,7 @@ public class NetPhantasmLogic : NetworkBehaviour
             rb.angularVelocity = Vector3.zero;
             rb.Sleep();
         }
-        else if (isghost)
-        {
-
-        }
+        else if (isghost) { } // Если призрак, то дальнейшие проверки остановить
         else if (collision.gameObject.CompareTag("Destroyable"))
         { // Объект, в который врезались, уничтожаемый?
             if (!isServer) return;
@@ -59,7 +55,7 @@ public class NetPhantasmLogic : NetworkBehaviour
             RpcHit(collision.gameObject);
         }
         else if (collision.gameObject.tag != "Spell")
-            Object.Destroy(gameObject);
+            NetworkServer.Destroy(gameObject);
     }
 
     [ClientRpc]
@@ -67,7 +63,6 @@ public class NetPhantasmLogic : NetworkBehaviour
     {
         if (!collidesWith.Contains(collision.gameObject))
         {
-            print(collision.name);
             collidesWith.Add(collision.gameObject);
             NetMortal HP = collision.GetComponent<NetMortal>();
             HP.lowerHP((int)(attackFactor * attackPower));
