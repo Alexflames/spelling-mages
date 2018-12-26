@@ -5,6 +5,7 @@ Temp/
 Library/
 Assets/Procore/
 Assets/Probuilder/
+Assets/Editor.meta
 
 =====================================
 Visual Studio / MonoDevelop generated
