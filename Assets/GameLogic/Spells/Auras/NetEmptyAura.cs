@@ -1,10 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class EmptyAura : MonoBehaviour, Aura {
-    public virtual string Name {
-        get {
+public class NetEmptyAura : NetworkBehaviour, Aura
+{
+    public virtual string Name
+    {
+        get
+        {
             return "base";
         }
     }
@@ -14,5 +18,5 @@ public class EmptyAura : MonoBehaviour, Aura {
         get; set;
     }
 
-	public virtual void CastReaction() {    }	
+    public virtual void CastReaction() { }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class NetDiamondLogic : NetworkBehaviour
+public class NetFieryBurstLogic : NetworkBehaviour
 {
     public Rigidbody rb;
     public Collider colli;
@@ -59,6 +59,6 @@ public class NetDiamondLogic : NetworkBehaviour
 
     void FixedUpdate()
     {
-        rb.AddForce(transform.forward * 1.5f * speedFactor);
+        transform.Translate(gameObject.transform.forward * 0.1f, Space.World);
     }
 }

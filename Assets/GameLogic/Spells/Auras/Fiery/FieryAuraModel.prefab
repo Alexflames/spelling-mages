@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114413608442113970}
   - component: {fileID: 64941876537373640}
   m_Layer: 0
-  m_Name: AuraModel
+  m_Name: FieryAuraModel
   m_TagString: Spell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -93,7 +93,7 @@ MeshCollider:
   m_GameObject: {fileID: 1186858327308806}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: 14

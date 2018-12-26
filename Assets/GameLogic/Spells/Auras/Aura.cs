@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IAura
+public interface Aura
 {
-    string name { get; }
+    string Name { get; }
+    GameObject AuraModel { get; set; }
     void CastReaction();
     // void HpLowerReaction(NetMortal hpCon);
 }

@@ -14,6 +14,7 @@ public class NetSpellCreating : NetworkBehaviour
     private Dictionary<string, SpellModificator> modificators = new Dictionary<string, SpellModificator>();
     private System.Random rand = new System.Random();
     public bool randomise = false;
+    private NetAuraController auraController;
 
     public void addModificator(SpellModificator sm)
     {
@@ -52,8 +53,9 @@ public class NetSpellCreating : NetworkBehaviour
             randomise = true;
 
             modBookPanel = GameObject.Find("ModBook");
+            auraController = GetComponent<NetAuraController>();
         }
-
+        
     }
 
     public void castSpell(string name)
@@ -70,6 +72,7 @@ public class NetSpellCreating : NetworkBehaviour
         if (spellbook.ContainsKey(name))
         {
             spellbook[name].cast(smName);
+            if (auraController) auraController.ReactToCast();
         }
     }
 
