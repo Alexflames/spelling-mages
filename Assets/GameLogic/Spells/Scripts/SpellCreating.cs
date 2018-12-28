@@ -13,6 +13,11 @@ public class SpellCreating : MonoBehaviour {
     private Dictionary<string, SpellModificator> modificators = new Dictionary<string, SpellModificator>();
     private System.Random rand = new System.Random();
     public bool randomise = false ;
+    private AuraController auraController;
+
+    public void Start(){
+         auraController = GetComponent<AuraController>();
+    }
 
     public void addModificator (SpellModificator sm){
         modificators.Add (sm.Name, sm);
@@ -52,6 +57,7 @@ public class SpellCreating : MonoBehaviour {
         if (spellbook.ContainsKey(name))
         {
             spellbook[name].cast(smName);
+            if (auraController) auraController.ReactToCast();
         }
     }
     

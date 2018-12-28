@@ -4,16 +4,25 @@ using UnityEngine;
 
 public class AuraController : MonoBehaviour {
     public Aura CurrentAura { get; set; }
+    void Awake()
+    {
+        CurrentAura = gameObject.AddComponent<EmptyAura>();
+    }
 	// Use this for initialization
 	void Start () {
         gameObject.AddComponent<EmptyAura>();
 	}
 
     // Deletes old aura
-    void SetAura(Aura aura)
+    public void SetAura(Aura aura, GameObject model)
     {
-        Destroy(gameObject.GetComponent<EmptyAura>());
         CurrentAura = aura;
+        CurrentAura.AuraModel = model;
+    }
+
+    public void ReactToCast()
+    {
+        CurrentAura.CastReaction();
     }
     
     void Update()

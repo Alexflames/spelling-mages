@@ -796,6 +796,8 @@ GameObject:
   - component: {fileID: 283253789}
   - component: {fileID: 283253790}
   - component: {fileID: 283253767}
+  - component: {fileID: 283253792}
+  - component: {fileID: 283253791}
   m_Layer: 8
   m_Name: AIThirdPersonController
   m_TagString: Destroyable
@@ -1247,6 +1249,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wait: 2
+--- !u!114 &283253791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 283253766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd06bd2f987857849a5ffe0ad62040d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AuraModelPrefab: {fileID: 1186858327308806, guid: eeeb7aeec368b8c40ac65caa71c5c110,
+    type: 2}
+  FieryBurst: {fileID: 1808686338179510, guid: 745ee7d7b21adaf44a04b088e76d7b2f, type: 2}
+--- !u!114 &283253792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 283253766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5251d39dbd5b53a4581310500e65100c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &314742749
 GameObject:
   m_ObjectHideFlags: 0

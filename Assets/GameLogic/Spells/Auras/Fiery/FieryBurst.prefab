@@ -23,8 +23,7 @@ GameObject:
   - component: {fileID: 136826410154591172}
   - component: {fileID: 23290238260021018}
   - component: {fileID: 54756460849601518}
-  - component: {fileID: 114629991174829068}
-  - component: {fileID: 114740406913502598}
+  - component: {fileID: 114368985907698856}
   m_Layer: 8
   m_Name: FieryBurst
   m_TagString: Spell
@@ -102,7 +101,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
---- !u!114 &114629991174829068
+--- !u!114 &114368985907698856
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -110,39 +109,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1808686338179510}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SceneId:
-    m_Value: 0
-  m_AssetId:
-    i0: 116
-    i1: 94
-    i2: 231
-    i3: 215
-    i4: 178
-    i5: 26
-    i6: 218
-    i7: 244
-    i8: 74
-    i9: 4
-    i10: 176
-    i11: 136
-    i12: 231
-    i13: 109
-    i14: 123
-    i15: 47
-  m_ServerOnly: 0
-  m_LocalPlayerAuthority: 0
---- !u!114 &114740406913502598
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1808686338179510}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2034570b9288d7940b8cbf871e4af319, type: 3}
+  m_Script: {fileID: 11500000, guid: 15ca75a9fbc5bb74d815862caabaf468, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
