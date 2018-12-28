@@ -55,10 +55,14 @@ public class NetDiamondInit : NetworkBehaviour, SpellInit
 
     public void cast(string smName)
     {
-        CmdCast(smName);
-        //else if (isServer) {
-        //    SpawnLogic(smName);
-        //}
+        if (isServer)
+        {
+            SpawnLogic(smName);
+        }
+        else if (isLocalPlayer)
+        {
+            CmdCast(smName);
+        }
     }
 
     public string Description {

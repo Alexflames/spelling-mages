@@ -3566,9 +3566,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c0a05065388a764eb6c346fcd666e68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AuraModelPrefab: {fileID: 1186858327308806, guid: eeeb7aeec368b8c40ac65caa71c5c110,
+  AuraModelPrefab: {fileID: 1315760518268136, guid: 7c67ff0d7c148a54493c3c73c1410fe2,
     type: 2}
-  FieryBurst: {fileID: 1808686338179510, guid: 745ee7d7b21adaf44a04b088e76d7b2f, type: 2}
+  FieryBurst: {fileID: 1606150953994422, guid: 7c99838f8a6ccf34f9d2d53b154edbe5, type: 2}
 --- !u!114 &114646233472291066
 MonoBehaviour:
   m_ObjectHideFlags: 1

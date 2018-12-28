@@ -7,7 +7,7 @@ public class NetAuraController : NetworkBehaviour
 {
     private Aura CurrentAura { get; set; }
     // Use this for initialization
-    void Start()
+    void Awake()
     {
         CurrentAura = gameObject.AddComponent<NetEmptyAura>();
     }
@@ -15,7 +15,6 @@ public class NetAuraController : NetworkBehaviour
     // Deletes old aura
     public void SetAura(Aura aura, GameObject model)
     {
-        Destroy(gameObject.GetComponent<NetEmptyAura>());
         CurrentAura = aura;
         CurrentAura.AuraModel = model;
     }

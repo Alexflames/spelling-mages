@@ -59,6 +59,6 @@ public class NetFieryBurstLogic : NetworkBehaviour
 
     void FixedUpdate()
     {
-        transform.Translate(gameObject.transform.forward * 0.1f, Space.World);
+        transform.Translate(gameObject.transform.forward * 0.2f, Space.World);
     }
 }
