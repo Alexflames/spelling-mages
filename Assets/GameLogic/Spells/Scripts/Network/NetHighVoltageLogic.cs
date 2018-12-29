@@ -17,7 +17,7 @@ public class NetHighVoltageLogic : NetworkBehaviour
     private GameObject part2_1;
     private GameObject part2_2;
     private GameObject owner;
-    private bool greatMod = false;
+    //private bool greatMod = false;
     private float sF = 1.0f;//scale factor for great mod
 
     public void ApplyModificator(SpellModificator sm)
@@ -29,7 +29,7 @@ public class NetHighVoltageLogic : NetworkBehaviour
         }
         if (sm is NetGreatModificator)
         {
-            greatMod = true;
+            //greatMod = true;
             sF = ((NetGreatModificator)sm).scaleFactor; // TODO: fix to double (non-Net exists)
             gameObject.transform.localScale += new Vector3(sF - 1.0f, 0, sF - 1.0f);
         }

@@ -15,7 +15,7 @@ public class HighVoltageLogic : MonoBehaviour {
     private GameObject part2_1;
     private GameObject part2_2;
     private GameObject owner;
-    private bool greatMod = false;
+    //private bool greatMod = false;
     private float sF = 1.0f;//scale factor for great mod
 
     public void ApplyModificator (SpellModificator sm)
@@ -27,7 +27,7 @@ public class HighVoltageLogic : MonoBehaviour {
         }
         if(sm is GreatModificator)
         {
-                greatMod = true;
+                //greatMod = true;
 		sF = ((GreatModificator)sm).scaleFactor;
                 gameObject.transform.localScale += new Vector3 (sF - 1.0f, 0, sF - 1.0f) ;
         }

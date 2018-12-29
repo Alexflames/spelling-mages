@@ -30,7 +30,7 @@ public class SplashCircleDrawer : MonoBehaviour {
         circleRadius = radius;
 
         float x;
-        float y;
+        //float y;
         float z;
         float angle = 20f;
 

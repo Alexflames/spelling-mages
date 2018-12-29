@@ -8,7 +8,7 @@ public class FieryBurstLogic : MonoBehaviour
     int layerMask;
     public int attackPower = 150;
     private float attackFactor = 1.0f;
-    private float speedFactor = 1.0f;
+    //private float speedFactor = 1.0f;
 
     void Awake()
     {
@@ -37,7 +37,7 @@ public class FieryBurstLogic : MonoBehaviour
         {
             QuickModificator qm = (QuickModificator)sm;
             attackFactor = 1 / qm.weakFactor;
-            speedFactor = qm.speedFactor;
+            //speedFactor = qm.speedFactor;
         }
     }
 

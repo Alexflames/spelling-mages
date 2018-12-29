@@ -40,7 +40,7 @@ public class FieryAuraInit : MonoBehaviour, SpellInit, Aura {
         GameObject formalRotation = Instantiate(FieryBurst, Vector3.up, new Quaternion()); 
         for (int i = 0; i < numberOfShots; i++)
         {
-            var proj = GameObject.Instantiate(FieryBurst,
+            GameObject.Instantiate(FieryBurst,
                 gameObject.transform.position + formalRotation.transform.forward * 2 + Vector3.up,
                 formalRotation.transform.rotation);
             formalRotation.transform.Rotate(new Vector3(0, angle, 0));
