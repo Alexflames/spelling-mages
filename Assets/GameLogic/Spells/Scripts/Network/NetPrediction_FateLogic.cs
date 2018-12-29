@@ -53,6 +53,7 @@ public class NetPrediction_FateLogic : NetworkBehaviour
         if (timeLeft < 0 && !m_activated)
         {
             DestroySpell();
+            return;
         }
         if (target != null)
             agent.SetDestination(target.position);
