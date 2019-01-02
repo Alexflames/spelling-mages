@@ -115,12 +115,12 @@ public class NetHighVoltageLogic : NetworkBehaviour
             if (timeToAppear < 0)
             {
                 // For the less-chaotic appearance of lighting skip some of arcs creation on level 4 and deeper (level 1 = first arc)
-                int toSkip = toContinue.Count <= 1 ? 0 : toContinue.Count / RNGFREQUENCY;
+                float toSkip = toContinue.Count <= 1 ? 0 : toContinue.Count / RNGFREQUENCY;
                 //
                 foreach(var obj in toContinue)
                 {
                     // try to skip right arc
-                    if (toSkip > 0 && Random.Range(0, (float)(toContinue.Count / toSkip)) < 1)
+                    if (toSkip > 0 && Random.Range(0, toContinue.Count / toSkip) < 1)
                     {
                         toSkip--;
                         var arc = Instantiate(SubVoltageObject, obj.transform.position + obj.transform.forward - obj.transform.right * 0.25f, obj.transform.rotation, obj.transform.transform);
@@ -130,7 +130,7 @@ public class NetHighVoltageLogic : NetworkBehaviour
                     else
                     {
                         // try to skip left arc
-                        if (toSkip > 0 && Random.Range(0, (float)(toContinue.Count / toSkip)) < 1)
+                        if (toSkip > 0 && Random.Range(0, toContinue.Count / toSkip) < 1)
                         {
                             toSkip--;
                         }
