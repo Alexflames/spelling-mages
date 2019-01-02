@@ -18,9 +18,10 @@ public class NetHighVoltageLogic : NetworkBehaviour
     private GameObject part2_1;
     private GameObject part2_2;
     private GameObject owner;
-    //--------------ALTERNATIVE--------------//
+    //--------------ALTERNATIVE
     float defaultTTA;
     bool TESTING = true;
+    // Lightning arcs' generation
     int RNGFREQUENCY = 2;
     public int Nobjects = 4;
     public GameObject SubVoltageObject;
@@ -115,12 +116,13 @@ public class NetHighVoltageLogic : NetworkBehaviour
             if (timeToAppear < 0)
             {
                 // For the less-chaotic appearance of lighting skip some of arcs creation on level 4 and deeper (level 1 = first arc)
-                float toSkip = toContinue.Count <= 1 ? 0 : toContinue.Count / RNGFREQUENCY;
+                float toSkipStart = toContinue.Count <= 1 ? 0 : toContinue.Count / RNGFREQUENCY;
+                float toSkip = toSkipStart;
                 //
                 foreach(var obj in toContinue)
                 {
                     // try to skip right arc
-                    if (toSkip > 0 && Random.Range(0, toContinue.Count / toSkip) < 1)
+                    if (toSkip > 0 && Random.Range(0, toContinue.Count / toSkipStart) < 1)
                     {
                         toSkip--;
                         var arc = Instantiate(SubVoltageObject, obj.transform.position + obj.transform.forward - obj.transform.right * 0.25f, obj.transform.rotation, obj.transform.transform);
@@ -130,7 +132,7 @@ public class NetHighVoltageLogic : NetworkBehaviour
                     else
                     {
                         // try to skip left arc
-                        if (toSkip > 0 && Random.Range(0, toContinue.Count / toSkip) < 1)
+                        if (toSkip > 0 && Random.Range(0, toContinue.Count / toSkipStart) < 1)
                         {
                             toSkip--;
                         }

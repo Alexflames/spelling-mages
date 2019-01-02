@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AuraController : MonoBehaviour {
     public Aura CurrentAura { get; set; }
+    private GameObject oldAura;
     void Awake()
     {
         CurrentAura = gameObject.AddComponent<EmptyAura>();
@@ -18,6 +19,8 @@ public class AuraController : MonoBehaviour {
     {
         CurrentAura = aura;
         CurrentAura.AuraModel = model;
+        Destroy(oldAura);
+        oldAura = model;
     }
 
     public void ReactToCast()

@@ -6,17 +6,20 @@ using UnityEngine.Networking;
 public class NetAuraController : NetworkBehaviour
 {
     private Aura CurrentAura { get; set; }
+    private GameObject oldAura;
     // Use this for initialization
     void Awake()
     {
         CurrentAura = gameObject.AddComponent<NetEmptyAura>();
     }
 
-    // Deletes old aura
+    // Sets new aura and deletes old aura model 
     public void SetAura(Aura aura, GameObject model)
     {
         CurrentAura = aura;
         CurrentAura.AuraModel = model;
+        Destroy(oldAura);
+        oldAura = model;
     }
 
     public void ReactToCast()
