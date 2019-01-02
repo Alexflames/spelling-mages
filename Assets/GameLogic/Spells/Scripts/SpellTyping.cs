@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class SpellTyping : MonoBehaviour
 {
@@ -23,14 +24,20 @@ public class SpellTyping : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F1) && currentText.text.Trim().Length >= 3 && newSpellBook.activeSelf){
-            hintLogic.TryActivate (currentText.text.Trim());
+        if (currentText.text.Trim().Length >= 3)
+        {
+            SpellInit hintS = hintLogic.TryActivate(currentText.text.Trim());
+            //print (currentText.text.Trim());
+            //print(hintS);
+	    if (hintS != null && hintS is SpellHintReaction) {
+	        ((SpellHintReaction)hintS).onHintRequest();
+            }
         }
-	else
+
         if (Input.GetButtonDown("Submit") && Input.GetButton("Shift"))
         {
             string inputText = currentText.text.ToLower();
-            hintLogic.Deactivate();
+            //hintLogic.Deactivate();
             inputText = inputText.Trim();
             spellCreateComponent.castSpell(inputText);
 
@@ -40,13 +47,23 @@ public class SpellTyping : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Backspace) && currentText.text.Length > 0)
         {
-            hintLogic.Deactivate();
+            //hintLogic.Deactivate();
+            print("backsp");
+            print(Input.inputString.Length.ToString());
+            print(Char.IsWhiteSpace('\b'));
+
+            print("Old length = "+currentText.text.Length.ToString());
             currentText.text = currentText.text.Substring(0, currentText.text.Length - 1);
+            print("New length = "+currentText.text.Length.ToString());
+
         }
-        else if (!Input.GetKeyDown(KeyCode.Return) && currentText.text.Length < 30)
+        else if (!Input.GetKeyDown(KeyCode.Return) && currentText.text.Length < 30 
+                                                   && Input.inputString.Length == 1)
         {
-            if (Input.inputString.Length > 0) hintLogic.Deactivate();
-            currentText.text += Input.inputString;
+            //if (Input.inputString.Length > 0) hintLogic.Deactivate();
+            char ch = Input.inputString[0];
+            if (ch == ' ' || Char.IsDigit(ch) || (ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z'))
+                 currentText.text += ch;
         }
     }
 }

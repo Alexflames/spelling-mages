@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SplashInit : MonoBehaviour, SpellInit {
+public class SplashInit : MonoBehaviour, SpellInit, SpellHintReaction {
     // Variables for drawing circle
     public GameObject circleDrawer;
     private SplashCircleDrawer splashCircleDrawer;
@@ -18,6 +18,11 @@ public class SplashInit : MonoBehaviour, SpellInit {
         this.gameObject.GetComponent<SpellCreating>().addSpell(aliases, this);
 
         splashCircleDrawer = circleDrawer.GetComponent<SplashCircleDrawer>();
+    }
+
+    public void onHintRequest () 
+    {
+        splashCircleDrawer.CreatePoints(radius);
     }
 
     public void cast(string smName)

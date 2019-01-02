@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -63,9 +64,12 @@ public class NetSpellTyping : NetworkBehaviour
         {
             currentText.text = currentText.text.Substring(0, currentText.text.Length - 1);
         }
-        else if (!Input.GetKeyDown(KeyCode.Return) && currentText.text.Length < 30)
+        else if (!Input.GetKeyDown(KeyCode.Return) && currentText.text.Length < 30
+                                                   && Input.inputString.Length == 1)
         {
-            currentText.text += Input.inputString;
+            char ch = Input.inputString[0];
+            if (ch == ' ' || Char.IsDigit(ch) || (ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z'))
+                currentText.text += ch;
         }
     }
 }
