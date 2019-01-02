@@ -27,8 +27,6 @@ public class SpellTyping : MonoBehaviour
         if (currentText.text.Trim().Length >= 3)
         {
             SpellInit hintS = hintLogic.TryActivate(currentText.text.Trim());
-            //print (currentText.text.Trim());
-            //print(hintS);
 	    if (hintS != null && hintS is SpellHintReaction) {
 	        ((SpellHintReaction)hintS).onHintRequest();
             }
@@ -48,14 +46,7 @@ public class SpellTyping : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Backspace) && currentText.text.Length > 0)
         {
             //hintLogic.Deactivate();
-            print("backsp");
-            print(Input.inputString.Length.ToString());
-            print(Char.IsWhiteSpace('\b'));
-
-            print("Old length = "+currentText.text.Length.ToString());
             currentText.text = currentText.text.Substring(0, currentText.text.Length - 1);
-            print("New length = "+currentText.text.Length.ToString());
-
         }
         else if (!Input.GetKeyDown(KeyCode.Return) && currentText.text.Length < 30 
                                                    && Input.inputString.Length == 1)

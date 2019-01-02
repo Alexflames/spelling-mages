@@ -48,6 +48,7 @@ public class NetPrediction_FateLogic : NetworkBehaviour
                 owner.transform.position = predictionPos + Vector3.up * 0.1f;
                 owner.GetComponent<UnityEngine.AI.NavMeshAgent>().ResetPath();
                 NetworkServer.Destroy(gameObject);
+                return;
             }
         }
         if (timeLeft < 0 && !m_activated)
