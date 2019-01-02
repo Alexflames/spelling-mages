@@ -5,7 +5,7 @@ using UnityEngine.Networking;
 
 public class NetFieryAuraInit : NetworkBehaviour, SpellInit, Aura
 {
-    private string[] aliases = { "ignious", "fiery" };
+    private string[] aliases = { "fiery", "igneous" };
     public GameObject AuraModelPrefab;
     public GameObject FieryBurst;
 

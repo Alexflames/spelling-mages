@@ -28,7 +28,7 @@ public class CameraAxisBlocker : MonoBehaviour {
         player = pl;
 
         axisY = gameObject.transform.position.y;
-        position = pl.transform.position + Vector3.up * 15 + Vector3.back * 5;
+        position = pl.transform.position + Vector3.up * 18 + Vector3.back * 6;
         if (player)
         {
             playerInitialPosition = player.transform.position;

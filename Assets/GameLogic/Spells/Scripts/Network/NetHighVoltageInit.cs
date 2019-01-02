@@ -19,7 +19,7 @@ public class NetHighVoltageInit : NetworkBehaviour, SpellInit
 
     public void cast(string smName)
     {
-        CmdCast(gameObject.transform.position + transform.forward, gameObject.transform.rotation, smName);
+        CmdCast(gameObject.transform.position + transform.forward + transform.up * 0.25f, gameObject.transform.rotation, smName);
     }
 
     [Command]
