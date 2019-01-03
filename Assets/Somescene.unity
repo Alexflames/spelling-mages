@@ -364,7 +364,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 67107156}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -399.61, y: -209, z: 17.96}
+  m_LocalPosition: {x: -399.57, y: -209, z: 17.96}
   m_LocalScale: {x: 0.9866472, y: 0.35501394, z: 0.8218668}
   m_Children: []
   m_Father: {fileID: 1149888735}
@@ -756,7 +756,7 @@ Light:
   serializedVersion: 8
   m_Type: 1
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0.7
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -1013,7 +1013,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh46960
+  m_Name: pb_Mesh6188
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -1539,8 +1539,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 271690443}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -413.38, y: -209, z: 28.78}
-  m_LocalScale: {x: 7.0047297, y: 1.1793699, z: 1.3507329}
+  m_LocalPosition: {x: -412.6, y: -209, z: 28.78}
+  m_LocalScale: {x: 7.545379, y: 1.1793699, z: 1.3507329}
   m_Children: []
   m_Father: {fileID: 1503216252}
   m_RootOrder: 5
