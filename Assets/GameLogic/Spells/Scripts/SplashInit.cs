@@ -15,7 +15,7 @@ public class SplashInit : MonoBehaviour, SpellInit, SpellHintReaction {
 
     // Use this for initialization
     void Start () {
-        this.gameObject.GetComponent<SpellCreating>().addSpell(aliases, this);
+        this.gameObject.GetComponent<SpellCreating>().addSpell(this);
 
         splashCircleDrawer = circleDrawer.GetComponent<SplashCircleDrawer>();
     }
@@ -72,5 +72,12 @@ public class SplashInit : MonoBehaviour, SpellInit, SpellHintReaction {
 		get {
 			return "splash";
 		}
+    }
+
+
+    public string[] Aliases {
+        get {
+            return aliases;
+        }
     }
 }

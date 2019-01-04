@@ -26,21 +26,17 @@ public class SpellCreating : MonoBehaviour {
 		}
     }
 
-    public void addSpell(string[] names, SpellInit sp)
+    public void addSpell(SpellInit sp)
     {
         
-        string name = names[0];
+        string name = sp.Aliases[0];
         if (randomise)
         {
-            name = names[rand.Next(names.Length)];
+            name = sp.Aliases[rand.Next(sp.Aliases.Length)];
         }
         spellbook.Add(name, sp);
-        /*if (spellBookText != null)
-        {
-            spellBookText.text += "\n" + name;
-        }*/
 		if(newSpellBookPanel != null) {
-			newSpellBookPanel.GetComponent<SpellBookLogic>().addSpellBookEntry (name, sp, names[0]);
+			newSpellBookPanel.GetComponent<SpellBookLogic>().addSpellBookEntry (name, sp, sp.Aliases[0]);
 		}
     }
    

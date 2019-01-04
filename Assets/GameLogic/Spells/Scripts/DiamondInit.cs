@@ -2,14 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DiamondInit : MonoBehaviour, SpellInit {
+public class DiamondInit : AbstractSpellInit {
     public GameObject diamond;
     private Transform ownerTransform;
     private string[] aliases = {"diamond", "bullet"};
-    // Use this for initialization
-    void Start () {
-        this.gameObject.GetComponent<SpellCreating>().addSpell(aliases,this);
-    }
 
     Vector3 makeSpellSpawnPos (Vector3 adder, Transform owner)
     {
@@ -21,7 +17,7 @@ public class DiamondInit : MonoBehaviour, SpellInit {
         Instantiate(diamond, spellSpawnPos, rotation);
     }
 
-    public void cast (string smName)
+    public override void cast (string smName)
     {
 		SpellModificator sm = gameObject.GetComponent<SpellCreating> ().getModIfExists (smName);
         ownerTransform = this.gameObject.transform;
@@ -36,9 +32,15 @@ public class DiamondInit : MonoBehaviour, SpellInit {
         
     }
 
-    public string Description {
+    public override string Description {
 		get {
 			return "diamond";
 		}
+    }
+
+    public override string[] Aliases {
+        get {
+            return aliases;
+        }
     }
 }

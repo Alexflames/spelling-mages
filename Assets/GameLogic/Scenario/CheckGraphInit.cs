@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CheckGraphInit : MonoBehaviour, SpellInit
+public class CheckGraphInit : AbstractSpellInit
 {
     GraphController controller;
     TextMesh resultText;
@@ -14,14 +14,7 @@ public class CheckGraphInit : MonoBehaviour, SpellInit
         controller = GameObject.Find("GraphController").GetComponent<GraphController>();
         resultText = GameObject.Find("ResultText").GetComponent<TextMesh>();
     }
-
-    // Use this for initialization
-    void Start()
-    {
-        this.gameObject.GetComponent<SpellCreating>().addSpell(aliases, this);
-    }
-
-    public void cast(string smName)
+    public override void cast(string smName)
     {
         //SpellModificator sm = gameObject.GetComponent<SpellCreating>().getModIfExists(smName);
         if (controller.CheckGraph())
@@ -47,11 +40,17 @@ public class CheckGraphInit : MonoBehaviour, SpellInit
         }
     }
 
-    public string Description
+    public override string Description
     {
         get
         {
             return "Проверка, получен ли каркас дерева?";
+        }
+    }
+
+    public override string[] Aliases {
+        get {
+            return aliases;
         }
     }
 }

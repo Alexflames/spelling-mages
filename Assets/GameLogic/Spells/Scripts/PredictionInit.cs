@@ -13,7 +13,7 @@ public class PredictionInit : MonoBehaviour, SpellInit {
 
     // Use this for initialization
     void Start () {
-        this.gameObject.GetComponent<SpellCreating>().addSpell(aliases, this);
+        this.gameObject.GetComponent<SpellCreating>().addSpell(this);
         audioSource = gameObject.GetComponent<AudioSource>();
     }
     
@@ -43,4 +43,10 @@ public class PredictionInit : MonoBehaviour, SpellInit {
 		}
     }
 
+
+    public string[] Aliases {
+        get {
+            return aliases;
+        }
+    }
 }

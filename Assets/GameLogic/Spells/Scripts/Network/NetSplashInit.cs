@@ -21,7 +21,7 @@ public class NetSplashInit : NetworkBehaviour, SpellInit
     // Use this for initialization
     void Start()
     {
-        SessionName = gameObject.GetComponent<NetSpellCreating>().addSpell(aliases, this);
+        SessionName = gameObject.GetComponent<NetSpellCreating>().addSpell(this);
         splashCircleDrawer = circleDrawer.GetComponent<SplashCircleDrawer>();
     }
 
@@ -96,5 +96,12 @@ public class NetSplashInit : NetworkBehaviour, SpellInit
             }
             return translation + "(" + SessionName + ") " + "(Splash) Требует нахождение <color=#0000ffff>источника воды</color> поблизости. Пустить волну в направление курсора";
 		}
+    }
+
+
+    public string[] Aliases {
+        get {
+            return aliases;
+        }
     }
 }

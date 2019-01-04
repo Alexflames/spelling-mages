@@ -9,7 +9,7 @@ public class FateInit : MonoBehaviour, SpellInit {
     private string[] aliases = { "fate" };
     // Use this for initialization
     void Start () {
-        this.gameObject.GetComponent<SpellCreating>().addSpell(aliases, this);
+        this.gameObject.GetComponent<SpellCreating>().addSpell(this);
         predictionInit = gameObject.GetComponent<PredictionInit>();
     }
 
@@ -28,5 +28,11 @@ public class FateInit : MonoBehaviour, SpellInit {
 		get {
 			return "fate";
 		}
+    }
+
+    public string[] Aliases {
+        get {
+            return aliases;
+        }
     }
 }

@@ -15,7 +15,7 @@ public class NetDiamondInit : NetworkBehaviour, SpellInit
     // Use this for initialization
     void Start()
     {
-        SessionName = this.gameObject.GetComponent<NetSpellCreating>().addSpell(aliases, this);
+        SessionName = this.gameObject.GetComponent<NetSpellCreating>().addSpell(this);
     }
 
     Vector3 makeSpellSpawnPos(Vector3 adder, Transform owner)
@@ -80,6 +80,12 @@ public class NetDiamondInit : NetworkBehaviour, SpellInit
                     break;
             }
             return translation + "(" + SessionName + ") " + "(Diamond) Создает крайне острый <color=#ffffffff>объект</color>. Использовать с осторожностью!";
+        }
+    }
+
+    public string[] Aliases {
+        get {
+            return aliases;
         }
     }
 }

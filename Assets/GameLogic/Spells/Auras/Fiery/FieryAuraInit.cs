@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FieryAuraInit : MonoBehaviour, SpellInit, Aura {
+public class FieryAuraInit : AbstractSpellInit, Aura {
 
     private string[] aliases = { "fiery", "igneous" };
     public GameObject AuraModelPrefab;
@@ -18,13 +18,7 @@ public class FieryAuraInit : MonoBehaviour, SpellInit, Aura {
         }
     }
 
-
-    // Use this for initialization
-    void Start () {
-        gameObject.GetComponent<SpellCreating>().addSpell(aliases, this);
-    }
-
-    public void cast(string smName)
+    public override void cast(string smName)
     {
         var aura = GameObject.Instantiate(AuraModelPrefab);
         gameObject.GetComponent<AuraController>().SetAura(this, aura);
@@ -54,11 +48,17 @@ public class FieryAuraInit : MonoBehaviour, SpellInit, Aura {
     }
 
 
-    public string Description
+    public override string Description
     {
         get
         {
             return "Fiery Aura";
+        }
+    }
+
+    public override string[] Aliases {
+        get {
+            return aliases;
         }
     }
 }

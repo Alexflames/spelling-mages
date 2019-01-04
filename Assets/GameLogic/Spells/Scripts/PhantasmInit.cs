@@ -2,14 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PhantasmInit : MonoBehaviour, SpellInit {
+public class PhantasmInit : AbstractSpellInit {
 
     public GameObject phantasm;
     private string[] aliases = {"phantasm", "phantom" , "ghost"};
-    // Use this for initialization
-    void Start () {
-        this.gameObject.GetComponent<SpellCreating>().addSpell(aliases, this);
-    }
 
     private IEnumerator repeatCast (float wait, Vector3 spellSpawnPos, Quaternion rotation) {
         yield return new WaitForSeconds (wait);
@@ -18,7 +14,7 @@ public class PhantasmInit : MonoBehaviour, SpellInit {
         spellComp.SetOwner(gameObject);
     }
 
-    public void cast (string smName)
+    public override void cast (string smName)
     {
 		SpellModificator sm = gameObject.GetComponent<SpellCreating> ().getModIfExists (smName);
         RaycastHit hit;
@@ -38,9 +34,15 @@ public class PhantasmInit : MonoBehaviour, SpellInit {
 
     }
 
-    public string Description {
+    public override string Description {
 		get {
 			return "phantasm";
 		}
+    }
+
+    public override string[] Aliases {
+        get {
+            return aliases;
+        }
     }
 }

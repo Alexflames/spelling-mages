@@ -17,7 +17,7 @@ public class NetFateInit : NetworkBehaviour, SpellInit
     // Use this for initialization
     void Start()
     {
-        SessionName = this.gameObject.GetComponent<NetSpellCreating>().addSpell(aliases, this);
+        SessionName = this.gameObject.GetComponent<NetSpellCreating>().addSpell(this);
         predictionInit = gameObject.GetComponent<NetPredictionInit>();
     }
 
@@ -54,6 +54,13 @@ public class NetFateInit : NetworkBehaviour, SpellInit
             }
             return translation + "(" + SessionName + ") " + "(Fate) Перемещает  персонажа на место <color=#7d00c8ff>копии</color>. " +
                 "Используйте <color=#7d00c8ff>prediction</color> для создания <color=#7d00c8ff>копии</color>";
+        }
+    }
+
+
+    public string[] Aliases {
+        get {
+            return aliases;
         }
     }
 }

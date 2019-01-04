@@ -14,7 +14,7 @@ public class NetHighVoltageInit : NetworkBehaviour, SpellInit
     // Use this for initialization
     void Start()
     {
-        SessionName = this.gameObject.GetComponent<NetSpellCreating>().addSpell(aliases, this);
+        SessionName = this.gameObject.GetComponent<NetSpellCreating>().addSpell(this);
     }
 
     public void cast(string smName)
@@ -70,6 +70,13 @@ public class NetHighVoltageInit : NetworkBehaviour, SpellInit
                     break;
             }
             return translation + "(" + SessionName + ") " + "(high voltage) Создает <color=#e6b800ff>электрический разряд</color> в направлении взгляда персонажа.";
+        }
+    }
+
+
+    public string[] Aliases {
+        get {
+            return aliases;
         }
     }
 }

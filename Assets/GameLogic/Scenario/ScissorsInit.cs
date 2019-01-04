@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ScissorsInit : MonoBehaviour, SpellInit
+public class ScissorsInit : AbstractSpellInit
 {
     GraphController controller;
     private string[] aliases = { "scissors" };
@@ -21,23 +21,23 @@ public class ScissorsInit : MonoBehaviour, SpellInit
         controller = GameObject.Find("GraphController").GetComponent<GraphController>();
     }
 
-    // Use this for initialization
-    void Start()
-    {
-        this.gameObject.GetComponent<SpellCreating>().addSpell(aliases, this);
-    }
-
-    public void cast(string smName)
+    public override void cast(string smName)
     {
         //SpellModificator sm = gameObject.GetComponent<SpellCreating>().getModIfExists(smName);
         activated = !activated;
     }
 
-    public string Description
+    public override string Description
     {
         get
         {
             return "Персонаж убирает лишние соединения, прикасаясь к ним";
+        }
+    }
+
+    public override string[] Aliases {
+        get {
+            return aliases;
         }
     }
 }

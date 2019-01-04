@@ -19,7 +19,7 @@ public class NetPredictionInit : NetworkBehaviour, SpellInit
     // Use this for initialization
     void Start()
     {
-        SessionName = this.gameObject.GetComponent<NetSpellCreating>().addSpell(aliases, this);
+        SessionName = this.gameObject.GetComponent<NetSpellCreating>().addSpell(this);
         audioSource = gameObject.GetComponent<AudioSource>();
     }
 
@@ -84,6 +84,13 @@ public class NetPredictionInit : NetworkBehaviour, SpellInit
             }
             return translation + "(Prediction) Создает <color=#7d00c8ff>копию</color>, идущую в направлении движения." +
                 " Используйте <color=#7d00c8ff>fate</color> для перемещения на место <color=#7d00c8ff>копии</color>";
+        }
+    }
+
+
+    public string[] Aliases {
+        get {
+            return aliases;
         }
     }
 }

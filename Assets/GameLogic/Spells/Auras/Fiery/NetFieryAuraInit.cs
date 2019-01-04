@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class NetFieryAuraInit : NetworkBehaviour, SpellInit, Aura
+public class NetFieryAuraInit : NetAbstractSpellInit, Aura
 {
     private string[] aliases = { "fiery", "igneous" };
     public GameObject AuraModelPrefab;
@@ -19,14 +19,8 @@ public class NetFieryAuraInit : NetworkBehaviour, SpellInit, Aura
         }
     }
 
-    // Use this for initialization
-    void Start()
-    {
-        gameObject.GetComponent<NetSpellCreating>().addSpell(aliases, this);
-    }
-
     // Invoked on local client (in SpellCreating)
-    public void cast(string smName)
+    public override void cast(string smName)
     {
         var aura = GameObject.Instantiate(AuraModelPrefab);
         gameObject.GetComponent<NetAuraController>().SetAura(this, aura);
@@ -56,11 +50,17 @@ public class NetFieryAuraInit : NetworkBehaviour, SpellInit, Aura
         CmdSpawn(gameObject.transform.position, gameObject.transform.rotation);
     }
 
-    public string Description
+    public override string Description
     {
         get
         {
             return "Fiery Aura";
+        }
+    }
+
+    public override string[] Aliases {
+        get {
+            return aliases;
         }
     }
 }

@@ -14,7 +14,7 @@ public class NetPhantasmInit : NetworkBehaviour, SpellInit
     // Use this for initialization
     void Start()
     {
-        SessionName = this.gameObject.GetComponent<NetSpellCreating>().addSpell(aliases, this);
+        SessionName = this.gameObject.GetComponent<NetSpellCreating>().addSpell(this);
     }
 
     [Command]
@@ -68,6 +68,12 @@ public class NetPhantasmInit : NetworkBehaviour, SpellInit
             return translation + "(" + SessionName + ") " + "Призывает <b><color=#A67474ff>тень</color></b>, " +
                 "идущую в сторону персонажа. " +
                 "Прикосновение с вами <color=#9d20e8ff>активирует</color> <b><color=#A67474ff>его</color></b>";
+        }
+    }
+
+    public string[] Aliases {
+        get {
+            return aliases;
         }
     }
 }
