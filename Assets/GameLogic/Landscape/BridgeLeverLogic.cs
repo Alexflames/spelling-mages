@@ -19,7 +19,7 @@ public class BridgeLeverLogic : MonoBehaviour
     {
         bsl = bridgeToActivate.GetComponent<BridgeSunkLogic>();
         bsl2 = bridgeToActivate2.GetComponent<BridgeSunkLogic>();
-        navMeshChangesScript = gameObject.GetComponent<NavMeshChangesScript>();
+        //navMeshChangesScript = gameObject.GetComponent<NavMeshChangesScript>();
         timer = startingTimer;
     }
 
@@ -52,7 +52,7 @@ public class BridgeLeverLogic : MonoBehaviour
             timer -= Time.deltaTime;
             if (timer < 0)
             {
-                navMeshChangesScript.RebuildNavMesh();
+                //navMeshChangesScript.RebuildNavMesh();
                 timer = startingTimer;
             }
         }

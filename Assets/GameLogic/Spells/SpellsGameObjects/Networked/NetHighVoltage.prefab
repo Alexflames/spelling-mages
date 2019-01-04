@@ -1767,6 +1767,8 @@ MonoBehaviour:
   attackPower: 30
   part1: {fileID: 1777383465108778}
   part2: {fileID: 1334562178317520}
+  Nobjects: 4
+  SubVoltageObject: {fileID: 0}
 --- !u!114 &114167720270864828
 MonoBehaviour:
   m_ObjectHideFlags: 1

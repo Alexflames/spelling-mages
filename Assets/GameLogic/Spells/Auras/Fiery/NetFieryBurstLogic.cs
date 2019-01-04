@@ -48,8 +48,15 @@ public class NetFieryBurstLogic : NetworkBehaviour
         if (collision.gameObject.CompareTag("Destroyable"))
         {   // Объект, в который врезались, уничтожаемый?
             NetMortal HP = collision.gameObject.GetComponent<NetMortal>();
-            HP.lowerHP((int)(attackPower * attackFactor));
-            NetworkServer.Destroy(gameObject);
+            if (HP)
+            {
+                HP.lowerHP((int)(attackPower * attackFactor));
+                NetworkServer.Destroy(gameObject);
+            }
+            else
+            {
+                print("ERROR: forgot to assign network HP");
+            }
         }
         if (!collision.gameObject.CompareTag("Spell"))
         {
