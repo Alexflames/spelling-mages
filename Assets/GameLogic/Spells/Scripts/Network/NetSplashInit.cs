@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class NetSplashInit : NetworkBehaviour, SpellInit
+public class NetSplashInit : NetworkBehaviour, SpellInit, SpellHintReaction
 {
     // Variables for drawing circle
     public GameObject circleDrawer;
@@ -23,6 +23,11 @@ public class NetSplashInit : NetworkBehaviour, SpellInit
     {
         SessionName = gameObject.GetComponent<NetSpellCreating>().addSpell(this);
         splashCircleDrawer = circleDrawer.GetComponent<SplashCircleDrawer>();
+    }
+
+    public void onHintRequest () 
+    {
+        splashCircleDrawer.CreatePoints(radius);
     }
 
     [Command]

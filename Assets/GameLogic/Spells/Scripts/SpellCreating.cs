@@ -36,7 +36,7 @@ public class SpellCreating : MonoBehaviour {
         }
         spellbook.Add(name, sp);
 		if(newSpellBookPanel != null) {
-			newSpellBookPanel.GetComponent<SpellBookLogic>().addSpellBookEntry (name, sp, sp.Aliases[0]);
+			newSpellBookPanel.GetComponent<SpellBookLogic>().addSpellBookEntry (name, sp);
 		}
     }
    
@@ -60,5 +60,24 @@ public class SpellCreating : MonoBehaviour {
 	public SpellModificator getModIfExists (string name){
 		if (name != null && modificators.ContainsKey(name)) return modificators[name];
 		else return null;
+	}
+
+	public SpellInit getSpellIfExists (string name){
+		if (name != null && spellbook.ContainsKey(name)) return spellbook[name];
+		else return null;
+	}
+
+	public string SearchSpell (string prename){
+		foreach (string key in spellbook.Keys) {
+			if (key.StartsWith (prename)) return key;
+		}
+		return null;
+	}
+
+	public string SearchMod (string prename){
+		foreach (string key in modificators.Keys) {
+			if (key.StartsWith (prename)) return key;
+		}
+		return null;
 	}
 }

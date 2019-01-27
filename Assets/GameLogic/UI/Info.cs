@@ -28,15 +28,10 @@ public class Info : MonoBehaviour {
 		content.text = con;
 	}
 
-	// returns spellinit for hinting
-	public SpellInit TryActivate (string prename) {
-		string sp = gameObject.GetComponent<SpellBookLogic>().Search (prename);
-		if (sp != null){
-			SpellInit si = gameObject.GetComponent<SpellBookLogic>().ReturnInit (sp);
-			SetInfo (sp, si.Description);
-			return si;
-		}
-		return null;
+	// show description
+	public void ShowSpellDescription (string name, SpellInit si) {
+		SetInfo (name, si.Description);
+
 	}
 
 	public void Deactivate () {
