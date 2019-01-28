@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class NetStrongModificator : NetAbstractSpellModificator
 {
-    public float factor = 1.0f;
-    public override string Name
-    {
-        get
-        {
-            return "strong";
-        }
-    }
+	public float factor = 1.0f;
+	public override string Name
+	{
+		get
+		{
+			return "strong";
+		}
+	}
 }

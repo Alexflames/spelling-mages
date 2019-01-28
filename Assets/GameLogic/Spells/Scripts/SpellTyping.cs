@@ -49,7 +49,7 @@ public class SpellTyping : MonoBehaviour
 
 		if (Input.GetButtonDown("Submit") && Input.GetButton("Shift"))
 		{
-            
+			
 			//hintLogic.Deactivate();
 			spellCreateComponent.castSpell(inputText);
 

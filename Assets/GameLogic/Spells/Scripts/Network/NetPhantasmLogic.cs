@@ -5,111 +5,111 @@ using UnityEngine.Networking;
 
 public class NetPhantasmLogic : NetworkBehaviour
 {
-    private Rigidbody rb;
-    public GameObject owner;
-    private bool isghost;
-    private float timePassed;
-    private Vector3 vectorToOwner;
-    public Material activatedPhantasmMaterial;
-    private Renderer rend;
-    public int attackPower = 25;
-    private double attackFactor = 1.0;
-    private double speedFactor = 1.0;
-    private List<GameObject> collidesWith = new List<GameObject>(); // Whom phantasm already collided with
+	private Rigidbody rb;
+	public GameObject owner;
+	private bool isghost;
+	private float timePassed;
+	private Vector3 vectorToOwner;
+	public Material activatedPhantasmMaterial;
+	private Renderer rend;
+	public int attackPower = 25;
+	private double attackFactor = 1.0;
+	private double speedFactor = 1.0;
+	private List<GameObject> collidesWith = new List<GameObject>(); // Whom phantasm already collided with
 
-    public void ApplyModificator(SpellModificator sm)
-    {
-        if (sm == null) return;
-        if (sm is NetStrongModificator)
-        {
-            attackFactor = ((NetStrongModificator)sm).factor;
-        }
-        if (sm is NetGreatModificator)
-        {
-            float sF = ((NetGreatModificator)sm).scaleFactor; // TODO: fix
-            gameObject.transform.localScale += new Vector3(sF - 1.0f, 0, sF - 1.0f);
-        }
-        if (sm is NetQuickModificator)
-        {
-            NetQuickModificator qm = (NetQuickModificator)sm;
-            attackFactor = 1 / qm.weakFactor;
-            speedFactor = qm.speedFactor;
-        }
-    }
+	public void ApplyModificator(SpellModificator sm)
+	{
+		if (sm == null) return;
+		if (sm is NetStrongModificator)
+		{
+			attackFactor = ((NetStrongModificator)sm).factor;
+		}
+		if (sm is NetGreatModificator)
+		{
+			float sF = ((NetGreatModificator)sm).scaleFactor; // TODO: fix
+			gameObject.transform.localScale += new Vector3(sF - 1.0f, 0, sF - 1.0f);
+		}
+		if (sm is NetQuickModificator)
+		{
+			NetQuickModificator qm = (NetQuickModificator)sm;
+			attackFactor = 1 / qm.weakFactor;
+			speedFactor = qm.speedFactor;
+		}
+	}
 
-    void OnTriggerEnter(Collider collision)
-    {
-        if (collision.gameObject == owner)  // TODO
-        {
-            isghost = false;
-            rend.material = activatedPhantasmMaterial;
-            rb.velocity = Vector3.zero;
-            rb.angularVelocity = Vector3.zero;
-            rb.Sleep();
-        }
-        else if (isghost) { } // Если призрак, то дальнейшие проверки остановить
-        else if (collision.gameObject.CompareTag("Destroyable"))
-        { // Объект, в который врезались, уничтожаемый?
-            if (!isServer) return;
+	void OnTriggerEnter(Collider collision)
+	{
+		if (collision.gameObject == owner)  // TODO
+		{
+			isghost = false;
+			rend.material = activatedPhantasmMaterial;
+			rb.velocity = Vector3.zero;
+			rb.angularVelocity = Vector3.zero;
+			rb.Sleep();
+		}
+		else if (isghost) { } // Если призрак, то дальнейшие проверки остановить
+		else if (collision.gameObject.CompareTag("Destroyable"))
+		{ // Объект, в который врезались, уничтожаемый?
+			if (!isServer) return;
 
-            RpcHit(collision.gameObject);
-        }
-        else if (collision.gameObject.tag != "Spell")
-            NetworkServer.Destroy(gameObject);
-    }
+			RpcHit(collision.gameObject);
+		}
+		else if (collision.gameObject.tag != "Spell")
+			NetworkServer.Destroy(gameObject);
+	}
 
-    [ClientRpc]
-    private void RpcHit(GameObject collision)
-    {
-        if (!collidesWith.Contains(collision.gameObject))
-        {
-            collidesWith.Add(collision.gameObject);
-            NetMortal HP = collision.GetComponent<NetMortal>();
-            HP.lowerHP((int)(attackFactor * attackPower));
-        }
-    }
+	[ClientRpc]
+	private void RpcHit(GameObject collision)
+	{
+		if (!collidesWith.Contains(collision.gameObject))
+		{
+			collidesWith.Add(collision.gameObject);
+			NetMortal HP = collision.GetComponent<NetMortal>();
+			HP.lowerHP((int)(attackFactor * attackPower));
+		}
+	}
 
-    void Awake()
-    {
-        isghost = true;
-        rb = GetComponent<Rigidbody>();
-        rend = GetComponent<Renderer>();
+	void Awake()
+	{
+		isghost = true;
+		rb = GetComponent<Rigidbody>();
+		rend = GetComponent<Renderer>();
 
-        timePassed = 0;
-    }
+		timePassed = 0;
+	}
 
-    void FixedUpdate()
-    {
-        timePassed += Time.deltaTime;
-        if (isghost)
-        {
-            Vector3 distance = owner.transform.position - gameObject.transform.position + new Vector3(0, 1.0f, 0);
-            if (distance.magnitude > 0.5f)
-            {
-                vectorToOwner = Vector3.Normalize(owner.transform.position - gameObject.transform.position + new Vector3(0, 1.0f, 0));
-            }
+	void FixedUpdate()
+	{
+		timePassed += Time.deltaTime;
+		if (isghost)
+		{
+			Vector3 distance = owner.transform.position - gameObject.transform.position + new Vector3(0, 1.0f, 0);
+			if (distance.magnitude > 0.5f)
+			{
+				vectorToOwner = Vector3.Normalize(owner.transform.position - gameObject.transform.position + new Vector3(0, 1.0f, 0));
+			}
 
-            if (timePassed < 7.0f)
-            {
-                rb.AddForce(vectorToOwner * timePassed * 4 * (float)speedFactor);
-            }
-            else
-            {
-                if (!rb.IsSleeping())
-                {
-                    rb.velocity = Vector3.zero;
-                    rb.angularVelocity = Vector3.zero;
-                    rb.Sleep();
-                }
-                transform.Translate(vectorToOwner * 0.25f, Space.World);
-            }
-        }
-        else
-            transform.Translate(vectorToOwner * 0.25f, Space.World);
-    }
-    
-    public void SetOwner(GameObject thatOwns)
-    {
-        owner = thatOwns;
-    }
+			if (timePassed < 7.0f)
+			{
+				rb.AddForce(vectorToOwner * timePassed * 4 * (float)speedFactor);
+			}
+			else
+			{
+				if (!rb.IsSleeping())
+				{
+					rb.velocity = Vector3.zero;
+					rb.angularVelocity = Vector3.zero;
+					rb.Sleep();
+				}
+				transform.Translate(vectorToOwner * 0.25f, Space.World);
+			}
+		}
+		else
+			transform.Translate(vectorToOwner * 0.25f, Space.World);
+	}
+	
+	public void SetOwner(GameObject thatOwns)
+	{
+		owner = thatOwns;
+	}
 }

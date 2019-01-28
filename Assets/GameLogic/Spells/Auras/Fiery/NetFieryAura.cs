@@ -5,34 +5,34 @@
 
 //public class NetFieryAura : NetEmptyAura
 //{
-//    NetFieryAuraInit NFAI;
+//	NetFieryAuraInit NFAI;
 
 
-//    void Awake()
-//    {
-//        if (isClient)
-//        {
-//            NFAI = gameObject.GetComponent<NetFieryAuraInit>();
-//        }
-//        else if (isServer)
-//        {
-//            CmdInit();
-//        }
-//    }
+//	void Awake()
+//	{
+//		if (isClient)
+//		{
+//			NFAI = gameObject.GetComponent<NetFieryAuraInit>();
+//		}
+//		else if (isServer)
+//		{
+//			CmdInit();
+//		}
+//	}
 
-//    [Command]
-//    void CmdInit()
-//    {
-//        NFAI = gameObject.GetComponent<NetFieryAuraInit>();
-//    }
+//	[Command]
+//	void CmdInit()
+//	{
+//		NFAI = gameObject.GetComponent<NetFieryAuraInit>();
+//	}
 
-//    //[ClientRpc]
-//    //void RpcInit(NetFieryAuraInit auraInit)
-//    //{
-//    //    NFAI = auraInit;
-//    //}
+//	//[ClientRpc]
+//	//void RpcInit(NetFieryAuraInit auraInit)
+//	//{
+//	//	NFAI = auraInit;
+//	//}
 
-    
+	
 
 
 //}

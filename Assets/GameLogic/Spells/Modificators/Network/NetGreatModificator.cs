@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class NetGreatModificator : NetAbstractSpellModificator
 {
-    public float scaleFactor = 1.0f;
-    public override string Name
-    {
-        get
-        {
-            return "great";
-        }
-    }
+	public float scaleFactor = 1.0f;
+	public override string Name
+	{
+		get
+		{
+			return "great";
+		}
+	}
 }

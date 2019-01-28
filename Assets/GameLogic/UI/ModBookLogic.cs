@@ -26,10 +26,10 @@ public class ModBookLogic : MonoBehaviour {
 		entries.Clear ();
 	}
 
-        void Update () {
-                if (Input.GetKeyDown(KeyCode.LeftControl)){
-                        cg.alpha = 1f - cg.alpha;
-                }
-        }
+	void Update () {
+		if (Input.GetKeyDown(KeyCode.LeftControl)){
+			cg.alpha = 1f - cg.alpha;
+		}
+	}
 
 }

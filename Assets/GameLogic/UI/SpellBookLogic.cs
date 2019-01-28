@@ -21,7 +21,6 @@ public class SpellBookLogic: MonoBehaviour {
 	}
 
 	public void Reset () {
-        
 		foreach (string key in entries.Keys) {
 			print("i wanna reset spellbook");
 			Destroy (entries[key]);
