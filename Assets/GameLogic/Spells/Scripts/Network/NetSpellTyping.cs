@@ -9,6 +9,7 @@ public class NetSpellTyping : NetworkBehaviour
 {
 
 	public Text currentText;
+	private TypeTextSpellCheck spellCheck;
 	private NetSpellCreating spellCreateComponent;
 
 	private GameObject newSpellBook;
@@ -22,6 +23,7 @@ public class NetSpellTyping : NetworkBehaviour
 		if (isLocalPlayer)
 		{
 			currentText = GameObject.Find("TypeText").GetComponent<Text>();
+			spellCheck = GameObject.Find("TypeText").GetComponent<TypeTextSpellCheck>();
 			currentText.text = "";
 			spellCreateComponent = GetComponentInParent<NetSpellCreating>();
 
@@ -43,15 +45,17 @@ public class NetSpellTyping : NetworkBehaviour
 
 		string inputText = currentText.text.ToLower().Trim();
 		string candidateSpellName = null, candidateModName = null;
-
+		bool typo = false;
 		if (inputText.Length > 0) {
 			candidateSpellName = spellCreateComponent.SearchSpell (inputText);
 			if (candidateSpellName == null) {
 				string[] inputParts = inputText.Split (delimiters, 2);
-				candidateModName = spellCreateComponent.SearchSpell (inputParts[0]);
+				candidateModName = spellCreateComponent.SearchMod (inputParts[0]);
 				if (inputParts.Length > 1) {
 					candidateSpellName = spellCreateComponent.SearchSpell (inputParts[1]);
+					if (candidateSpellName == null) typo = true;
 				}
+				if (candidateModName == null) typo = true;
 			}
 			if (currentText.text.Trim().Length >= 3 && candidateSpellName != null)
 			{
@@ -63,6 +67,8 @@ public class NetSpellTyping : NetworkBehaviour
 			}
 		}
 		
+		if (typo) spellCheck.Alert (); else spellCheck.Unalert ();
+
 		if (Input.GetButtonDown("Submit") && Input.GetButton("Shift"))
 		{
 			spellCreateComponent.castSpell(inputText);

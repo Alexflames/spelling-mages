@@ -8,6 +8,7 @@ public class SpellTyping : MonoBehaviour
 {
 
 	public Text currentText;
+	private TypeTextSpellCheck spellCheck;
 	private SpellCreating spellCreateComponent;
 	public GameObject newSpellBook;
 	private Info hintLogic;
@@ -17,6 +18,7 @@ public class SpellTyping : MonoBehaviour
 	{
 		currentText = GameObject.Find("TypeText").GetComponent<Text>();
 		currentText.text = "";
+		spellCheck = GameObject.Find("TypeText").GetComponent<TypeTextSpellCheck>();
 		spellCreateComponent = GetComponentInParent<SpellCreating>();
 		hintLogic =  newSpellBook.GetComponent<Info>();
 	}
@@ -26,15 +28,17 @@ public class SpellTyping : MonoBehaviour
 	{
 		string inputText = currentText.text.ToLower().Trim();
 		string candidateSpellName = null, candidateModName = null;
-
+		bool typo = false;
 		if (inputText.Length > 0) {
 			candidateSpellName = spellCreateComponent.SearchSpell (inputText);
 			if (candidateSpellName == null) {
 				string[] inputParts = inputText.Split (delimiters, 2);
-				candidateModName = spellCreateComponent.SearchSpell (inputParts[0]);
+				candidateModName = spellCreateComponent.SearchMod (inputParts[0]);
 				if (inputParts.Length > 1) {
 					candidateSpellName = spellCreateComponent.SearchSpell (inputParts[1]);
+					if (candidateSpellName == null) typo = true;
 				}
+				if (candidateModName == null) typo = true;
 			}
 			if (currentText.text.Trim().Length >= 3  && candidateSpellName != null)
 			{
@@ -46,6 +50,7 @@ public class SpellTyping : MonoBehaviour
 			}
 		}
 		
+		if (typo) spellCheck.Alert (); else spellCheck.Unalert ();
 
 		if (Input.GetButtonDown("Submit") && Input.GetButton("Shift"))
 		{
