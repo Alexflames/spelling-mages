@@ -11,8 +11,8 @@ public class PredictionInit : AbstractSpellInit {
 	[Range(5, 20)]
 	public float lastingTime = 8;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    protected override void Start () {
 		this.gameObject.GetComponent<SpellCreating>().addSpell(this);
 		audioSource = gameObject.GetComponent<AudioSource>();
 	}

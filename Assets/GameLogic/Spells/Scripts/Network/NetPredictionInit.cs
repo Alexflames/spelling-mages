@@ -16,8 +16,8 @@ public class NetPredictionInit : NetAbstractSpellInit
 	// Name in the current game session
 	public string SessionName = "";
 
-	// Use this for initialization
-	void Start()
+    // Use this for initialization
+    protected override void Start()
 	{
 		SessionName = this.gameObject.GetComponent<NetSpellCreating>().addSpell(this);
 		audioSource = gameObject.GetComponent<AudioSource>();

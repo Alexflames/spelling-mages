@@ -14,6 +14,7 @@ public class SpellCreating : MonoBehaviour {
 	private System.Random rand = new System.Random();
 	public bool randomise = false ;
 	private AuraController auraController;
+    private SpellInit lastSpellCast;
 
 	public void Start(){
 		 auraController = GetComponent<AuraController>();
@@ -41,7 +42,6 @@ public class SpellCreating : MonoBehaviour {
 	}
    
 	public void castSpell (string name) {
-		//print(spellbook.Count);
 		string smName = null;
 		foreach (string key in modificators.Keys) {
 			if (name.StartsWith(key)) {
@@ -53,9 +53,15 @@ public class SpellCreating : MonoBehaviour {
 		if (spellbook.ContainsKey(name))
 		{
 			spellbook[name].cast(smName);
+            lastSpellCast = spellbook[name];
 			if (auraController) auraController.ReactToCast();
 		}
 	}
+
+    public void RMBSpellReact()
+    {
+        lastSpellCast.RMBReact();
+    }
 	
 	public SpellModificator getModIfExists (string name){
 		if (name != null && modificators.ContainsKey(name)) return modificators[name];

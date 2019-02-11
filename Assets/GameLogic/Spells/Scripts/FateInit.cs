@@ -8,7 +8,7 @@ public class FateInit : AbstractSpellInit {
 	public Image fateTransition;
 	private string[] aliases = { "fate" };
 	// Use this for initialization
-	void Start () {
+	protected override void Start () {
 		this.gameObject.GetComponent<SpellCreating>().addSpell(this);
 		predictionInit = gameObject.GetComponent<PredictionInit>();
 	}

@@ -3,6 +3,7 @@ using UnityEngine;
 public interface SpellInit
 {
 	void cast(string smName);
-	string Description {get; }
+    void RMBReact();
+    string Description {get; }
 	string[] Aliases {get; }
 }

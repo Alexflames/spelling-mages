@@ -13,8 +13,8 @@ public class SplashInit : AbstractSpellInit, SpellHintReaction {
 	// Other variables
 	public GameObject waterSplash;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    protected override void Start () {
 		this.gameObject.GetComponent<SpellCreating>().addSpell(this);
 
 		splashCircleDrawer = circleDrawer.GetComponent<SplashCircleDrawer>();
