@@ -69,6 +69,11 @@ public class NetSpellTyping : NetworkBehaviour
 		
 		if (typo) spellCheck.Alert (); else spellCheck.Unalert ();
 
+        if (Input.GetMouseButtonDown(1))
+        {
+            spellCreateComponent.RMBSpellReact();
+        }
+
 		if (Input.GetButtonDown("Submit") && Input.GetButton("Shift"))
 		{
 			spellCreateComponent.castSpell(inputText);

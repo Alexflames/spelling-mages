@@ -498,7 +498,7 @@ GameObject:
   - component: {fileID: 114277201136214502}
   - component: {fileID: 114920402989335290}
   - component: {fileID: 114836001497005818}
-  - component: {fileID: 114496895195528568}
+  - component: {fileID: 114741905797965780}
   - component: {fileID: 114503411210391544}
   - component: {fileID: 114646233472291066}
   - component: {fileID: 114270733985843530}
@@ -3480,19 +3480,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedFactor: 1.5
   weakFactor: 1
---- !u!114 &114496895195528568
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1268252512208058}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18a1f928646cc044eaae32c0bf3c4b86, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  diamond: {fileID: 1583943583358182, guid: c17ed50af88b95d49bf882753a825e78, type: 2}
-  SessionName: 
 --- !u!114 &114501888642128034
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3596,6 +3583,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b724f0e8fd6cc5b4ab370e3f11d1e13f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114741905797965780
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1268252512208058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1a42a306c78fe04a98b500bfa23e243, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  diamond: {fileID: 1159413053728470, guid: c2878ad1bf6bf944c93cd45cf8df83b8, type: 2}
+  SessionName: 
+  startingTimeToCast: 10
+  startingCharges: 6
 --- !u!114 &114757318099291388
 MonoBehaviour:
   m_ObjectHideFlags: 1

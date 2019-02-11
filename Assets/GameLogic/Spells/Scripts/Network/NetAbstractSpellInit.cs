@@ -10,7 +10,7 @@ public abstract class NetAbstractSpellInit :  NetworkBehaviour, SpellInit {
 		this.gameObject.GetComponent<NetSpellCreating>().addSpell(this);
 	}
 
-    public void RMBReact() { }
+    public virtual void RMBReact() { }
 
     public abstract string[] Aliases{get; }
 	public abstract string Description{get; }

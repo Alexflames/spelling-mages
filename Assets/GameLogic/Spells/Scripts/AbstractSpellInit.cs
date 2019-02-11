@@ -9,7 +9,7 @@ public abstract class AbstractSpellInit : MonoBehaviour, SpellInit {
 		this.gameObject.GetComponent<SpellCreating>().addSpell(this);
 	}
 
-    public void RMBReact() { }
+    public virtual void RMBReact() { }
 
     public abstract string[] Aliases{get; }
 	public abstract string Description{get; }

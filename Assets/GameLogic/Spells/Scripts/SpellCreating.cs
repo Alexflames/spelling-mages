@@ -60,7 +60,8 @@ public class SpellCreating : MonoBehaviour {
 
     public void RMBSpellReact()
     {
-        lastSpellCast.RMBReact();
+        if (lastSpellCast != null)
+            lastSpellCast.RMBReact();
     }
 	
 	public SpellModificator getModIfExists (string name){
