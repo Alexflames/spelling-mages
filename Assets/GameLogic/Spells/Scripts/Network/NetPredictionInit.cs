@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class NetPredictionInit : NetworkBehaviour, SpellInit
+public class NetPredictionInit : NetAbstractSpellInit
 {
 	public GameObject prediction;
 	public GameObject spell;	   // Created prediction object
@@ -23,7 +23,7 @@ public class NetPredictionInit : NetworkBehaviour, SpellInit
 		audioSource = gameObject.GetComponent<AudioSource>();
 	}
 
-	public void cast(string smName)
+	public override void cast(string smName)
 	{
 		RaycastHit hit;
 
@@ -64,7 +64,7 @@ public class NetPredictionInit : NetworkBehaviour, SpellInit
 		spellLogic.SetOwner(gameObject);
 		spellLogic.SetDestination(destination);
 	}
-	public string Description {
+	public override string Description {
 		get
 		{
 			string translation = "";
@@ -88,7 +88,7 @@ public class NetPredictionInit : NetworkBehaviour, SpellInit
 	}
 
 
-	public string[] Aliases {
+	public override string[] Aliases {
 		get {
 			return aliases;
 		}

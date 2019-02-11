@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class NetPhantasmInit : NetworkBehaviour, SpellInit
+public class NetPhantasmInit : NetAbstractSpellInit
 {
 	public GameObject phantasm;
 	private string[] aliases = { "phantasm", "phantom", "ghost", "spectre", "apparition" };
@@ -37,7 +37,7 @@ public class NetPhantasmInit : NetworkBehaviour, SpellInit
 		spellComp.ApplyModificator(sm);
 	}
 
-	public void cast(string smName)
+	public override void cast(string smName)
 	{
 		RaycastHit hit;
 
@@ -47,7 +47,7 @@ public class NetPhantasmInit : NetworkBehaviour, SpellInit
 		}
 	}
 
-	public string Description {
+	public override string Description {
 		get {
 			string translation = "";
 			switch (SessionName)
@@ -71,7 +71,7 @@ public class NetPhantasmInit : NetworkBehaviour, SpellInit
 		}
 	}
 
-	public string[] Aliases {
+	public override string[] Aliases {
 		get {
 			return aliases;
 		}

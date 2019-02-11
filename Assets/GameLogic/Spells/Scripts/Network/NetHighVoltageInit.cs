@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class NetHighVoltageInit : NetworkBehaviour, SpellInit
+public class NetHighVoltageInit : NetAbstractSpellInit
 {
 	public GameObject highVoltage;
 	private string[] aliases = { "high voltage", "electricity", "lightning", "thunderstruck", "supercharge", "coil overload" };
@@ -17,7 +17,7 @@ public class NetHighVoltageInit : NetworkBehaviour, SpellInit
 		SessionName = this.gameObject.GetComponent<NetSpellCreating>().addSpell(this);
 	}
 
-	public void cast(string smName)
+	public override void cast(string smName)
 	{
 		CmdCast(gameObject.transform.position + transform.forward + transform.up * 0.25f, gameObject.transform.rotation, smName);
 	}
@@ -43,7 +43,7 @@ public class NetHighVoltageInit : NetworkBehaviour, SpellInit
 		voltageLogic.ApplyModificator(sm);
 	}
 
-	public string Description {
+	public override string Description {
 		get {
 			string translation = "";
 			switch (SessionName)
@@ -74,7 +74,7 @@ public class NetHighVoltageInit : NetworkBehaviour, SpellInit
 	}
 
 
-	public string[] Aliases {
+	public override string[] Aliases {
 		get {
 			return aliases;
 		}

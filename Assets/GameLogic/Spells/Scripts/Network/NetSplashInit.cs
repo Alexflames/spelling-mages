@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class NetSplashInit : NetworkBehaviour, SpellInit, SpellHintReaction
+public class NetSplashInit : NetAbstractSpellInit, SpellHintReaction
 {
 	// Variables for drawing circle
 	public GameObject circleDrawer;
@@ -49,7 +49,7 @@ public class NetSplashInit : NetworkBehaviour, SpellInit, SpellHintReaction
 		script.ApplyModificator(sm);
 	}
 
-	public void cast(string smName)
+	public override void cast(string smName)
 	{
 		splashCircleDrawer.CreatePoints(radius);
 
@@ -76,7 +76,7 @@ public class NetSplashInit : NetworkBehaviour, SpellInit, SpellHintReaction
 		}
 	}
 
-	public string Description {
+	public override string Description {
 		get {
 			string translation = "";
 			switch (SessionName)
@@ -104,7 +104,7 @@ public class NetSplashInit : NetworkBehaviour, SpellInit, SpellHintReaction
 	}
 
 
-	public string[] Aliases {
+	public override string[] Aliases {
 		get {
 			return aliases;
 		}

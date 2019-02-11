@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class NetDiamondInit : NetworkBehaviour, SpellInit
+public class NetDiamondInit : NetAbstractSpellInit
 {
 	public GameObject diamond;
 	private Transform ownerTransform;
@@ -53,7 +53,7 @@ public class NetDiamondInit : NetworkBehaviour, SpellInit
 		gameObject.GetComponent<NetSpellCreating>().getModIfExists(smName);
 	}
 
-	public void cast(string smName)
+	public override void cast(string smName)
 	{
 		if (isServer)
 		{
@@ -65,7 +65,7 @@ public class NetDiamondInit : NetworkBehaviour, SpellInit
 		}
 	}
 
-	public string Description {
+	public override string Description {
 		get {
 			string translation = "";
 			switch (SessionName)
@@ -83,7 +83,7 @@ public class NetDiamondInit : NetworkBehaviour, SpellInit
 		}
 	}
 
-	public string[] Aliases {
+	public override string[] Aliases {
 		get {
 			return aliases;
 		}

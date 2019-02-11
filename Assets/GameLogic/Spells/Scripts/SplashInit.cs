@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SplashInit : MonoBehaviour, SpellInit, SpellHintReaction {
+public class SplashInit : AbstractSpellInit, SpellHintReaction {
 	// Variables for drawing circle
 	public GameObject circleDrawer;
 	private SplashCircleDrawer splashCircleDrawer;
@@ -25,7 +25,7 @@ public class SplashInit : MonoBehaviour, SpellInit, SpellHintReaction {
 		splashCircleDrawer.CreatePoints(radius);
 	}
 
-	public void cast(string smName)
+	public override void cast(string smName)
 	{
 		SpellModificator sm = gameObject.GetComponent<SpellCreating> ().getModIfExists (smName);
 		splashCircleDrawer.CreatePoints(radius);
@@ -68,14 +68,14 @@ public class SplashInit : MonoBehaviour, SpellInit, SpellHintReaction {
 		Instantiate(waterSplash, spellSpawnPos, rotation);
 	}
 
-	public string Description {
+	public override string Description {
 		get {
 			return "splash";
 		}
 	}
 
 
-	public string[] Aliases {
+	public override string[] Aliases {
 		get {
 			return aliases;
 		}

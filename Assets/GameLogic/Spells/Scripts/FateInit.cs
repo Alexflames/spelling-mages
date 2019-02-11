@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class FateInit : MonoBehaviour, SpellInit {
+public class FateInit : AbstractSpellInit {
 	public PredictionInit predictionInit;
 	public Image fateTransition;
 	private string[] aliases = { "fate" };
@@ -13,7 +13,7 @@ public class FateInit : MonoBehaviour, SpellInit {
 		predictionInit = gameObject.GetComponent<PredictionInit>();
 	}
 
-	public void cast(string smName)
+	public override void cast(string smName)
 	{
 		if (predictionInit.spell)
 		{
@@ -24,13 +24,13 @@ public class FateInit : MonoBehaviour, SpellInit {
 		}
 	}
 
-	public string Description {
+	public override string Description {
 		get {
 			return "fate";
 		}
 	}
 
-	public string[] Aliases {
+	public override string[] Aliases {
 		get {
 			return aliases;
 		}

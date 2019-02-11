@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PredictionInit : MonoBehaviour, SpellInit {
+public class PredictionInit : AbstractSpellInit {
 	public GameObject prediction;
 	public GameObject spell;	   // Created prediction object
 	private AudioSource audioSource;
@@ -17,7 +17,7 @@ public class PredictionInit : MonoBehaviour, SpellInit {
 		audioSource = gameObject.GetComponent<AudioSource>();
 	}
 	
-	public void cast(string smName)
+	public override void cast(string smName)
 	{
 		print("noice!");
 		RaycastHit hit;
@@ -37,14 +37,14 @@ public class PredictionInit : MonoBehaviour, SpellInit {
 		}
 	}
 
-	public string Description {
+	public override string Description {
 		get {
 			return "prediction";
 		}
 	}
 
 
-	public string[] Aliases {
+	public override string[] Aliases {
 		get {
 			return aliases;
 		}

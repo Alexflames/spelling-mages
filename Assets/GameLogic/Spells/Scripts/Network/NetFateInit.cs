@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Networking;
 
-public class NetFateInit : NetworkBehaviour, SpellInit
+public class NetFateInit : NetAbstractSpellInit
 {
 	public NetPredictionInit predictionInit;
 	public Image fateTransition;
@@ -21,7 +21,7 @@ public class NetFateInit : NetworkBehaviour, SpellInit
 		predictionInit = gameObject.GetComponent<NetPredictionInit>();
 	}
 
-	public void cast(string smName)
+	public override void cast(string smName)
 	{
 		if (predictionInit.spell)
 		{
@@ -36,7 +36,7 @@ public class NetFateInit : NetworkBehaviour, SpellInit
 		}
 	}
 
-	public string Description
+	public override string Description
 	{
 		get
 		{
@@ -58,7 +58,7 @@ public class NetFateInit : NetworkBehaviour, SpellInit
 	}
 
 
-	public string[] Aliases {
+	public override string[] Aliases {
 		get {
 			return aliases;
 		}
