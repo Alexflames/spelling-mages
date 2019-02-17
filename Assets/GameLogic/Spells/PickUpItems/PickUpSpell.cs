@@ -12,7 +12,6 @@ public class PickUpSpell : MonoBehaviour {
 	}
 
 	void OnTriggerEnter (Collider collision) {
-		print("d");
 		SpellCreating sc = collision.gameObject.GetComponent<SpellCreating>();
 		if (sc == null) return;
 		collision.gameObject.AddComponent (spellType);

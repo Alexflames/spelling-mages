@@ -3,9 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class DiamondInit : AbstractSpellInit {
-	public GameObject diamond;
+	private GameObject diamond;
 	private Transform ownerTransform;
 	private string[] aliases = {"diamond", "bullet"};
+
+	void Start() {
+		base.Start();
+		diamond = Resources.Load ("Diamond", typeof (GameObject)) as GameObject;
+	}
 
 	Vector3 makeSpellSpawnPos (Vector3 adder, Transform owner)
 	{
