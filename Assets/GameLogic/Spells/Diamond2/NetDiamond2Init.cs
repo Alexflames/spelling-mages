@@ -11,18 +11,19 @@ public class NetDiamond2Init : NetAbstractSpellInit
 
     // Name in the current game session
     public string SessionName = "";
-
     private string currentModName;
 
     private float timeToCast = 0;
     public float startingTimeToCast = 10.0f;
-
     public int startingCharges = 6;
     private int charges = 0;
+
+    private UIElementsController UIctrl;
 
     // Use this for initialization
     protected override void Start()
     {
+        UIctrl = GameObject.Find("Canvas").GetComponent<UIElementsController>();
         SessionName = this.gameObject.GetComponent<NetSpellCreating>().addSpell(this);
     }
 
@@ -37,6 +38,11 @@ public class NetDiamond2Init : NetAbstractSpellInit
         {
             charges--;
             CmdCast(currentModName);
+        }
+        if (charges == 0)
+        {
+            UIctrl.ActivateRMBTimer(false);
+            timeToCast = 0;
         }
     }
 
@@ -70,6 +76,7 @@ public class NetDiamond2Init : NetAbstractSpellInit
         currentModName = smName;
         charges = startingCharges;
         timeToCast = startingTimeToCast;
+        UIctrl.ActivateRMBTimer(true);
     }
 
     void Update()
@@ -77,7 +84,10 @@ public class NetDiamond2Init : NetAbstractSpellInit
         if (timeToCast > 0)
         {
             timeToCast -= Time.deltaTime;
+            UIctrl.SetTimerSliderValue(timeToCast, startingTimeToCast);
+            if (timeToCast < 0) UIctrl.ActivateRMBTimer(false);
         }
+
     }
 
     public override string Description
