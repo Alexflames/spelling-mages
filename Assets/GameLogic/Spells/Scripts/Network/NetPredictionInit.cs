@@ -53,17 +53,26 @@ public class NetPredictionInit : NetAbstractSpellInit
 
 		NetworkServer.Spawn(spell);
 
-		RpcOtherStuff(spell, destination);
+        NetPrediction_FateLogic spellLogic = spell.GetComponent<NetPrediction_FateLogic>();
+        spellLogic.SetTimeLeft(lastingTime);
+        spellLogic.SetOwner(gameObject);
+        spellLogic.SetDestination(destination);
+
+        this.spell = spell;
+
+        RpcOtherStuff(spell, destination);
 	}
 
 	[ClientRpc]
 	private void RpcOtherStuff(GameObject spell, Vector3 destination)
 	{
-		NetPrediction_FateLogic spellLogic = spell.GetComponent<NetPrediction_FateLogic>();
-		spellLogic.SetTimeLeft(lastingTime);
-		spellLogic.SetOwner(gameObject);
-		spellLogic.SetDestination(destination);
-	}
+        NetPrediction_FateLogic spellLogic = spell.GetComponent<NetPrediction_FateLogic>();
+        spellLogic.SetTimeLeft(lastingTime);
+        spellLogic.SetOwner(gameObject);
+        spellLogic.SetDestination(destination);
+
+        this.spell = spell;
+    }
 	public override string Description {
 		get
 		{

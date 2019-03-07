@@ -27,12 +27,12 @@ public class NetPlayerMortal : NetMortal
         UIHealthScript.changeHP(value);
     }
 
-    [Command]
-    void CmdDealDamage(int value)
-    {
-        health -= value;
-        RpcDealDamage();
-    }
+    //[Command]
+    //void CmdDealDamage(int value)
+    //{
+    //    health -= value;
+    //    RpcDealDamage();
+    //}
 
     [ClientRpc]
     void RpcDealDamage()
