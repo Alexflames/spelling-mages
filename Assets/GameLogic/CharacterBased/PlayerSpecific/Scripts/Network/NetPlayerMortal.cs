@@ -27,15 +27,34 @@ public class NetPlayerMortal : NetMortal
         UIHealthScript.changeHP(value);
     }
 
-    public override void lowerHP(int value)
+    [Command]
+    void CmdDealDamage(int value)
     {
         health -= value;
-        if (health < 1)
+        RpcDealDamage();
+    }
+
+    [ClientRpc]
+    void RpcDealDamage()
+    {
+        if (isLocalPlayer)
         {
-            UIHealthScript.changeHP(0);
-            dies();
+            UIHealthScript.changeHP(health);
         }
-        UIHealthScript.changeHP(health);
+
+    }
+
+    public override void lowerHP(int value)
+    {
+        if (isServer)
+        {
+            health -= value;
+            RpcDealDamage();
+            if (health < 1)
+            {
+                dies();
+            }
+        }
     }
 
     [Command]
@@ -64,7 +83,7 @@ public class NetPlayerMortal : NetMortal
         }
         setStartingHealth(100);
     }
-
+    
     void dies()
     {
         if (isLocalPlayer)

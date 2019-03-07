@@ -24,6 +24,9 @@ public class NetMortal : NetworkBehaviour
     
     public virtual void lowerHP(int value)
     {
+        if (!isServer) {
+            return;
+        }
         health -= value;
         if (health < 1)
         {
@@ -34,7 +37,7 @@ public class NetMortal : NetworkBehaviour
     void dies()
     {
         print(gameObject.name + " is ded");
-        Destroy(gameObject);
+        NetworkServer.Destroy(gameObject);
     }
 
 }
