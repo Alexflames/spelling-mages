@@ -27,6 +27,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1431579486361618
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4714202414905194}
+  - component: {fileID: 108989828895149864}
+  m_Layer: 0
+  m_Name: LightHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1766749389546408
 GameObject:
   m_ObjectHideFlags: 0
@@ -39,7 +55,6 @@ GameObject:
   - component: {fileID: 33270003632276952}
   - component: {fileID: 114323948559179936}
   - component: {fileID: 64026585618621524}
-  - component: {fileID: 108594269192713094}
   m_Layer: 8
   m_Name: NetFieryAuraModel
   m_TagString: Spell
@@ -54,10 +69,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1097259198730952}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -86.97023, y: -0.000015258789, z: -4.088329}
+  m_LocalPosition: {x: -49.989517, y: -0.000015258789, z: 2.320112}
   m_LocalScale: {x: 0.51713645, y: 0.51713645, z: 0.51713645}
   m_Children:
   - {fileID: 4396428292447564}
+  - {fileID: 4714202414905194}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -74,6 +90,19 @@ Transform:
   m_Father: {fileID: 4369607844714390}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 180}
+--- !u!4 &4714202414905194
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1431579486361618}
+  m_LocalRotation: {x: 0.69295716, y: -0, z: -0, w: 0.72097886}
+  m_LocalPosition: {x: 0, y: 5.31, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4369607844714390}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 87.73, y: 0, z: 0}
 --- !u!23 &23441773181533610
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -130,19 +159,19 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 0}
---- !u!108 &108594269192713094
+--- !u!108 &108989828895149864
 Light:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1766749389546408}
+  m_GameObject: {fileID: 1431579486361618}
   m_Enabled: 1
   serializedVersion: 8
-  m_Type: 2
+  m_Type: 0
   m_Color: {r: 1, g: 0.38365358, b: 0, a: 1}
-  m_Intensity: 2
-  m_Range: 10
-  m_SpotAngle: 30
+  m_Intensity: 50
+  m_Range: 3
+  m_SpotAngle: 28.434687
   m_CookieSize: 10
   m_Shadows:
     m_Type: 0
@@ -159,7 +188,7 @@ Light:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 0

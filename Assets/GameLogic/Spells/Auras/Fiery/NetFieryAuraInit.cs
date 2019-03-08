@@ -22,9 +22,21 @@ public class NetFieryAuraInit : NetAbstractSpellInit, Aura
 	// Invoked on local client (in SpellCreating)
 	public override void cast(string smName)
 	{
-		var aura = GameObject.Instantiate(AuraModelPrefab);
-		gameObject.GetComponent<NetAuraController>().SetAura(this, aura);
+        CmdCreateAura();
 	}
+
+    [Command]
+    void CmdCreateAura()
+    {
+        RpcCreateAura();
+    }
+
+    [ClientRpc]
+    void RpcCreateAura()
+    {
+        var aura = GameObject.Instantiate(AuraModelPrefab);
+        gameObject.GetComponent<NetAuraController>().SetAura(this, aura);
+    }
 
 	[Command]
 	public void CmdSpawn(Vector3 pos, Quaternion rotata)
@@ -47,7 +59,10 @@ public class NetFieryAuraInit : NetAbstractSpellInit, Aura
 
 	public void CastReaction()
 	{
-		CmdSpawn(gameObject.transform.position, gameObject.transform.rotation);
+        if (isLocalPlayer)
+        {
+            CmdSpawn(gameObject.transform.position, gameObject.transform.rotation);
+        }
 	}
 
 	public override string Description
