@@ -58,8 +58,6 @@ public class NetPredictionInit : NetAbstractSpellInit
         spellLogic.SetOwner(gameObject);
         spellLogic.SetDestination(destination);
 
-        this.spell = spell;
-
         RpcOtherStuff(spell, destination);
 	}
 

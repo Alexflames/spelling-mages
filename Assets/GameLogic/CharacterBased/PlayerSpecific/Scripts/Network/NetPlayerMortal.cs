@@ -52,6 +52,7 @@ public class NetPlayerMortal : NetMortal
             RpcDealDamage();
             if (health < 1)
             {
+                RpcPlayerDeadInfo();
                 dies();
             }
         }
@@ -83,8 +84,9 @@ public class NetPlayerMortal : NetMortal
         }
         setStartingHealth(100);
     }
-    
-    void dies()
+
+    [ClientRpc]
+    void RpcPlayerDeadInfo()
     {
         if (isLocalPlayer)
         {
@@ -92,7 +94,10 @@ public class NetPlayerMortal : NetMortal
             modBook.GetComponent<ModBookLogic>().Reset();
         }
         print(gameObject.name + " is ded");
-
+    }
+    
+    void dies()
+    {
         NetworkServer.Destroy(gameObject);
     }
 
