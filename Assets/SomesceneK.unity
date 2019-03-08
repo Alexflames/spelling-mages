@@ -789,11 +789,10 @@ GameObject:
   - component: {fileID: 283253778}
   - component: {fileID: 283253777}
   - component: {fileID: 283253776}
-  - component: {fileID: 283253774}
   - component: {fileID: 283253773}
   - component: {fileID: 283253772}
-  - component: {fileID: 283253771}
   - component: {fileID: 283253770}
+  - component: {fileID: 283253771}
   - component: {fileID: 283253769}
   - component: {fileID: 283253768}
   - component: {fileID: 283253788}
@@ -935,27 +934,27 @@ MonoBehaviour:
 --- !u!114 &283253770
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 114234119177046436, guid: 54eb5844754051b40a918a84c33b7c1a,
-    type: 2}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 283253766}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b630054e5c442b041bbd1d899fc15b26, type: 3}
+  m_Script: {fileID: 11500000, guid: 71a514157cf7e4db3ad181b3ffdee7e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  predictionInit: {fileID: 0}
-  fateTransition: {fileID: 789082284}
+  prediction: {fileID: 1541789524961282, guid: 1d099ae618471014d809c324c328e858, type: 2}
+  spell: {fileID: 0}
+  clockSound: {fileID: 8300000, guid: 84b4c504a29dc7b42ad740e3c909c0a0, type: 3}
+  lastingTime: 8
 --- !u!114 &283253771
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 114507440140589352, guid: 54eb5844754051b40a918a84c33b7c1a,
-    type: 2}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 283253766}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cde03d632c68b6b4dabc4b1921bee9b8, type: 3}
+  m_Script: {fileID: 11500000, guid: 55eda925f71c046cfbd5fba36e2862a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   phantasm: {fileID: 1135766967251416, guid: 981a44044e14fb54fa4b10181af988fe, type: 2}
@@ -978,31 +977,17 @@ MonoBehaviour:
 --- !u!114 &283253773
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 114827718314013790, guid: 54eb5844754051b40a918a84c33b7c1a,
-    type: 2}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 283253766}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9a3b289beaab7e4c8b28456d5d1e450, type: 3}
+  m_Script: {fileID: 11500000, guid: 1c2cb3768690342ce9174e38445769a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prediction: {fileID: 1541789524961282, guid: 1d099ae618471014d809c324c328e858, type: 2}
-  spell: {fileID: 0}
-  clockSound: {fileID: 8300000, guid: 84b4c504a29dc7b42ad740e3c909c0a0, type: 3}
-  lastingTime: 8
---- !u!114 &283253774
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 114838203839945138, guid: 54eb5844754051b40a918a84c33b7c1a,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 283253766}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f2e2e99e680534479db0dd3ab4b0c83, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  predictionInit: {fileID: 0}
+  fateTransition: {fileID: 789082284}
+  UIAnimName: FateTransition
 --- !u!224 &283253775
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3866,7 +3851,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &789082283
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3897,7 +3882,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -4752,23 +4737,6 @@ Prefab:
     - target: {fileID: 4393971077305706, guid: 047ba66fa8447904393a86fc19248c3a, type: 2}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4393971077305706, guid: 047ba66fa8447904393a86fc19248c3a, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 0.7766929
-      objectReference: {fileID: 0}
-    - target: {fileID: 4393971077305706, guid: 047ba66fa8447904393a86fc19248c3a, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4393971077305706, guid: 047ba66fa8447904393a86fc19248c3a, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 1.3412209
-      objectReference: {fileID: 0}
-    - target: {fileID: 114683721491206896, guid: 047ba66fa8447904393a86fc19248c3a,
-        type: 2}
-      propertyPath: startingHealth
-      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 047ba66fa8447904393a86fc19248c3a, type: 2}
@@ -5925,22 +5893,6 @@ Transform:
   m_Father: {fileID: 2052179829}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1571032279 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1096252267336682, guid: 047ba66fa8447904393a86fc19248c3a,
-    type: 2}
-  m_PrefabInternal: {fileID: 1214534794}
---- !u!114 &1571032286
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1571032279}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f2e2e99e680534479db0dd3ab4b0c83, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1598009457
 GameObject:
   m_ObjectHideFlags: 0

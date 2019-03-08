@@ -8,15 +8,15 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications: []
     m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 0}
+  m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1096252267336682}
-  m_IsPrefabParent: 1
+  m_IsPrefabAsset: 1
 --- !u!1 &1096252267336682
 GameObject:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 6
   m_Component:
   - component: {fileID: 4393971077305706}
   - component: {fileID: 33417771477363864}
@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 114683721491206896}
   - component: {fileID: 114068012018633694}
   - component: {fileID: 114519291623816994}
+  - component: {fileID: 114928736745638210}
   m_Layer: 8
   m_Name: ShootingDummy
   m_TagString: Destroyable
@@ -35,7 +36,7 @@ GameObject:
 --- !u!4 &4393971077305706
 Transform:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1096252267336682}
   m_LocalRotation: {x: -0, y: 0.7040906, z: -0, w: 0.7101102}
@@ -48,7 +49,7 @@ Transform:
 --- !u!23 &23079793087328184
 MeshRenderer:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1096252267336682}
   m_Enabled: 1
@@ -83,14 +84,14 @@ MeshRenderer:
 --- !u!33 &33417771477363864
 MeshFilter:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1096252267336682}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!114 &114068012018633694
 MonoBehaviour:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1096252267336682}
   m_Enabled: 1
@@ -103,7 +104,7 @@ MonoBehaviour:
 --- !u!114 &114519291623816994
 MonoBehaviour:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1096252267336682}
   m_Enabled: 1
@@ -111,14 +112,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 911457667b81be74e972092f2bd4bcc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  diamond: {fileID: 1628378731126820, guid: a13613f34b860bd41a77d54e09dcb3e6, type: 2}
-  waterSplash: {fileID: 0}
-  highVoltage: {fileID: 0}
-  phantasm: {fileID: 0}
+  spellBookText: {fileID: 0}
+  newSpellBookPanel: {fileID: 0}
+  modBookPanel: {fileID: 0}
+  randomise: 0
 --- !u!114 &114683721491206896
 MonoBehaviour:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1096252267336682}
   m_Enabled: 1
@@ -128,10 +129,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHealth: 150
   health: 0
+--- !u!114 &114928736745638210
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1096252267336682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9ab67672a23044e0a7b70a1d6061288, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!136 &136392773049456294
 CapsuleCollider:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1096252267336682}
   m_Material: {fileID: 0}

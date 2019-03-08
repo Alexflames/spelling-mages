@@ -718,7 +718,7 @@ GameObject:
   - component: {fileID: 114533791037451018}
   - component: {fileID: 114761914796597830}
   - component: {fileID: 114570391544908892}
-  - component: {fileID: 114854014447572542}
+  - component: {fileID: 114465161158377956}
   m_Layer: 8
   m_Name: Prediction_Fate
   m_TagString: Destroyable
@@ -2473,6 +2473,23 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114465161158377956
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1541789524961282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9586d6c1187494f0eaaa406d5e6d4a14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thirdPersonController: {fileID: 0}
+  target: {fileID: 0}
+  AICharControl: {fileID: 0}
+  owner: {fileID: 0}
+  m_activated: 0
+  m_activated_delay: 0.2
 --- !u!114 &114533791037451018
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2514,21 +2531,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19be21941507a9741b06b4cf8f68dc37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114854014447572542
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1541789524961282}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e5e494678b32ad499afc07251a24e7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  thirdPersonController: {fileID: 0}
-  target: {fileID: 0}
-  AICharControl: {fileID: 0}
-  owner: {fileID: 0}
 --- !u!136 &136607018652544598
 CapsuleCollider:
   m_ObjectHideFlags: 1

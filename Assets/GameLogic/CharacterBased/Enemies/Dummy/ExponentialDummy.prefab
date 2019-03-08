@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 114463495439922478}
   - component: {fileID: 114005499433795318}
   - component: {fileID: 114926194190830550}
-  - component: {fileID: 114698190618898834}
+  - component: {fileID: 114226811461679050}
   m_Layer: 8
   m_Name: ExponentialDummy
   m_TagString: Destroyable
@@ -99,6 +99,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 911457667b81be74e972092f2bd4bcc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spellBookText: {fileID: 0}
+  newSpellBookPanel: {fileID: 0}
+  modBookPanel: {fileID: 0}
+  randomise: 0
+--- !u!114 &114226811461679050
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1732868680935710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9ab67672a23044e0a7b70a1d6061288, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114463495439922478
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -112,18 +127,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHealth: 50
   health: 0
---- !u!114 &114698190618898834
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1732868680935710}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f2e2e99e680534479db0dd3ab4b0c83, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  diamond: {fileID: 1628378731126820, guid: a13613f34b860bd41a77d54e09dcb3e6, type: 2}
 --- !u!114 &114926194190830550
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33292331515987376}
   - component: {fileID: 136763257665248084}
   - component: {fileID: 23186204670936478}
-  - component: {fileID: 114083395193956668}
+  - component: {fileID: 114758370062843130}
   - component: {fileID: 54431723644345700}
   m_Layer: 8
   m_Name: Diamond
@@ -101,7 +101,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
---- !u!114 &114083395193956668
+--- !u!114 &114758370062843130
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -109,12 +109,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1628378731126820}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7c1492dd7db6e64d9bfa06554648445, type: 3}
+  m_Script: {fileID: 11500000, guid: 69a55a2df83d64a0f8e836ebafb1f1e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
   colli: {fileID: 0}
-  attackPower: 99
+  attackPower: 150
 --- !u!136 &136763257665248084
 CapsuleCollider:
   m_ObjectHideFlags: 1

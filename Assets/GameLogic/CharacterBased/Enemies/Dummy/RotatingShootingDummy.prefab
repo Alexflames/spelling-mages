@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 114397276032280624}
   - component: {fileID: 114929257528691290}
   - component: {fileID: 114791000010097652}
-  - component: {fileID: 114385795534027050}
+  - component: {fileID: 114516349433995530}
   m_Layer: 8
   m_Name: RotatingShootingDummy
   m_TagString: Destroyable
@@ -88,18 +88,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1596915969952288}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &114385795534027050
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1596915969952288}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f2e2e99e680534479db0dd3ab4b0c83, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  diamond: {fileID: 1628378731126820, guid: a13613f34b860bd41a77d54e09dcb3e6, type: 2}
 --- !u!114 &114397276032280624
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -113,6 +101,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHealth: 50
   health: 0
+--- !u!114 &114516349433995530
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1596915969952288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9ab67672a23044e0a7b70a1d6061288, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114791000010097652
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -124,6 +123,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 911457667b81be74e972092f2bd4bcc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spellBookText: {fileID: 0}
+  newSpellBookPanel: {fileID: 0}
+  modBookPanel: {fileID: 0}
+  randomise: 0
 --- !u!114 &114929257528691290
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -135,8 +138,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 453ce148cce73d442a8813de6ffa8320, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  diamondPeriodicTime: 0
   timeToCastDiamond: 2
+  rotatePeriod: 1.5
 --- !u!136 &136261192710862206
 CapsuleCollider:
   m_ObjectHideFlags: 1
