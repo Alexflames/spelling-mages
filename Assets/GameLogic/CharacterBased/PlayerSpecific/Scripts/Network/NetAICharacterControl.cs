@@ -13,6 +13,7 @@ public class NetAICharacterControl : NetworkBehaviour
 	public Transform target;// target to aim for
 	public GameObject destinationMark;
 	public RaycastHit hit;
+    private GameObject m_destMark;
 
 	private void Start()
 	{
@@ -37,13 +38,16 @@ public class NetAICharacterControl : NetworkBehaviour
 			return;
 		}
 
-		if (Input.GetMouseButtonDown(0))
+		if (Input.GetButton("Walk"))
 		{
 
 			if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
 			{
 				agent.destination = hit.point;
-				GameObject.Instantiate(destinationMark, hit.point, new Quaternion());
+                if (!m_destMark)
+                {
+                    m_destMark = GameObject.Instantiate(destinationMark, hit.point, new Quaternion());
+                }
 			}
 		}
 
