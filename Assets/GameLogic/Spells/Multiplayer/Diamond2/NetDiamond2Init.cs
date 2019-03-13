@@ -5,7 +5,7 @@ using UnityEngine.Networking;
 
 public class NetDiamond2Init : NetAbstractSpellInit
 {
-    public GameObject diamond;
+    private GameObject diamond;
     private Transform ownerTransform;
     private string[] aliases = { "diamond", "bullet" };
 
@@ -25,6 +25,7 @@ public class NetDiamond2Init : NetAbstractSpellInit
     {
         UIctrl = GameObject.Find("Canvas").GetComponent<UIElementsController>();
         SessionName = this.gameObject.GetComponent<NetSpellCreating>().addSpell(this);
+        diamond = Resources.Load("NetDiamond2", typeof(GameObject)) as GameObject;
     }
 
     Vector3 makeSpellSpawnPos(Vector3 adder, Transform owner)

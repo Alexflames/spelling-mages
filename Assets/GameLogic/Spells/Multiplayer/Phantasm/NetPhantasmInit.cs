@@ -5,7 +5,7 @@ using UnityEngine.Networking;
 
 public class NetPhantasmInit : NetAbstractSpellInit
 {
-	public GameObject phantasm;
+	private GameObject phantasm;
 	private string[] aliases = { "phantasm", "phantom", "ghost", "spectre", "apparition" };
 
 	// Name in the current game session
@@ -15,7 +15,8 @@ public class NetPhantasmInit : NetAbstractSpellInit
     protected override void Start()
 	{
 		SessionName = this.gameObject.GetComponent<NetSpellCreating>().addSpell(this);
-	}
+        phantasm = Resources.Load("NetPhantasm", typeof(GameObject)) as GameObject;
+    }
 
 	[Command]
 	private void CmdCast(Vector3 phantasmDestination, Quaternion playerRotation, string smName)

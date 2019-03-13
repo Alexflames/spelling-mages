@@ -5,7 +5,7 @@ using UnityEngine.Networking;
 
 public class NetHighVoltageInit : NetAbstractSpellInit
 {
-	public GameObject highVoltage;
+	private GameObject highVoltage;
 	private string[] aliases = { "high voltage", "electricity", "lightning", "thunderstruck", "supercharge", "coil overload" };
 
 	// Name in the current game session
@@ -15,7 +15,8 @@ public class NetHighVoltageInit : NetAbstractSpellInit
     protected override void Start()
 	{
 		SessionName = this.gameObject.GetComponent<NetSpellCreating>().addSpell(this);
-	}
+        highVoltage = Resources.Load("NetHighVoltageMain", typeof(GameObject)) as GameObject;
+    }
 
 	public override void cast(string smName)
 	{

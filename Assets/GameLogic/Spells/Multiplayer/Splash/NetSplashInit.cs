@@ -16,14 +16,16 @@ public class NetSplashInit : NetAbstractSpellInit, SpellHintReaction
 	public string SessionName = "";
 
 	// Other variables
-	public GameObject waterSplash;
+	private GameObject waterSplash;
 
     // Use this for initialization
     protected override void Start()
 	{
 		SessionName = gameObject.GetComponent<NetSpellCreating>().addSpell(this);
 		splashCircleDrawer = circleDrawer.GetComponent<SplashCircleDrawer>();
-	}
+        circleDrawer = Resources.Load("WaterSplashCircleDrawer", typeof(GameObject)) as GameObject;
+        waterSplash = Resources.Load("NetWaterSplash", typeof(GameObject)) as GameObject;
+    }
 
 	public void onHintRequest () 
 	{

@@ -5,7 +5,7 @@ using UnityEngine.Networking;
 
 public class NetPredictionInit : NetAbstractSpellInit
 {
-	public GameObject prediction;
+	private GameObject prediction;
 	public GameObject spell;	   // Created prediction object
 	private AudioSource audioSource;
 	public AudioClip clockSound;
@@ -21,7 +21,8 @@ public class NetPredictionInit : NetAbstractSpellInit
 	{
 		SessionName = this.gameObject.GetComponent<NetSpellCreating>().addSpell(this);
 		audioSource = gameObject.GetComponent<AudioSource>();
-	}
+        prediction = Resources.Load("NetPrediction_Fate", typeof(GameObject)) as GameObject;
+    }
 
 	public override void cast(string smName)
 	{

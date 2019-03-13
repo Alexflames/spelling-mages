@@ -6,10 +6,19 @@ using UnityEngine.Networking;
 public class NetFieryAuraInit : NetAbstractSpellInit, Aura
 {
 	private string[] aliases = { "fiery", "igneous" };
-	public GameObject AuraModelPrefab;
-	public GameObject FieryBurst;
+	private GameObject AuraModelPrefab;
+	private GameObject FieryBurst;
+
+    public string SessionName = "";
 
 	public GameObject AuraModel { get; set; }
+
+    protected override void Start()
+    {
+        SessionName = this.gameObject.GetComponent<NetSpellCreating>().addSpell(this);
+        AuraModelPrefab = Resources.Load("NetFieryAuraContainer", typeof(GameObject)) as GameObject;
+        FieryBurst = Resources.Load("NetFieryBurst", typeof(GameObject)) as GameObject;
+    }
 
 	public string Name
 	{
