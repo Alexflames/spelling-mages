@@ -15,10 +15,11 @@ public class SplashInit : AbstractSpellInit, SpellHintReaction {
 
     // Use this for initialization
     protected override void Start () {
-		this.gameObject.GetComponent<SpellCreating>().addSpell(this);
-
-		splashCircleDrawer = circleDrawer.GetComponent<SplashCircleDrawer>();
-	}
+        circleDrawer = Resources.Load("WaterSplashCircleDrawer", typeof(GameObject)) as GameObject;
+        splashCircleDrawer = circleDrawer.GetComponent<SplashCircleDrawer>();
+        waterSplash = Resources.Load("WaterSplash", typeof(GameObject)) as GameObject;
+        this.gameObject.GetComponent<SpellCreating>().addSpell(this);
+    }
 
 	public void onHintRequest () 
 	{

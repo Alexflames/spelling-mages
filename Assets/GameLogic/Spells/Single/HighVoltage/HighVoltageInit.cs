@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class HighVoltageInit : AbstractSpellInit {
-	public GameObject highVoltage;
+	private GameObject highVoltage;
 	private string[] aliases = { "high voltage", "electricity", "lightning", "thunderstruck" };
 	
 	private IEnumerator repeatCast (float wait, Vector3 spellSpawnPos, Quaternion rotation) {
 		yield return new WaitForSeconds (wait);
 		GameObject voltage2 = Instantiate (highVoltage, spellSpawnPos, rotation);
 		voltage2.GetComponent<HighVoltageLogic>().SetOwner (gameObject);
-	}
+        highVoltage = Resources.Load("HighVoltageWide", typeof(GameObject)) as GameObject;
+    }
 
 	public override void cast (string smName)
 	{

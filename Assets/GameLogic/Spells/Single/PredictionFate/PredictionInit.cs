@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PredictionInit : AbstractSpellInit {
-	public GameObject prediction;
+	private GameObject prediction;
 	public GameObject spell;	   // Created prediction object
 	private AudioSource audioSource;
 	public AudioClip clockSound;
@@ -15,7 +15,8 @@ public class PredictionInit : AbstractSpellInit {
     protected override void Start () {
 		this.gameObject.GetComponent<SpellCreating>().addSpell(this);
 		audioSource = gameObject.GetComponent<AudioSource>();
-	}
+        prediction = Resources.Load("Prediction_Fate", typeof(GameObject)) as GameObject;
+    }
 	
 	public override void cast(string smName)
 	{

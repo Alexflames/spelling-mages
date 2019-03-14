@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PhantasmInit : AbstractSpellInit {
 
-	public GameObject phantasm;
+	private GameObject phantasm;
 	private string[] aliases = {"phantasm", "phantom" , "ghost"};
 
 	private IEnumerator repeatCast (float wait, Vector3 spellSpawnPos, Quaternion rotation) {
@@ -12,7 +12,8 @@ public class PhantasmInit : AbstractSpellInit {
 		GameObject spell = Instantiate(phantasm, spellSpawnPos, rotation);
 		PhantasmLogic spellComp = spell.GetComponent<PhantasmLogic>();
 		spellComp.SetOwner(gameObject);
-	}
+        phantasm = Resources.Load("Phantasm", typeof(GameObject)) as GameObject;
+    }
 
 	public override void cast (string smName)
 	{

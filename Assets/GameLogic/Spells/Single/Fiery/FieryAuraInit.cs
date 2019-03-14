@@ -22,7 +22,9 @@ public class FieryAuraInit : AbstractSpellInit, Aura {
 	{
 		var aura = GameObject.Instantiate(AuraModelPrefab);
 		gameObject.GetComponent<AuraController>().SetAura(this, aura);
-	}
+        AuraModelPrefab = Resources.Load("FieryAuraModel", typeof(GameObject)) as GameObject; // ЗАМЕНИТЬ НА КОНТЕЙНЕР!!
+        FieryBurst = Resources.Load("FieryBurst", typeof(GameObject)) as GameObject;
+    }
 
 	
 	public void CmdSpawn(Vector3 pos, Quaternion rotata)
